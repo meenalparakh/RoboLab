@@ -1970,6 +1970,12 @@ async function renderEpisode(runId, task, envId, runIndex) {
     badge(ep.success),
     chip(`${ep.episode_step} steps`),
     chip(fmtSec(ep.duration)),
+    ep.score != null
+      ? el('span', { class: 'chip', title: ep.score_peak != null && ep.score_peak !== ep.score
+            ? `Final-frame score ${fmtScore(ep.score)} · peak ${fmtScore(ep.score_peak)} — a credited subgoal was undone later`
+            : 'Subtask score judged on the final frame' },
+          `score ${fmtScore(ep.score)}${ep.score_peak != null && ep.score_peak !== ep.score ? ` (peak ${fmtScore(ep.score_peak)})` : ''}`)
+      : null,
     ep.instruction_type ? chip(`instr: ${ep.instruction_type}`) : null,
     ep.instruction_fields?.length ? chip(`fields: ${ep.instruction_fields.join(', ')}`) : null,
     ep.instruction_fields_used?.length ? chip(`used: ${ep.instruction_fields_used.join(', ')}`) : null,
