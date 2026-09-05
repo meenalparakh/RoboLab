@@ -84,7 +84,10 @@ class DroidCfg:
             # internal prototype roots remain instanceable.  This derivative keeps
             # the articulation/collision structure intact and de-instances only the
             # eight Robotiq visual prototype roots.
-            usd_path=DROID_USD_PATH,
+            # ROBOLAB_ROBOT_USD swaps the rig asset (docs/verified/towing.md: the solid-pad variant
+            # franka_robotiq_2f_85_solidpad.usd is the tested fix for the towing artifact; it was
+            # built from the 5.x flattened asset and has no Isaac 6 counterpart yet).
+            usd_path=os.environ.get("ROBOLAB_ROBOT_USD") or DROID_USD_PATH,
             activate_contact_sensors=True,
             rigid_props=sim_utils.RigidBodyPropertiesCfg(
                 disable_gravity=True,
