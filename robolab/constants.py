@@ -76,6 +76,12 @@ DEBUG = False
 VERBOSE = False
 VISUALIZE = False
 ENABLE_SUBTASK_PROGRESS_CHECKING = True
+
+# Do not terminate a successful episode while a target is still moving. A
+# zero duration restores first-frame success termination.
+SUCCESS_REST_S = 0.2
+SUCCESS_MAX_SPEED = 0.02
+
 RECORD_IMAGE_DATA = False
 DEVICE = "cuda:0"
 

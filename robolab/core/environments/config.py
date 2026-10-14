@@ -20,6 +20,7 @@ from isaaclab.scene import InteractiveSceneCfg
 from isaaclab.utils import configclass
 from isaaclab_tasks.utils import load_cfg_from_registry
 
+import robolab.constants
 from robolab.core.environments.base import RobolabDefaultEnvCfg
 from robolab.core.environments.scene_fixture import (
     FRANKA_TABLE_FIXTURE,
@@ -213,6 +214,14 @@ def generate_task_env_cfg(task_class: Task,
             self.gripper_closure_cfg = gripper_closure_cfg
             self.instruction = task_class.instruction
             self.terminations = task_class.terminations()
+            if self.terminations.success is not None and robolab.constants.SUCCESS_REST_S > 0:
+                from robolab.core.task.confirm import confirmed_success_term
+
+                self.terminations.success = confirmed_success_term(
+                    self.terminations.success,
+                    rest_s=robolab.constants.SUCCESS_REST_S,
+                    max_speed=robolab.constants.SUCCESS_MAX_SPEED,
+                )
             self.contact_object_list = task_class.contact_object_list
 
             # Set optional rewards if provided by the task

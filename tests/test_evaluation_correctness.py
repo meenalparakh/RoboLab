@@ -3,10 +3,68 @@
 
 """Regression tests for evaluation correctness fixes."""
 
+import types
+
+import torch
+
 from robolab.core.environments.env import MAX_EARLY_RESETS, should_retry_early_termination
+from robolab.core.task.confirm import SuccessConfirmer, _target_names
 
 
 def test_early_termination_retries_are_bounded():
     assert should_retry_early_termination(2, MAX_EARLY_RESETS - 1)
     assert not should_retry_early_termination(2, MAX_EARLY_RESETS)
     assert not should_retry_early_termination(3, 0)
+
+
+class _World:
+    def __init__(self, speeds: dict[str, torch.Tensor]) -> None:
+        self.speeds = speeds
+
+    def get_velocity(self, name: str, env_id=None) -> torch.Tensor:
+        velocity = torch.zeros(self.speeds[name].shape[0], 6)
+        velocity[:, 0] = self.speeds[name]
+        return velocity
+
+
+class _Env:
+    def __init__(self, num_envs: int, step_dt: float = 0.1) -> None:
+        self.num_envs = num_envs
+        self.device = "cpu"
+        self.step_dt = step_dt
+        self.episode_length_buf = torch.zeros(num_envs, dtype=torch.long)
+
+
+def test_success_waits_for_moving_targets(monkeypatch):
+    env = _Env(2)
+    speeds = {"banana": torch.tensor([0.0, 0.5])}
+    world_state = types.SimpleNamespace(get_world=lambda _env: _World(speeds))
+    monkeypatch.setitem(__import__("sys").modules, "robolab.core.world.world_state", world_state)
+
+    raw_success = torch.tensor([False, False])
+    confirmer = SuccessConfirmer(
+        lambda _env, **_params: raw_success,
+        rest_s=0.2,
+        max_speed=0.02,
+        targets=["banana"],
+    )
+
+    for step in range(1, 4):
+        env.episode_length_buf[:] = step
+        assert confirmer(env).tolist() == [False, False]
+
+    raw_success[:] = True
+    env.episode_length_buf[:] = 4
+    assert confirmer(env).tolist() == [True, False]
+
+    speeds["banana"][1] = 0.0
+    env.episode_length_buf[:] = 5
+    assert confirmer(env).tolist() == [True, False]
+    env.episode_length_buf[:] = 6
+    assert confirmer(env).tolist() == [True, True]
+
+
+def test_success_target_names_support_grouped_predicates():
+    assert _target_names(
+        {"groups": [{"object": ["apple", "banana"]}, {"objects": "orange"}]}
+    ) == ["apple", "banana", "orange"]

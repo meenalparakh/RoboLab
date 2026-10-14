@@ -161,8 +161,24 @@ class RobolabEnv(ManagerBasedRLEnv):
                 'step': termination_step,
                 'early_resets': self._early_resets.get(eid, 0),
                 'pre_satisfied': bool(termination_step is not None and termination_step <= 2),
+                'success_first_hold_step': self._success_confirmation_step(eid, 'first_hold_step'),
+                'success_confirmed_step': self._success_confirmation_step(eid, 'confirmed_step'),
             })
         return results
+
+    def _success_confirmation_step(self, env_id: int, field_name: str) -> int | None:
+        """Read timing from the configured success confirmer when enabled."""
+        success_term = getattr(self.cfg.terminations, "success", None)
+        if success_term is None:
+            return None
+
+        confirmer = getattr(success_term.func, "confirmer", None)
+        if confirmer is None:
+            return None
+
+        steps = getattr(confirmer, field_name)
+        step = int(steps[env_id].item())
+        return step if step >= 0 else None
 
     def reset_eval_state(self):
         """Reset frozen state for next episode batch."""
