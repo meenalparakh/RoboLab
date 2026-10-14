@@ -82,6 +82,10 @@ ENABLE_SUBTASK_PROGRESS_CHECKING = True
 SUCCESS_REST_S = 0.2
 SUCCESS_MAX_SPEED = 0.02
 
+# Treat a required target or destination this far below its reset height as
+# irrecoverably off the table. A zero distance disables this termination.
+OFF_TABLE_DROP_M = 0.15
+
 RECORD_IMAGE_DATA = False
 DEVICE = "cuda:0"
 

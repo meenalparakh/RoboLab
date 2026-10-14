@@ -29,6 +29,18 @@ def should_retry_early_termination(termination_step: int, reset_count: int) -> b
     return termination_step <= 2 and reset_count < MAX_EARLY_RESETS
 
 
+def success_from_termination_manager(termination_manager, env_id: int) -> bool:
+    """Read success from the named success term, excluding failure terms."""
+    success = termination_manager.get_term("success")
+    expected_shape = termination_manager.terminated.shape
+    if success.shape != expected_shape:
+        raise ValueError(
+            f"Expected success term shape {tuple(expected_shape)}, "
+            f"received {tuple(success.shape)}."
+        )
+    return bool(success[env_id])
+
+
 class RobolabEnv(ManagerBasedRLEnv):
     """Environment for RoboLab evaluation.
 
@@ -121,7 +133,7 @@ class RobolabEnv(ManagerBasedRLEnv):
                     get_world(self).reset_predicate_state(artifact_ids)
                     continue
                 self._frozen_envs[eid] = True
-                self._env_results[eid] = bool(self.termination_manager.terminated[eid])
+                self._env_results[eid] = success_from_termination_manager(self.termination_manager, eid)
                 self._env_term_step[eid] = ep_len
                 # Auto-export recording for this env
                 if self.recorder_manager is not None:

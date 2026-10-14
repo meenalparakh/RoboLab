@@ -214,6 +214,17 @@ def generate_task_env_cfg(task_class: Task,
             self.gripper_closure_cfg = gripper_closure_cfg
             self.instruction = task_class.instruction
             self.terminations = task_class.terminations()
+            if self.terminations.success is not None and robolab.constants.OFF_TABLE_DROP_M > 0:
+                from isaaclab.managers import TerminationTermCfg
+
+                from robolab.core.task.off_table import required_groups, targets_lost
+
+                required_assets = required_groups(dict(self.terminations.success.params or {}))
+                if required_assets:
+                    self.terminations.target_lost = TerminationTermCfg(
+                        func=targets_lost,
+                        params={"groups": required_assets},
+                    )
             if self.terminations.success is not None and robolab.constants.SUCCESS_REST_S > 0:
                 from robolab.core.task.confirm import confirmed_success_term
 

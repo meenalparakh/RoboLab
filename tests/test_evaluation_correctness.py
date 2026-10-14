@@ -7,8 +7,13 @@ import types
 
 import torch
 
-from robolab.core.environments.env import MAX_EARLY_RESETS, should_retry_early_termination
+from robolab.core.environments.env import (
+    MAX_EARLY_RESETS,
+    should_retry_early_termination,
+    success_from_termination_manager,
+)
 from robolab.core.task.confirm import SuccessConfirmer, _target_names
+from robolab.core.task.off_table import group_lost, required_groups, task_lost
 
 
 def test_early_termination_retries_are_bounded():
@@ -68,3 +73,48 @@ def test_success_target_names_support_grouped_predicates():
     assert _target_names(
         {"groups": [{"object": ["apple", "banana"]}, {"objects": "orange"}]}
     ) == ["apple", "banana", "orange"]
+
+
+def test_success_comes_only_from_the_named_success_term():
+    class _TerminationManager:
+        terminated = torch.tensor([True, True])
+
+        @staticmethod
+        def get_term(name: str) -> torch.Tensor:
+            assert name == "success"
+            return torch.tensor([False, True])
+
+    manager = _TerminationManager()
+    assert not success_from_termination_manager(manager, 0)
+    assert success_from_termination_manager(manager, 1)
+
+
+def test_required_groups_include_single_group_destinations():
+    assert required_groups({"object": "banana", "container": "bowl"}) == [
+        (["banana"], "all", 1),
+        (["bowl"], "all", 1),
+    ]
+    assert required_groups(
+        {"object": ["a", "b", "c"], "logical": "choose", "K": 2}
+    ) == [(["a", "b", "c"], "choose", 2)]
+
+
+def test_off_table_loss_respects_all_any_and_choose_semantics():
+    fallen = {
+        "a": torch.tensor([True, False, True]),
+        "b": torch.tensor([False, False, True]),
+        "c": torch.tensor([False, False, False]),
+    }
+    assert group_lost(fallen, ["a", "b", "c"], "all", 1, 3, "cpu").tolist() == [True, False, True]
+    assert group_lost(fallen, ["a", "b", "c"], "any", 1, 3, "cpu").tolist() == [False, False, False]
+    assert group_lost(fallen, ["a", "b", "c"], "choose", 2, 3, "cpu").tolist() == [False, False, True]
+
+
+def test_lost_destination_ends_single_group_task():
+    groups = required_groups({"object": ["mug", "ceramic_mug"], "container": "rack"})
+    fallen = {
+        "mug": torch.tensor([False, False]),
+        "ceramic_mug": torch.tensor([False, False]),
+        "rack": torch.tensor([True, False]),
+    }
+    assert task_lost(fallen, groups, 2, "cpu").tolist() == [True, False]
