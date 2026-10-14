@@ -20,6 +20,7 @@ Metrics computed:
 
 import json
 import os
+from collections.abc import Mapping
 from typing import Any
 
 import h5py
@@ -42,6 +43,39 @@ DEFAULT_DT = 1.0 / 15.0
 NUM_ARM_JOINTS = 7
 
 
+def read_ee_channels(demo: Mapping[str, Any], demo_key: str = "demo") -> dict[str, Any]:
+    """Read single- or multi-arm end-effector pose channels from a demo."""
+    channel_names = sorted(name for name in demo if name == "ee_pose" or name.endswith("_ee_pose"))
+    if not channel_names:
+        raise KeyError(
+            f"No end-effector pose channel in {demo_key}; expected 'ee_pose' or '*_ee_pose', "
+            f"received groups {sorted(demo)}."
+        )
+
+    channels: dict[str, dict[str, Any]] = {}
+    for channel_name in channel_names:
+        group = demo[channel_name]
+        channel = {
+            "position": group["position"][:],
+            "orientation": group["orientation"][:],
+        }
+        if "linear_velocity" in group:
+            channel["linear_velocity"] = group["linear_velocity"][:]
+        channels[channel_name] = channel
+
+    # Preserve the existing flat keys for single-arm consumers. For multi-arm
+    # recordings these point to the first named arm deterministically.
+    primary_channel = channels[channel_names[0]]
+    result: dict[str, Any] = {
+        "ee_channels": channels,
+        "ee_position": primary_channel["position"],
+        "ee_orientation": primary_channel["orientation"],
+    }
+    if "linear_velocity" in primary_channel:
+        result["ee_linear_velocity"] = primary_channel["linear_velocity"]
+    return result
+
+
 def load_demo_data(hdf5_path: str, demo_key: str = "demo_0") -> dict | None:
     """
     Load trajectory data from an HDF5 file.
@@ -54,37 +88,22 @@ def load_demo_data(hdf5_path: str, demo_key: str = "demo_0") -> dict | None:
         Dictionary containing trajectory data, or None if demo doesn't exist.
         Includes 'ee_linear_velocity' if available in the HDF5 file.
     """
-    data = {}
+    data: dict[str, Any] = {}
 
-    try:
-        with h5py.File(hdf5_path, "r") as f:
-            if "data" not in f or demo_key not in f["data"]:
-                return None
+    with h5py.File(hdf5_path, "r") as hdf5_file:
+        if "data" not in hdf5_file or demo_key not in hdf5_file["data"]:
+            return None
 
-            demo = f["data"][demo_key]
+        demo = hdf5_file["data"][demo_key]
+        data["actions"] = demo["actions"][:]
 
-            # Load actions
-            data["actions"] = demo["actions"][:]
+        robot_state = demo["states"]["articulation"]["robot"]
+        data["joint_position"] = robot_state["joint_position"][:]
+        data["joint_velocity"] = robot_state["joint_velocity"][:]
 
-            # Load robot state
-            robot_state = demo["states"]["articulation"]["robot"]
-            data["joint_position"] = robot_state["joint_position"][:]
-            data["joint_velocity"] = robot_state["joint_velocity"][:]
-
-            # Load end-effector pose (robot-root frame, docs/frames.md). Every metric
-            # computed from these is difference-based (smoothness, path length,
-            # velocity), so the constant root offset cancels and no frame conversion
-            # is needed here.
-            data["ee_position"] = demo["ee_pose"]["position"][:]
-            data["ee_orientation"] = demo["ee_pose"]["orientation"][:]
-
-            # Load end-effector linear velocity if available
-            if "linear_velocity" in demo["ee_pose"]:
-                data["ee_linear_velocity"] = demo["ee_pose"]["linear_velocity"][:]
-
-    except Exception as e:
-        print(f"Error loading {hdf5_path}/{demo_key}: {e}")
-        return None
+        # EE channels use the names declared by the robot's
+        # ``ee_recorder_bodies`` label.
+        data.update(read_ee_channels(demo, demo_key))
 
     return data
 

@@ -5,6 +5,7 @@
 
 import types
 
+import pytest
 import torch
 
 from robolab.core.environments.env import (
@@ -12,6 +13,7 @@ from robolab.core.environments.env import (
     should_retry_early_termination,
     success_from_termination_manager,
 )
+from robolab.core.metrics.compute_metrics import read_ee_channels
 from robolab.core.task.confirm import SuccessConfirmer, _target_names
 from robolab.core.task.off_table import group_lost, required_groups, task_lost
 
@@ -118,3 +120,36 @@ def test_lost_destination_ends_single_group_task():
         "rack": torch.tensor([True, False]),
     }
     assert task_lost(fallen, groups, 2, "cpu").tolist() == [True, False]
+
+
+class _Dataset(list):
+    def __getitem__(self, index):
+        if isinstance(index, slice):
+            return list(self)
+        return super().__getitem__(index)
+
+
+def _ee_group(position, orientation, velocity=None):
+    group = {
+        "position": _Dataset(position),
+        "orientation": _Dataset(orientation),
+    }
+    if velocity is not None:
+        group["linear_velocity"] = _Dataset(velocity)
+    return group
+
+
+def test_metric_loader_reads_per_arm_end_effector_channels():
+    demo = {
+        "left_ee_pose": _ee_group([1], [2], [3]),
+        "right_ee_pose": _ee_group([4], [5], [6]),
+    }
+    result = read_ee_channels(demo, "demo_0")
+    assert list(result["ee_channels"]) == ["left_ee_pose", "right_ee_pose"]
+    assert result["ee_position"] == [1]
+    assert result["ee_linear_velocity"] == [3]
+
+
+def test_metric_loader_rejects_missing_end_effector_channels():
+    with pytest.raises(KeyError, match="expected 'ee_pose' or '\\*_ee_pose'"):
+        read_ee_channels({"actions": None, "states": None}, "demo_0")
