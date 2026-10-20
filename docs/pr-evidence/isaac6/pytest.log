@@ -1,0 +1,45 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0
+cachedir: /tmp/pytest-cache
+rootdir: /workspace/robolab
+configfile: pyproject.toml
+plugins: anyio-4.7.0, flaky-3.8.1, hydra-core-1.3.3, mock-3.15.1, typeguard-4.4.2
+collected 319 items
+
+tests/test_contact_gripper.py ......                                     [  1%]
+tests/test_content_pack_defaults.py ...                                  [  2%]
+tests/test_cosmos3_client.py ..........                                  [  5%]
+tests/test_counting_conditionals.py ...............                      [ 10%]
+tests/test_counting_in_sim.py ....                                       [ 11%]
+tests/test_depth_registration.py ...                                     [ 12%]
+tests/test_dreamzero_transport.py .                                      [ 13%]
+tests/test_droid_isaac60_asset.py ..                                     [ 13%]
+tests/test_frame_contract.py ...                                         [ 14%]
+tests/test_gripper_conditionals.py ...                                   [ 15%]
+tests/test_gt_state.py .....                                             [ 17%]
+tests/test_hull_check.py .................                               [ 22%]
+tests/test_inference_chunk_horizon.py ..........                         [ 25%]
+tests/test_instruction_fields.py ................                        [ 30%]
+tests/test_isaaclab.py ..                                                [ 31%]
+tests/test_isaaclab_compat.py .....                                      [ 32%]
+tests/test_kinova_asset.py ...                                           [ 33%]
+tests/test_llm_scene_gen_physical_solver.py .......                      [ 36%]
+tests/test_object_state_obs.py ..                                        [ 36%]
+tests/test_policy_metadata.py .                                          [ 36%]
+tests/test_recorder_export.py .                                          [ 37%]
+tests/test_recorder_slicing.py ......                                    [ 39%]
+tests/test_registered_envs.py ....                                       [ 40%]
+tests/test_replay_env_config.py ....                                     [ 41%]
+tests/test_robot_labels.py ............                                  [ 45%]
+tests/test_robovolo_predicates.py ..                                     [ 46%]
+tests/test_run_empty.py .                                                [ 46%]
+tests/test_run_utils.py ..................                               [ 52%]
+tests/test_runner_args.py ....                                           [ 53%]
+tests/test_scene_ground.py ....                                          [ 54%]
+tests/test_scene_overrides.py ..                                         [ 55%]
+tests/test_tasks_valid.py .............................................. [ 69%]
+........................................................................ [ 92%]
+....                                                                     [ 93%]
+tests/test_trajectory_metrics.py .                                       [ 93%]
+tests/test_volo_interop.py ............                                  [ 97%]
+tests/test_websocket_transport.py ........                               [100%]
