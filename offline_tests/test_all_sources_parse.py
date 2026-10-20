@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Every Python file in the package and the dashboard must parse — the offline
 suite does not import most of them, and a stray paren once reached a commit."""
 import ast

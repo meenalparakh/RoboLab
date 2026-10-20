@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """`in_contact` combines per-pair contact with `logical`/`K` (changes.md P06).
 
 `predicate_logic` imports isaaclab at module level; we stub those imports so the

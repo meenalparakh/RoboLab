@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """scripts/friction_sweep_report.py: the per-condition table for the P79 / C1 sweep."""
 import importlib.util
 import json

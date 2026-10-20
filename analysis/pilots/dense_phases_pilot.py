@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # Pilot for docs/verified/dense_annotations.md (2026-09-01). Deliberately NOT the design:
 # it uses f_touch = 0.05 N (runtime in_contact is 0.1 N), its own "both pads + lifted" carry
 # (the runtime carry is contact streak + coupling + hand motion, see GraspTracker), a fixed

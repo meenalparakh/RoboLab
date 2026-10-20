@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """An episode gets the videos of its own run only (dashboard/loaders/local.py, 2026-09-02)."""
 import importlib
 import sys

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """P45: one line per transition — twins collapse, ladder lines carry their predicate's name."""
 import sys, types
 for n in ("isaaclab", "isaaclab.utils"):

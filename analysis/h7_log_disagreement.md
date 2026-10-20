@@ -96,4 +96,3 @@ ledger tasks in the top 10: 0 of 8 (none). H7 asks for >= 6 of 10.
 | FruitsMovingOrangeOrLimeTask | 20 | 20 |
 | MustardInLeftBinTask | 20 | 26 |
 | BananasOutOfBinTask | 19 | 20 |
-

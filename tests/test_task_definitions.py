@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """A task's success termination and its subtask ladder must agree on where each
 object goes (P11 / findings.md H-R8-3). Uses scripts/find_task_definition_conflicts.py."""
 import subprocess

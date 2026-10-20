@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
 """Do the machine's phase statistics pick out the reviewer's failure modes? (plan phase E, H7)

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Dashboard event severity routes on whole name tokens, then the code range (P02)."""
 import importlib.util
 from pathlib import Path

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # Offline tests for the open-top containment cap (findings.md H-B6).
 # No Isaac, no robolab package import — runs anywhere torch+scipy do:
 #

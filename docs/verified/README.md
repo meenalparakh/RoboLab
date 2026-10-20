@@ -1,5 +1,8 @@
 # RoboLab Verified
 
+This documentation and its historical measurements come from [Manda Robotics/RoboLab-Verified](https://github.com/Manda-Robotics/RoboLab-Verified), snapshot `790c1a5`. This checkout imports its fixes on top of the Isaac 6 compatibility port. The original Git authors, author dates, coauthors and source commit IDs are preserved; integration changes are separate commits. Source-fork robots and policy backends are excluded.
+
+
 A fork of [NVIDIA RoboLab](https://github.com/NVlabs/RoboLab) v0.3.1. The fork keeps
 upstream's 120 tasks, scenes, success predicates and physics defaults. It changes how episodes
 are scored, how subtasks are credited, what the per-episode event log records, and what the
@@ -102,22 +105,6 @@ machine.
 `?t=` permalinks, a subgoal checklist that fills with the playhead, a per-task page across
 experiments, runs grouped by policy family, and HTTP range requests so that seeking works.
 
-**Embodiments.** A bimanual YAM rig (two I2RT YAM arms side by side at the table edge, one
-overhead and two wrist RealSense views, the station most bimanual training data is collected
-on), a dual-Franka rig and a bimanual ViperX (ALOHA) rig. Each is one articulation with
-per-arm end-effector recording, tracking wrist cameras, and the unchanged success predicates.
-Ai2's released MolmoAct 2 bimanual checkpoint drives the YAM rig through the shipped client:
-5/8 on a put-everything-in-the-box task that copies Ai2's own simulator layout (their
-ManiSkill harness: 4/8), 0/4 on each of three benchmark tasks it was not trained on.
-
-**VLM and LLM policies.** A connector for running a pointing-capable vision-language model as
-a policy: the model returns an image point and a phase, and a geometric controller does the
-metric work. The controller is released as a separate package,
-[`vlm-pinpoint`](https://github.com/Manda-Robotics/vlm-pinpoint), with a Gemini backend. On
-top-down single-object picks it succeeds: `BananaInBowl` 6 of 6, `BananasInCrate` 5 of 6,
-`OneBottleInSquarePail` 2 of 6, `FruitsOnion` 1 of 6. Driven as Cartesian deltas the same
-model scored 0 of 4.
-
 **Tooling.** Offline audits that need no simulator: task definitions against scene spawn state,
 scene interpenetrations, objects that sink at reset, and open-hand carries. A verifier that
 evaluates each flag change as a PASS / FAIL / N/A predicate over recorded runs.
@@ -133,9 +120,7 @@ evaluates each flag change as a PASS / FAIL / N/A predicate over recorded runs.
   inside. Objects authored interpenetrating their containers are flagged (`SCENE_SETTLING`)
   and left as authored. One attempt to nudge a lemon ejected 27 unrelated objects and was
   reverted.
-- The benchmark's task set. No benchmark task was added or removed. The bimanual rigs ship
-  with three smoke-test tasks under `robolab/tasks/bimanual/`, outside the benchmark set,
-  loaded with `--task-dirs bimanual`.
+- The benchmark's task set. No benchmark task was added or removed by this port.
 
 ## Status
 

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """P64: a ladder rung that is already true at reset earns no credit.
 
 Reproducers, both from `isaac60_robolab120_pi05` (The reviewer confirmed both on the

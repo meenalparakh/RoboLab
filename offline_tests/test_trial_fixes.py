@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Fixes from the first external hands-on trial of the published repo (2026-08-29).
 
 Each test names the report item it closes. The trial ran six tasks outside the set the

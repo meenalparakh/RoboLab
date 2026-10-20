@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Target/container extraction from subtask conditions (changes.md P14).
 
 Pure-Python: builds partials over dummy predicates in the three authoring forms

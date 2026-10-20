@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Dense phase annotation (docs/verified/dense_annotations.md): invariants, the tracker replay,
 and the two fixture episodes that anchor the L2 semantics. No simulator; needs h5py and torch
 (the replay); the geometric fallback is exercised separately."""

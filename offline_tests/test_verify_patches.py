@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """The verifier decides what may be called "verified on hardware", so a wrong PASS
 is the expensive failure. These tests give each predicate a hand-built recording of
 the pre-patch behaviour it exists to catch, and one of the post-patch behaviour."""

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """P79: object + finger-pad friction as a run parameter (robolab/core/physics/friction.py).
 
 Everything above the Isaac Lab import boundary is pure Python and is tested here; the

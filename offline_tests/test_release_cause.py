@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # SPDX-License-Identifier: Apache-2.0
 """The release cause (plan §9.13): why an object left the hand, as a third axis of a place
 next to label and result; and the prepare/derive split of annotate() that the stability study

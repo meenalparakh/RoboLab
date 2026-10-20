@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Towing artifact detection (docs/verified/towing.md, P124): the Robotiq forward kinematics, the
 hook classifier, and the end-to-end pass over the clean dense fixture. No simulator."""
 import os

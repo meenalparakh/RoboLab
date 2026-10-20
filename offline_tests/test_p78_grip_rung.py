@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """P78 — the grip is its own rung.
 
 The reviewer, reviewing rc5 FoodPacking2Cans env0: "we start out with an object carried, an

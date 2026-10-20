@@ -26,3 +26,10 @@ reasoning.
 
 Files added by this fork carry the NVIDIA copyright header of the upstream files they
 sit beside, per the Apache-2.0 requirement to preserve attribution in derived works.
+
+Scope of this upstream port
+---------------------------
+This checkout incorporates the evaluation, recording, dashboard, scene and tooling
+fixes from Manda Robotics/RoboLab-Verified. The source fork's additional robot
+embodiments and policy backends described above are excluded. Original Git authors
+and coauthor credits are retained; integration changes are recorded separately.

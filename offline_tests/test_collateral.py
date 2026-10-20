@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """A1 / B7: one flag per non-target entering a goal container; pre-placed objects never count."""
 import torch
 from robolab.core.task.collateral import CollateralTracker

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 #!/usr/bin/env python3
 """The friction sensitivity table (P79 / plan item C1): the same policy on the same tasks
 at several ``--friction`` settings, side by side.

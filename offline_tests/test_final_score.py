@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """H-B3 / P34: the ladder re-judged on the final frame (pure aggregation)."""
 import sys, types
 for n in ("isaaclab", "isaaclab.utils"):

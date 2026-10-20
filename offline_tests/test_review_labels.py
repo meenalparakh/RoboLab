@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Review-mode labels (plan §9.4, 2026-09-02): a verdict per machine segment becomes a gold
 segment in score_gold.py, and the run path writes phases_<run>_env<env>.json (P107)."""
 import importlib.util

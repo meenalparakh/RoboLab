@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 #!/usr/bin/env python
 # SPDX-License-Identifier: Apache-2.0
 """Flag towing artifacts in recorded runs (docs/verified/towing.md, P124).

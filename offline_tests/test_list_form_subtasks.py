@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """List-form `Subtask(conditions=[a, b, c])` is a sequence under logical='all'
 and a set of alternatives under 'any'/'choose' (changes.md P28 / H-B1)."""
 import sys

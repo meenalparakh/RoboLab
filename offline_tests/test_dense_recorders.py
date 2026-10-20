@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Dense-annotation recorder helpers (R2/R4, docs/verified/dense_annotations.md §5):
 legend, per-step condition evaluation with the subtask's logical mode, tracker
 packing, and body force magnitudes. No simulator."""

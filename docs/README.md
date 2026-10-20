@@ -86,3 +86,8 @@ Otherwise, pick whichever applies to your use case.
 
 - **[Scene Generation](scene.md#ai-workflows-scene-generation)** — Generate USD scenes from natural language using the `/robolab-scenegen` Claude Code skill. See [`skills/robolab-scenegen/`](../skills/robolab-scenegen/).
 - **[Task Generation](task.md#ai-workflows-task-generation)** — Generate task files from natural language using the `/robolab-taskgen` Claude Code skill. See [`skills/robolab-taskgen/`](../skills/robolab-taskgen/).
+
+## Evaluation correctness
+
+- [Fixes imported from RoboLab Verified](verified/README.md)
+- [Command examples](commands/verified_fixes.md)

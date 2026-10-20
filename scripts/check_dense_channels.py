@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 #!/usr/bin/env python3
 """Check the dense-annotation channels of a recording made with the R1/R2/R4 recorder terms
 (docs/verified/dense_annotations.md §5) against the offline derivations they replace.

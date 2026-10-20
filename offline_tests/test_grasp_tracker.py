@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Stable grasp = carry (P31 v3 / B1, B6, H-R5-4). The tracker's geometry/contact
 accessors are module-level so they can be scripted here without a simulator."""
 import types

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Every USD asset must be a real file, not an unresolved Git LFS pointer (P08 / F4)."""
 from pathlib import Path
 

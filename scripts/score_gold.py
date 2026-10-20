@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
 """Score the dense-annotation gold set (docs/verified/dense_annotations.md, H6 and H8).

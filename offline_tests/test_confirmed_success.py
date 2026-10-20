@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """Confirmed success (P30 / A2): goal holds AND targets at rest for rest_s → success.
 At rest already when the goal is reached → immediate; still moving → wait."""
 import sys

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 """P38: an off-table target ends the episode only when the task can no longer succeed."""
 import torch
 from robolab.core.task.off_table import group_lost, required_groups, task_lost
