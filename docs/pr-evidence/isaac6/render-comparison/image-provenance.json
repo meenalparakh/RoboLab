@@ -1,0 +1,24 @@
+{
+  "archive_source": "selective-finetuning-docs/presentation/dashboards/task_previews/BananasOutOfBinTask.jpg",
+  "archive_is_matched_baseline": false,
+  "accepted_pr_source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c",
+  "accepted_pr_job": 4120980,
+  "matching": "Fresh realtime and pathtracing images share physics state, seed, cameras, and original materials.",
+  "scope": "Static comparison only; accepted PR rollout is separate motion evidence.",
+  "production_enforcement": "behavioral-ft only; RoboLab retains renderer choices and defaults",
+  "sha256": {
+    "comparison.json": "3f59c24af40736baa21a07d2d17ab780e86eafcce351fa65096ecb193270e75b",
+    "isaac5-reference.jpg": "e5fbb8ddb4eaafde4f7cf0d0420047822b6ee25081339fc5764df8544d617581",
+    "renderer_settings.json": "34d5d740fd1d9c798cd5f9f5919579365cf262c94ca899c79e06e9f1881311d8",
+    "render_profile.json": "6481f31931e02e2c2c4dfe688f04d8b78be63a54b380db83ded7366adfa52245",
+    "accepted-pr-frame.png": "fdb6ff1b4adac6f127e2076946ef383e7cda6a564bf52f3402fe5297057b0cf4",
+    "comparison-overview.png": "0589da5c0f9ecbca6e35cb62f934c86a478458a86e9d51d72da2e6a5d4a5367e",
+    "matched-policy-cameras.png": "b42dd63090de22bbb1c824add96238c8972bfe072aeafd485358d4d95972c419",
+    "pathtracing/wrist.png": "605252ce901cf189f70f8642bab0304e4cd9dab116475089cc80f68cff892585",
+    "pathtracing/report.png": "27ca4af48f446ca81e083519634ac886334ab59962a2e4f63ba05fd3878351b8",
+    "pathtracing/external.png": "3d45b5e7633ecab3911cb70e842791740ce1850578cf18642e7b99b1ab5af0e5",
+    "realtime/wrist.png": "f31b2671b753145030c5e48bf50eb64acc4c4e7e7ffe2b0974a33e450c63b458",
+    "realtime/report.png": "2f9af791ead6fe79436c42ad31d2d0c67a9e251ed7fe1113203321c369e70cf2",
+    "realtime/external.png": "3ec9d2fb497d3a54689b453f0137a2f0526ef8780c58534a231545db66af243a"
+  }
+}

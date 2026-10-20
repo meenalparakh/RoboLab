@@ -1,0 +1,42 @@
+{
+  "id": "robolab-isaac6-pr-v1",
+  "reference_pr": "https://github.com/meenalparakh/RoboLab/pull/1",
+  "image_name": "robolab-verified-isaac60.sif",
+  "image_base": "nvcr.io/nvidia/isaac-lab:3.0.0-beta2",
+  "image_base_digest": "sha256:970621075d00059c309f847fa835709de3fa634537407a7009c586c97893d218",
+  "materials": "authored",
+  "lighting": "authored",
+  "default_reset_seed": 0,
+  "extra_render_updates_per_observation": 0,
+  "settings": {
+    "/renderer/multiGpu/enabled": false,
+    "/renderer/activeGpu": 0,
+    "/rtx/rendermode": "RealTimePathTracing",
+    "/rtx/post/aa/op": 4,
+    "/rtx-transient/dlssg/enabled": false,
+    "/rtx-transient/dldenoiser/enabled": true,
+    "/persistent/rtx/modes/rt/enabled": false,
+    "/persistent/rtx/modes/rt2/enabled": true,
+    "/persistent/rtx/modes/pt/enabled": true
+  },
+  "report_camera": {
+    "height": 720,
+    "width": 1280,
+    "position": [
+      1.5,
+      0.0,
+      1.0
+    ],
+    "rotation_wxyz": [
+      0.634372,
+      0.312366,
+      0.312366,
+      0.634372
+    ],
+    "focal_length": 24.0,
+    "focus_distance": 400.0,
+    "horizontal_aperture": 20.955,
+    "vertical_aperture": 15.29
+  },
+  "renderer_description": "RTX Real-Time 2.0; distinct from accumulated RTX Interactive PathTracing"
+}

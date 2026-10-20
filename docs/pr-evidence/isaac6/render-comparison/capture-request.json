@@ -1,0 +1,27 @@
+{
+  "job_id": 4121104,
+  "previous_probe_job": 4121050,
+  "cancelled_queued_job": 4121088,
+  "source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c",
+  "task": "BananasInBinOneMoreTask",
+  "seed": 0,
+  "image": "/n/fs/pvl-vlaft/behavioral-ft/images/robolab-verified-isaac60.sif",
+  "profiles": [
+    "realtime",
+    "pathtracing"
+  ],
+  "materials": "authored",
+  "same_physics_state": true,
+  "physical_settle_steps": 5,
+  "diagnostic_render_only_updates": 16,
+  "pathtracing_spp": 64,
+  "pathtracing_total_spp": 256,
+  "time_limit_minutes": 30,
+  "cluster": "neuronic",
+  "previous_probe_jobs": [
+    4121050,
+    4121093
+  ],
+  "canonical_effective_mode": "RealTimePathTracing",
+  "note": "The first strict guard rejected the legacy requested mode after Isaac initialized RT2; the final contract pins the observed RT2 backend explicitly."
+}

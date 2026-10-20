@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "job_id": 4121104,
+  "source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c",
+  "scope": "Six native 1280x720 static RGB images: report, external-policy, and wrist-policy cameras for both renderers. Existing accepted PR rollout supplies separate motion evidence.",
+  "canonical_profile": "robolab-isaac6-pr-v1",
+  "canonical_effective_renderer": "RealTimePathTracing",
+  "canonical_aa": 4,
+  "findings": "Room/floor/door textures, robot branding/metal/plastic/gripper details, bin and banana materials remain visible. No blank views, missing meshes, or visible RT speckle in inspected native images. Path tracing changes reflections and shadows, particularly in the wrist view.",
+  "matching": "Probe asserted object poses unchanged across render-only updates and both renderers; same seed 0, scene, original materials, lighting, and cameras.",
+  "pathtracing_actual_aa_setting": 3,
+  "pathtracing_optix_denoiser": true,
+  "limitations": "Archived Isaac 5 reference and accepted PR video frame are not matched camera/reset baselines; static accumulation does not demonstrate moving policy-camera quality or observation latency for path tracing."
+}
