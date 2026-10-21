@@ -1,0 +1,2202 @@
+{
+  "max_control_steps": 300,
+  "seed": 0,
+  "source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c",
+  "material_overrides": false,
+  "profiles": {
+    "realtime": {
+      "extra_render_updates_per_observation": 0,
+      "settings": {
+        "/rtx/rendermode": "RealTimePathTracing",
+        "/rtx/post/aa/op": 4,
+        "/rtx-transient/dldenoiser/enabled": true,
+        "/rtx-transient/dlssg/enabled": false,
+        "/rtx/pathtracing/spp": 64,
+        "/rtx/pathtracing/totalSpp": 256,
+        "/rtx/pathtracing/optixDenoiser/enabled": true
+      },
+      "episode_wall_including_resets_and_video_s": 95.3672788799995,
+      "robolab_timing": {
+        "policy_inference_s": 6.502,
+        "policy_inference_avg_ms": 21.7,
+        "env_step_s": 83.474,
+        "env_step_avg_ms": 278.2,
+        "video_write_s": 4.017,
+        "video_write_avg_ms": 13.4,
+        "wall_total_s": 93.993,
+        "it_per_sec": 3.19
+      },
+      "results": [
+        {
+          "env_id": 0,
+          "success": false,
+          "step": 300,
+          "instruction_fields": [
+            "default",
+            "vague",
+            "specific"
+          ],
+          "instruction_fields_used": [
+            "default"
+          ]
+        }
+      ],
+      "steps": 300,
+      "simulated_s": 20.0,
+      "step_timings": [
+        {
+          "base_env_s": 1.1558991460005927,
+          "accumulation_refresh_s": 7.799000013619661e-05,
+          "total_env_s": 1.155977136000729
+        },
+        {
+          "base_env_s": 2.7772205069995834,
+          "accumulation_refresh_s": 5.507400055648759e-05,
+          "total_env_s": 2.77727558100014
+        },
+        {
+          "base_env_s": 0.2800184320003609,
+          "accumulation_refresh_s": 5.434099875856191e-05,
+          "total_env_s": 0.2800727729991195
+        },
+        {
+          "base_env_s": 0.2567126879985153,
+          "accumulation_refresh_s": 5.076700108475052e-05,
+          "total_env_s": 0.25676345499960007
+        },
+        {
+          "base_env_s": 0.2827309670028626,
+          "accumulation_refresh_s": 7.317799827433191e-05,
+          "total_env_s": 0.28280414500113693
+        },
+        {
+          "base_env_s": 0.24423693800054025,
+          "accumulation_refresh_s": 7.05640013620723e-05,
+          "total_env_s": 0.24430750200190232
+        },
+        {
+          "base_env_s": 0.24669477100178483,
+          "accumulation_refresh_s": 5.6331999076064676e-05,
+          "total_env_s": 0.2467511030008609
+        },
+        {
+          "base_env_s": 0.2600552959993365,
+          "accumulation_refresh_s": 5.029800013289787e-05,
+          "total_env_s": 0.2601055939994694
+        },
+        {
+          "base_env_s": 0.27449807899756706,
+          "accumulation_refresh_s": 5.353000233299099e-05,
+          "total_env_s": 0.27455160899990005
+        },
+        {
+          "base_env_s": 0.24535035699955188,
+          "accumulation_refresh_s": 5.387900091591291e-05,
+          "total_env_s": 0.2454042360004678
+        },
+        {
+          "base_env_s": 0.2421262569987448,
+          "accumulation_refresh_s": 5.0105001719202846e-05,
+          "total_env_s": 0.242176362000464
+        },
+        {
+          "base_env_s": 0.24023440499877324,
+          "accumulation_refresh_s": 5.3921001381240785e-05,
+          "total_env_s": 0.24028832600015448
+        },
+        {
+          "base_env_s": 0.24499335899963626,
+          "accumulation_refresh_s": 6.811099956394173e-05,
+          "total_env_s": 0.2450614699992002
+        },
+        {
+          "base_env_s": 0.24123486600001343,
+          "accumulation_refresh_s": 5.046499791205861e-05,
+          "total_env_s": 0.24128533099792548
+        },
+        {
+          "base_env_s": 0.24814049400083604,
+          "accumulation_refresh_s": 5.509200127562508e-05,
+          "total_env_s": 0.24819558600211167
+        },
+        {
+          "base_env_s": 0.3679938899986155,
+          "accumulation_refresh_s": 7.801300307619385e-05,
+          "total_env_s": 0.3680719030016917
+        },
+        {
+          "base_env_s": 0.2686345690017333,
+          "accumulation_refresh_s": 5.816699922434054e-05,
+          "total_env_s": 0.26869273600095767
+        },
+        {
+          "base_env_s": 0.3106991750028101,
+          "accumulation_refresh_s": 7.774099867674522e-05,
+          "total_env_s": 0.3107769160014868
+        },
+        {
+          "base_env_s": 0.3078213010012405,
+          "accumulation_refresh_s": 8.120599886751734e-05,
+          "total_env_s": 0.307902507000108
+        },
+        {
+          "base_env_s": 0.28593704599916236,
+          "accumulation_refresh_s": 5.321400021784939e-05,
+          "total_env_s": 0.2859902599993802
+        },
+        {
+          "base_env_s": 0.24325695900188293,
+          "accumulation_refresh_s": 4.8619996960042045e-05,
+          "total_env_s": 0.24330557899884298
+        },
+        {
+          "base_env_s": 0.23927401800028747,
+          "accumulation_refresh_s": 4.872299905400723e-05,
+          "total_env_s": 0.23932274099934148
+        },
+        {
+          "base_env_s": 0.24326809999911347,
+          "accumulation_refresh_s": 5.066200174042024e-05,
+          "total_env_s": 0.2433187620008539
+        },
+        {
+          "base_env_s": 0.25926008699752856,
+          "accumulation_refresh_s": 5.649400191032328e-05,
+          "total_env_s": 0.2593165809994389
+        },
+        {
+          "base_env_s": 0.24759571799950209,
+          "accumulation_refresh_s": 5.0533999456092715e-05,
+          "total_env_s": 0.24764625199895818
+        },
+        {
+          "base_env_s": 0.262716075998469,
+          "accumulation_refresh_s": 5.060100011178292e-05,
+          "total_env_s": 0.2627666769985808
+        },
+        {
+          "base_env_s": 0.24562037799842074,
+          "accumulation_refresh_s": 5.492100171977654e-05,
+          "total_env_s": 0.2456752990001405
+        },
+        {
+          "base_env_s": 0.24683174299934763,
+          "accumulation_refresh_s": 5.321299977367744e-05,
+          "total_env_s": 0.2468849559991213
+        },
+        {
+          "base_env_s": 0.24945781099813757,
+          "accumulation_refresh_s": 5.093300205771811e-05,
+          "total_env_s": 0.2495087440001953
+        },
+        {
+          "base_env_s": 0.25326594299986027,
+          "accumulation_refresh_s": 5.414900078903884e-05,
+          "total_env_s": 0.2533200920006493
+        },
+        {
+          "base_env_s": 0.24922064100246644,
+          "accumulation_refresh_s": 4.994899791199714e-05,
+          "total_env_s": 0.24927059000037843
+        },
+        {
+          "base_env_s": 0.2488372320003691,
+          "accumulation_refresh_s": 4.9533002311363816e-05,
+          "total_env_s": 0.24888676500268048
+        },
+        {
+          "base_env_s": 0.24153164800009108,
+          "accumulation_refresh_s": 5.6625998695380986e-05,
+          "total_env_s": 0.24158827399878646
+        },
+        {
+          "base_env_s": 0.24630247399909422,
+          "accumulation_refresh_s": 5.0675000238697976e-05,
+          "total_env_s": 0.24635314899933292
+        },
+        {
+          "base_env_s": 0.2375654610004858,
+          "accumulation_refresh_s": 4.8104000597959384e-05,
+          "total_env_s": 0.23761356500108377
+        },
+        {
+          "base_env_s": 0.2517715039975883,
+          "accumulation_refresh_s": 5.266299922368489e-05,
+          "total_env_s": 0.251824166996812
+        },
+        {
+          "base_env_s": 0.24604488800105173,
+          "accumulation_refresh_s": 5.0098999054171145e-05,
+          "total_env_s": 0.2460949870001059
+        },
+        {
+          "base_env_s": 0.24320796500251163,
+          "accumulation_refresh_s": 5.429099837783724e-05,
+          "total_env_s": 0.24326225600088947
+        },
+        {
+          "base_env_s": 0.2500291290016321,
+          "accumulation_refresh_s": 5.14109997311607e-05,
+          "total_env_s": 0.25008054000136326
+        },
+        {
+          "base_env_s": 0.24596205399939208,
+          "accumulation_refresh_s": 5.538099867408164e-05,
+          "total_env_s": 0.24601743499806616
+        },
+        {
+          "base_env_s": 0.2446143689994642,
+          "accumulation_refresh_s": 4.922500011161901e-05,
+          "total_env_s": 0.24466359399957582
+        },
+        {
+          "base_env_s": 0.2425284359997022,
+          "accumulation_refresh_s": 5.9904999943682924e-05,
+          "total_env_s": 0.24258834099964588
+        },
+        {
+          "base_env_s": 0.24330366999856778,
+          "accumulation_refresh_s": 5.5393000366166234e-05,
+          "total_env_s": 0.24335906299893395
+        },
+        {
+          "base_env_s": 0.24072469899692805,
+          "accumulation_refresh_s": 5.4547002946492285e-05,
+          "total_env_s": 0.24077924599987455
+        },
+        {
+          "base_env_s": 0.2439038980010082,
+          "accumulation_refresh_s": 5.7352997828274965e-05,
+          "total_env_s": 0.24396125099883648
+        },
+        {
+          "base_env_s": 0.3195091460002004,
+          "accumulation_refresh_s": 8.32129990158137e-05,
+          "total_env_s": 0.31959235899921623
+        },
+        {
+          "base_env_s": 0.2776776959981362,
+          "accumulation_refresh_s": 5.557400072575547e-05,
+          "total_env_s": 0.27773326999886194
+        },
+        {
+          "base_env_s": 0.25164602600125363,
+          "accumulation_refresh_s": 5.609299842035398e-05,
+          "total_env_s": 0.251702118999674
+        },
+        {
+          "base_env_s": 0.25494857400190085,
+          "accumulation_refresh_s": 5.814399992232211e-05,
+          "total_env_s": 0.2550067180018232
+        },
+        {
+          "base_env_s": 0.24461831699954928,
+          "accumulation_refresh_s": 5.5447999329771847e-05,
+          "total_env_s": 0.24467376499887905
+        },
+        {
+          "base_env_s": 0.24325791900264448,
+          "accumulation_refresh_s": 5.571200017584488e-05,
+          "total_env_s": 0.24331363100282033
+        },
+        {
+          "base_env_s": 0.24372744699940085,
+          "accumulation_refresh_s": 5.801899897051044e-05,
+          "total_env_s": 0.24378546599837136
+        },
+        {
+          "base_env_s": 0.28918374099885114,
+          "accumulation_refresh_s": 7.87050012149848e-05,
+          "total_env_s": 0.2892624460000661
+        },
+        {
+          "base_env_s": 0.2781694549994427,
+          "accumulation_refresh_s": 9.537299774819985e-05,
+          "total_env_s": 0.2782648279971909
+        },
+        {
+          "base_env_s": 0.31689486899995245,
+          "accumulation_refresh_s": 8.317000174429268e-05,
+          "total_env_s": 0.31697803900169674
+        },
+        {
+          "base_env_s": 0.3069486259992118,
+          "accumulation_refresh_s": 7.46810001146514e-05,
+          "total_env_s": 0.30702330699932645
+        },
+        {
+          "base_env_s": 0.2599994720003451,
+          "accumulation_refresh_s": 5.712400161428377e-05,
+          "total_env_s": 0.2600565960019594
+        },
+        {
+          "base_env_s": 0.256461135999416,
+          "accumulation_refresh_s": 5.687099837814458e-05,
+          "total_env_s": 0.25651800699779415
+        },
+        {
+          "base_env_s": 0.2604999030008912,
+          "accumulation_refresh_s": 5.800299913971685e-05,
+          "total_env_s": 0.2605579060000309
+        },
+        {
+          "base_env_s": 0.2956656140013365,
+          "accumulation_refresh_s": 5.895000140299089e-05,
+          "total_env_s": 0.2957245640027395
+        },
+        {
+          "base_env_s": 0.2702803079992009,
+          "accumulation_refresh_s": 6.432699956349097e-05,
+          "total_env_s": 0.2703446349987644
+        },
+        {
+          "base_env_s": 0.2759510739997495,
+          "accumulation_refresh_s": 5.69280018680729e-05,
+          "total_env_s": 0.27600800200161757
+        },
+        {
+          "base_env_s": 0.2800861440009612,
+          "accumulation_refresh_s": 5.052599954069592e-05,
+          "total_env_s": 0.2801366700005019
+        },
+        {
+          "base_env_s": 0.27650211400032276,
+          "accumulation_refresh_s": 5.556999894906767e-05,
+          "total_env_s": 0.27655768399927183
+        },
+        {
+          "base_env_s": 0.27957739499834133,
+          "accumulation_refresh_s": 5.665500066243112e-05,
+          "total_env_s": 0.27963404999900376
+        },
+        {
+          "base_env_s": 0.30561396300254273,
+          "accumulation_refresh_s": 8.353199882549234e-05,
+          "total_env_s": 0.3056974950013682
+        },
+        {
+          "base_env_s": 0.3040686269996513,
+          "accumulation_refresh_s": 6.205899990163743e-05,
+          "total_env_s": 0.30413068599955295
+        },
+        {
+          "base_env_s": 0.32859329100028845,
+          "accumulation_refresh_s": 5.695899744750932e-05,
+          "total_env_s": 0.32865024999773595
+        },
+        {
+          "base_env_s": 0.2794299189990852,
+          "accumulation_refresh_s": 5.3313000535126776e-05,
+          "total_env_s": 0.27948323199962033
+        },
+        {
+          "base_env_s": 0.27406074499958777,
+          "accumulation_refresh_s": 5.5117001465987414e-05,
+          "total_env_s": 0.27411586200105376
+        },
+        {
+          "base_env_s": 0.30772213299860596,
+          "accumulation_refresh_s": 8.021600297070108e-05,
+          "total_env_s": 0.30780234900157666
+        },
+        {
+          "base_env_s": 0.30587691199980327,
+          "accumulation_refresh_s": 5.704700015485287e-05,
+          "total_env_s": 0.3059339589999581
+        },
+        {
+          "base_env_s": 0.28467886399812414,
+          "accumulation_refresh_s": 5.4928001191001385e-05,
+          "total_env_s": 0.28473379199931514
+        },
+        {
+          "base_env_s": 0.331133026000316,
+          "accumulation_refresh_s": 9.504300032858737e-05,
+          "total_env_s": 0.3312280690006446
+        },
+        {
+          "base_env_s": 0.2847026269992057,
+          "accumulation_refresh_s": 5.853100083186291e-05,
+          "total_env_s": 0.28476115800003754
+        },
+        {
+          "base_env_s": 0.3228067890013335,
+          "accumulation_refresh_s": 7.223200009320863e-05,
+          "total_env_s": 0.32287902100142674
+        },
+        {
+          "base_env_s": 0.27709131599840475,
+          "accumulation_refresh_s": 5.168400093680248e-05,
+          "total_env_s": 0.27714299999934155
+        },
+        {
+          "base_env_s": 0.27838871799758635,
+          "accumulation_refresh_s": 6.187400140333921e-05,
+          "total_env_s": 0.2784505919989897
+        },
+        {
+          "base_env_s": 0.3036609179980587,
+          "accumulation_refresh_s": 5.3277999541023746e-05,
+          "total_env_s": 0.30371419599759975
+        },
+        {
+          "base_env_s": 0.31499755199911306,
+          "accumulation_refresh_s": 6.116900112829171e-05,
+          "total_env_s": 0.31505872100024135
+        },
+        {
+          "base_env_s": 0.3127238249981019,
+          "accumulation_refresh_s": 5.6819000747054815e-05,
+          "total_env_s": 0.312780643998849
+        },
+        {
+          "base_env_s": 0.2880047269973147,
+          "accumulation_refresh_s": 5.835300180478953e-05,
+          "total_env_s": 0.2880630799991195
+        },
+        {
+          "base_env_s": 0.29723379200004274,
+          "accumulation_refresh_s": 5.2060000598430634e-05,
+          "total_env_s": 0.29728585200064117
+        },
+        {
+          "base_env_s": 0.29739874499864527,
+          "accumulation_refresh_s": 6.678399950033054e-05,
+          "total_env_s": 0.2974655289981456
+        },
+        {
+          "base_env_s": 0.31784656600211747,
+          "accumulation_refresh_s": 5.654800042975694e-05,
+          "total_env_s": 0.3179031140025472
+        },
+        {
+          "base_env_s": 0.2754982549995475,
+          "accumulation_refresh_s": 5.9661997511284426e-05,
+          "total_env_s": 0.2755579169970588
+        },
+        {
+          "base_env_s": 0.28036975099894335,
+          "accumulation_refresh_s": 5.052599954069592e-05,
+          "total_env_s": 0.28042027699848404
+        },
+        {
+          "base_env_s": 0.2744356310031435,
+          "accumulation_refresh_s": 5.072899875813164e-05,
+          "total_env_s": 0.27448636000190163
+        },
+        {
+          "base_env_s": 0.34184694600116927,
+          "accumulation_refresh_s": 6.518199734273367e-05,
+          "total_env_s": 0.341912127998512
+        },
+        {
+          "base_env_s": 0.28408396699887817,
+          "accumulation_refresh_s": 5.682800110662356e-05,
+          "total_env_s": 0.2841407949999848
+        },
+        {
+          "base_env_s": 0.3058561889993143,
+          "accumulation_refresh_s": 8.262800110969692e-05,
+          "total_env_s": 0.305938817000424
+        },
+        {
+          "base_env_s": 0.24668400600057794,
+          "accumulation_refresh_s": 5.4806001571705565e-05,
+          "total_env_s": 0.24673881200214964
+        },
+        {
+          "base_env_s": 0.2484983869981079,
+          "accumulation_refresh_s": 6.520800161524676e-05,
+          "total_env_s": 0.24856359499972314
+        },
+        {
+          "base_env_s": 0.28499723300046753,
+          "accumulation_refresh_s": 8.334799713338725e-05,
+          "total_env_s": 0.2850805809976009
+        },
+        {
+          "base_env_s": 0.25235901400083094,
+          "accumulation_refresh_s": 5.627499922411516e-05,
+          "total_env_s": 0.25241528900005505
+        },
+        {
+          "base_env_s": 0.3132570720008516,
+          "accumulation_refresh_s": 8.288100070785731e-05,
+          "total_env_s": 0.3133399530015595
+        },
+        {
+          "base_env_s": 0.3015264739988197,
+          "accumulation_refresh_s": 7.503899905714206e-05,
+          "total_env_s": 0.30160151299787685
+        },
+        {
+          "base_env_s": 0.27788975200019195,
+          "accumulation_refresh_s": 7.272199945873581e-05,
+          "total_env_s": 0.2779624739996507
+        },
+        {
+          "base_env_s": 0.26494096299938974,
+          "accumulation_refresh_s": 5.602500095847063e-05,
+          "total_env_s": 0.2649969880003482
+        },
+        {
+          "base_env_s": 0.2957379060026142,
+          "accumulation_refresh_s": 6.193599983816966e-05,
+          "total_env_s": 0.29579984200245235
+        },
+        {
+          "base_env_s": 0.24796692499876372,
+          "accumulation_refresh_s": 5.103199873701669e-05,
+          "total_env_s": 0.24801795699750073
+        },
+        {
+          "base_env_s": 0.2458663159995922,
+          "accumulation_refresh_s": 5.295300070429221e-05,
+          "total_env_s": 0.24591926900029648
+        },
+        {
+          "base_env_s": 0.2773313750003581,
+          "accumulation_refresh_s": 7.119699876056984e-05,
+          "total_env_s": 0.27740257199911866
+        },
+        {
+          "base_env_s": 0.2549959099997068,
+          "accumulation_refresh_s": 5.364299795473926e-05,
+          "total_env_s": 0.2550495529976615
+        },
+        {
+          "base_env_s": 0.2508274640022137,
+          "accumulation_refresh_s": 6.192699947860092e-05,
+          "total_env_s": 0.2508893910016923
+        },
+        {
+          "base_env_s": 0.26508205700156395,
+          "accumulation_refresh_s": 5.561600119108334e-05,
+          "total_env_s": 0.26513767300275504
+        },
+        {
+          "base_env_s": 0.27499374900071416,
+          "accumulation_refresh_s": 5.6313998356927186e-05,
+          "total_env_s": 0.2750500629990711
+        },
+        {
+          "base_env_s": 0.2542357339989394,
+          "accumulation_refresh_s": 5.889300155104138e-05,
+          "total_env_s": 0.25429462700049044
+        },
+        {
+          "base_env_s": 0.2702487810020102,
+          "accumulation_refresh_s": 7.161299799918197e-05,
+          "total_env_s": 0.2703203940000094
+        },
+        {
+          "base_env_s": 0.27164208100293763,
+          "accumulation_refresh_s": 7.203399945865385e-05,
+          "total_env_s": 0.2717141150023963
+        },
+        {
+          "base_env_s": 0.2523057459984557,
+          "accumulation_refresh_s": 6.364100045175292e-05,
+          "total_env_s": 0.25236938699890743
+        },
+        {
+          "base_env_s": 0.30470998699820484,
+          "accumulation_refresh_s": 7.410300167975947e-05,
+          "total_env_s": 0.3047840899998846
+        },
+        {
+          "base_env_s": 0.27580131600188906,
+          "accumulation_refresh_s": 7.304500104510225e-05,
+          "total_env_s": 0.27587436100293417
+        },
+        {
+          "base_env_s": 0.28773526099757873,
+          "accumulation_refresh_s": 7.73250030761119e-05,
+          "total_env_s": 0.28781258600065485
+        },
+        {
+          "base_env_s": 0.30487641700165113,
+          "accumulation_refresh_s": 7.565499981865287e-05,
+          "total_env_s": 0.3049520720014698
+        },
+        {
+          "base_env_s": 0.24804999499974656,
+          "accumulation_refresh_s": 6.11830000707414e-05,
+          "total_env_s": 0.2481111779998173
+        },
+        {
+          "base_env_s": 0.2629793209998752,
+          "accumulation_refresh_s": 5.5100001191021875e-05,
+          "total_env_s": 0.2630344210010662
+        },
+        {
+          "base_env_s": 0.24598837599842227,
+          "accumulation_refresh_s": 5.5376000091200694e-05,
+          "total_env_s": 0.24604375199851347
+        },
+        {
+          "base_env_s": 0.2354954379989067,
+          "accumulation_refresh_s": 4.812599945580587e-05,
+          "total_env_s": 0.23554356399836252
+        },
+        {
+          "base_env_s": 0.24710645799859776,
+          "accumulation_refresh_s": 5.217800207901746e-05,
+          "total_env_s": 0.24715863600067678
+        },
+        {
+          "base_env_s": 0.24839356300071813,
+          "accumulation_refresh_s": 5.713799691875465e-05,
+          "total_env_s": 0.2484507009976369
+        },
+        {
+          "base_env_s": 0.2670633439993253,
+          "accumulation_refresh_s": 6.596199818886817e-05,
+          "total_env_s": 0.26712930599751417
+        },
+        {
+          "base_env_s": 0.25892519599801744,
+          "accumulation_refresh_s": 5.689800309482962e-05,
+          "total_env_s": 0.2589820940011123
+        },
+        {
+          "base_env_s": 0.2379177830007393,
+          "accumulation_refresh_s": 5.6609998864587396e-05,
+          "total_env_s": 0.23797439299960388
+        },
+        {
+          "base_env_s": 0.2439557790021354,
+          "accumulation_refresh_s": 5.441000030259602e-05,
+          "total_env_s": 0.24401018900243798
+        },
+        {
+          "base_env_s": 0.24035630100115668,
+          "accumulation_refresh_s": 5.121700087329373e-05,
+          "total_env_s": 0.24040751800202997
+        },
+        {
+          "base_env_s": 0.23447447199941962,
+          "accumulation_refresh_s": 5.148499985807575e-05,
+          "total_env_s": 0.2345259569992777
+        },
+        {
+          "base_env_s": 0.23527433500203188,
+          "accumulation_refresh_s": 5.133499871590175e-05,
+          "total_env_s": 0.23532567000074778
+        },
+        {
+          "base_env_s": 0.24223631800123258,
+          "accumulation_refresh_s": 5.408200013334863e-05,
+          "total_env_s": 0.24229040000136592
+        },
+        {
+          "base_env_s": 0.25339107400213834,
+          "accumulation_refresh_s": 5.80039995838888e-05,
+          "total_env_s": 0.25344907800172223
+        },
+        {
+          "base_env_s": 0.24719849999746657,
+          "accumulation_refresh_s": 5.01670001540333e-05,
+          "total_env_s": 0.2472486669976206
+        },
+        {
+          "base_env_s": 0.2441165659984108,
+          "accumulation_refresh_s": 6.808100079069845e-05,
+          "total_env_s": 0.2441846469992015
+        },
+        {
+          "base_env_s": 0.24149184699854231,
+          "accumulation_refresh_s": 5.042600241722539e-05,
+          "total_env_s": 0.24154227300095954
+        },
+        {
+          "base_env_s": 0.2483640549980919,
+          "accumulation_refresh_s": 5.524800144485198e-05,
+          "total_env_s": 0.24841930299953674
+        },
+        {
+          "base_env_s": 0.25822078000055626,
+          "accumulation_refresh_s": 5.311200220603496e-05,
+          "total_env_s": 0.2582738920027623
+        },
+        {
+          "base_env_s": 0.24818671799948788,
+          "accumulation_refresh_s": 6.306700015556999e-05,
+          "total_env_s": 0.24824978499964345
+        },
+        {
+          "base_env_s": 0.24104984899895499,
+          "accumulation_refresh_s": 6.17260011495091e-05,
+          "total_env_s": 0.2411115750001045
+        },
+        {
+          "base_env_s": 0.23905737300083274,
+          "accumulation_refresh_s": 5.5393000366166234e-05,
+          "total_env_s": 0.2391127660011989
+        },
+        {
+          "base_env_s": 0.2435719759996573,
+          "accumulation_refresh_s": 5.6693999795243144e-05,
+          "total_env_s": 0.24362866999945254
+        },
+        {
+          "base_env_s": 0.2485777069996402,
+          "accumulation_refresh_s": 5.3898998885415494e-05,
+          "total_env_s": 0.24863160599852563
+        },
+        {
+          "base_env_s": 0.2444811959976505,
+          "accumulation_refresh_s": 5.425800191005692e-05,
+          "total_env_s": 0.24453545399956056
+        },
+        {
+          "base_env_s": 0.24681500699807657,
+          "accumulation_refresh_s": 6.690599911962636e-05,
+          "total_env_s": 0.2468819129971962
+        },
+        {
+          "base_env_s": 0.2561494559995481,
+          "accumulation_refresh_s": 5.386700286180712e-05,
+          "total_env_s": 0.2562033230024099
+        },
+        {
+          "base_env_s": 0.27031631499994546,
+          "accumulation_refresh_s": 5.951099956291728e-05,
+          "total_env_s": 0.2703758259995084
+        },
+        {
+          "base_env_s": 0.26749163099884754,
+          "accumulation_refresh_s": 5.3346000640885904e-05,
+          "total_env_s": 0.2675449769994884
+        },
+        {
+          "base_env_s": 0.2611113010025292,
+          "accumulation_refresh_s": 5.354200038709678e-05,
+          "total_env_s": 0.2611648430029163
+        },
+        {
+          "base_env_s": 0.2779304850009794,
+          "accumulation_refresh_s": 5.743799920310266e-05,
+          "total_env_s": 0.2779879230001825
+        },
+        {
+          "base_env_s": 0.2678447940015758,
+          "accumulation_refresh_s": 5.517799945664592e-05,
+          "total_env_s": 0.26789997200103244
+        },
+        {
+          "base_env_s": 0.2713962400011951,
+          "accumulation_refresh_s": 5.788199996459298e-05,
+          "total_env_s": 0.2714541220011597
+        },
+        {
+          "base_env_s": 0.27157071200053906,
+          "accumulation_refresh_s": 7.21199976396747e-05,
+          "total_env_s": 0.27164283199817874
+        },
+        {
+          "base_env_s": 0.2706389409977419,
+          "accumulation_refresh_s": 6.374500298989005e-05,
+          "total_env_s": 0.2707026860007318
+        },
+        {
+          "base_env_s": 0.2684374439995736,
+          "accumulation_refresh_s": 5.482399865286425e-05,
+          "total_env_s": 0.26849226799822645
+        },
+        {
+          "base_env_s": 0.277366685000743,
+          "accumulation_refresh_s": 6.37439989077393e-05,
+          "total_env_s": 0.27743042899965076
+        },
+        {
+          "base_env_s": 0.27854726200166624,
+          "accumulation_refresh_s": 6.52230010018684e-05,
+          "total_env_s": 0.2786124850026681
+        },
+        {
+          "base_env_s": 0.26863203899847576,
+          "accumulation_refresh_s": 4.9720001698005944e-05,
+          "total_env_s": 0.26868175900017377
+        },
+        {
+          "base_env_s": 0.2693000489998667,
+          "accumulation_refresh_s": 6.329499956336804e-05,
+          "total_env_s": 0.26936334399943007
+        },
+        {
+          "base_env_s": 0.28387476499847253,
+          "accumulation_refresh_s": 5.926300218561664e-05,
+          "total_env_s": 0.28393402800065815
+        },
+        {
+          "base_env_s": 0.27375585999834584,
+          "accumulation_refresh_s": 5.104800220578909e-05,
+          "total_env_s": 0.27380690800055163
+        },
+        {
+          "base_env_s": 0.2690019449983083,
+          "accumulation_refresh_s": 5.7979999837698415e-05,
+          "total_env_s": 0.269059924998146
+        },
+        {
+          "base_env_s": 0.2716597830003593,
+          "accumulation_refresh_s": 5.8741999964695424e-05,
+          "total_env_s": 0.271718525000324
+        },
+        {
+          "base_env_s": 0.26984132299912744,
+          "accumulation_refresh_s": 5.3141000535106286e-05,
+          "total_env_s": 0.26989446399966255
+        },
+        {
+          "base_env_s": 0.26663870600168593,
+          "accumulation_refresh_s": 6.992599810473621e-05,
+          "total_env_s": 0.26670863199979067
+        },
+        {
+          "base_env_s": 0.28142085400031647,
+          "accumulation_refresh_s": 5.077400055597536e-05,
+          "total_env_s": 0.28147162800087244
+        },
+        {
+          "base_env_s": 0.27517010100200423,
+          "accumulation_refresh_s": 5.021700053475797e-05,
+          "total_env_s": 0.275220318002539
+        },
+        {
+          "base_env_s": 0.26802663099806523,
+          "accumulation_refresh_s": 5.064899960416369e-05,
+          "total_env_s": 0.2680772799976694
+        },
+        {
+          "base_env_s": 0.2752315900033864,
+          "accumulation_refresh_s": 6.312799814622849e-05,
+          "total_env_s": 0.2752947180015326
+        },
+        {
+          "base_env_s": 0.27940414099794,
+          "accumulation_refresh_s": 4.8710000555729493e-05,
+          "total_env_s": 0.2794528509984957
+        },
+        {
+          "base_env_s": 0.2825901660035015,
+          "accumulation_refresh_s": 4.9315996875520796e-05,
+          "total_env_s": 0.28263948200037703
+        },
+        {
+          "base_env_s": 0.27387492199704866,
+          "accumulation_refresh_s": 5.3381001634988934e-05,
+          "total_env_s": 0.27392830299868365
+        },
+        {
+          "base_env_s": 0.27390198500143015,
+          "accumulation_refresh_s": 6.992899943725206e-05,
+          "total_env_s": 0.2739719140008674
+        },
+        {
+          "base_env_s": 0.28769208200174035,
+          "accumulation_refresh_s": 7.363299664575607e-05,
+          "total_env_s": 0.2877657149983861
+        },
+        {
+          "base_env_s": 0.2802303070020571,
+          "accumulation_refresh_s": 5.2700997912324965e-05,
+          "total_env_s": 0.2802830079999694
+        },
+        {
+          "base_env_s": 0.27175096099745133,
+          "accumulation_refresh_s": 5.360300201573409e-05,
+          "total_env_s": 0.27180456399946706
+        },
+        {
+          "base_env_s": 0.28043750900178566,
+          "accumulation_refresh_s": 5.627199789159931e-05,
+          "total_env_s": 0.28049378099967726
+        },
+        {
+          "base_env_s": 0.2740279230019951,
+          "accumulation_refresh_s": 5.4578998970100656e-05,
+          "total_env_s": 0.2740825020009652
+        },
+        {
+          "base_env_s": 0.2860713640002359,
+          "accumulation_refresh_s": 5.7531000493327156e-05,
+          "total_env_s": 0.28612889500072924
+        },
+        {
+          "base_env_s": 0.2720108749999781,
+          "accumulation_refresh_s": 5.221000174060464e-05,
+          "total_env_s": 0.2720630850017187
+        },
+        {
+          "base_env_s": 0.28872237899850006,
+          "accumulation_refresh_s": 5.5206000979524106e-05,
+          "total_env_s": 0.2887775849994796
+        },
+        {
+          "base_env_s": 0.27787186999921687,
+          "accumulation_refresh_s": 5.305599916027859e-05,
+          "total_env_s": 0.27792492599837715
+        },
+        {
+          "base_env_s": 0.28314224800124066,
+          "accumulation_refresh_s": 7.525799810537137e-05,
+          "total_env_s": 0.28321750599934603
+        },
+        {
+          "base_env_s": 0.28351364199988893,
+          "accumulation_refresh_s": 5.3555999329546466e-05,
+          "total_env_s": 0.2835671979992185
+        },
+        {
+          "base_env_s": 0.2737382619998243,
+          "accumulation_refresh_s": 5.3191000915830955e-05,
+          "total_env_s": 0.27379145300074015
+        },
+        {
+          "base_env_s": 0.2643644729978405,
+          "accumulation_refresh_s": 5.122400034451857e-05,
+          "total_env_s": 0.264415696998185
+        },
+        {
+          "base_env_s": 0.2631963870007894,
+          "accumulation_refresh_s": 5.3365001804195344e-05,
+          "total_env_s": 0.2632497520025936
+        },
+        {
+          "base_env_s": 0.28104204200280947,
+          "accumulation_refresh_s": 5.3417999879457057e-05,
+          "total_env_s": 0.2810954600026889
+        },
+        {
+          "base_env_s": 0.27657184400231927,
+          "accumulation_refresh_s": 5.8255998737877235e-05,
+          "total_env_s": 0.27663010000105714
+        },
+        {
+          "base_env_s": 0.2712236549996305,
+          "accumulation_refresh_s": 5.5309999879682437e-05,
+          "total_env_s": 0.2712789649995102
+        },
+        {
+          "base_env_s": 0.2658333590006805,
+          "accumulation_refresh_s": 5.271100235404447e-05,
+          "total_env_s": 0.26588607000303455
+        },
+        {
+          "base_env_s": 0.27024317199902725,
+          "accumulation_refresh_s": 4.957399869454093e-05,
+          "total_env_s": 0.2702927459977218
+        },
+        {
+          "base_env_s": 0.266841230000864,
+          "accumulation_refresh_s": 5.556199903367087e-05,
+          "total_env_s": 0.2668967919998977
+        },
+        {
+          "base_env_s": 0.27565412300100434,
+          "accumulation_refresh_s": 5.291799971018918e-05,
+          "total_env_s": 0.2757070410007145
+        },
+        {
+          "base_env_s": 0.26846553300129017,
+          "accumulation_refresh_s": 5.820400110678747e-05,
+          "total_env_s": 0.26852373700239696
+        },
+        {
+          "base_env_s": 0.2807303490008053,
+          "accumulation_refresh_s": 5.833899922436103e-05,
+          "total_env_s": 0.28078868800002965
+        },
+        {
+          "base_env_s": 0.2738267410022672,
+          "accumulation_refresh_s": 5.221999890636653e-05,
+          "total_env_s": 0.2738789610011736
+        },
+        {
+          "base_env_s": 0.2747316979985044,
+          "accumulation_refresh_s": 5.575400064117275e-05,
+          "total_env_s": 0.27478745199914556
+        },
+        {
+          "base_env_s": 0.2665937120000308,
+          "accumulation_refresh_s": 6.124300125520676e-05,
+          "total_env_s": 0.266654955001286
+        },
+        {
+          "base_env_s": 0.24219313700086786,
+          "accumulation_refresh_s": 5.500299812410958e-05,
+          "total_env_s": 0.24224813999899197
+        },
+        {
+          "base_env_s": 0.23176659799719346,
+          "accumulation_refresh_s": 6.0517002566484734e-05,
+          "total_env_s": 0.23182711499975994
+        },
+        {
+          "base_env_s": 0.2337996589994873,
+          "accumulation_refresh_s": 5.484899884322658e-05,
+          "total_env_s": 0.23385450799833052
+        },
+        {
+          "base_env_s": 0.24247354599719984,
+          "accumulation_refresh_s": 5.760500062024221e-05,
+          "total_env_s": 0.24253115099782008
+        },
+        {
+          "base_env_s": 0.26952980699934415,
+          "accumulation_refresh_s": 5.3157000365899876e-05,
+          "total_env_s": 0.26958296399971005
+        },
+        {
+          "base_env_s": 0.27281838599810726,
+          "accumulation_refresh_s": 6.579100227099843e-05,
+          "total_env_s": 0.27288417700037826
+        },
+        {
+          "base_env_s": 0.2640802399982931,
+          "accumulation_refresh_s": 5.410400262917392e-05,
+          "total_env_s": 0.2641343440009223
+        },
+        {
+          "base_env_s": 0.2547298960016633,
+          "accumulation_refresh_s": 7.270199785125442e-05,
+          "total_env_s": 0.25480259799951455
+        },
+        {
+          "base_env_s": 0.2371722370007774,
+          "accumulation_refresh_s": 5.4267002269625664e-05,
+          "total_env_s": 0.237226504003047
+        },
+        {
+          "base_env_s": 0.2468950490001589,
+          "accumulation_refresh_s": 5.919399700360373e-05,
+          "total_env_s": 0.2469542429971625
+        },
+        {
+          "base_env_s": 0.24154923699825304,
+          "accumulation_refresh_s": 5.649599916068837e-05,
+          "total_env_s": 0.24160573299741372
+        },
+        {
+          "base_env_s": 0.24158254099893384,
+          "accumulation_refresh_s": 5.208299990044907e-05,
+          "total_env_s": 0.24163462399883429
+        },
+        {
+          "base_env_s": 0.2402819079979963,
+          "accumulation_refresh_s": 5.3346000640885904e-05,
+          "total_env_s": 0.2403352539986372
+        },
+        {
+          "base_env_s": 0.2426532600002247,
+          "accumulation_refresh_s": 5.271400004858151e-05,
+          "total_env_s": 0.24270597400027327
+        },
+        {
+          "base_env_s": 0.23270970299927285,
+          "accumulation_refresh_s": 5.965400123386644e-05,
+          "total_env_s": 0.23276935700050672
+        },
+        {
+          "base_env_s": 0.24138089600091917,
+          "accumulation_refresh_s": 5.091400089440867e-05,
+          "total_env_s": 0.24143181000181357
+        },
+        {
+          "base_env_s": 0.24603672299781465,
+          "accumulation_refresh_s": 5.570299981627613e-05,
+          "total_env_s": 0.24609242599763093
+        },
+        {
+          "base_env_s": 0.2443531860008079,
+          "accumulation_refresh_s": 6.988799941609614e-05,
+          "total_env_s": 0.244423074000224
+        },
+        {
+          "base_env_s": 0.23611394600084168,
+          "accumulation_refresh_s": 5.406700074672699e-05,
+          "total_env_s": 0.2361680130015884
+        },
+        {
+          "base_env_s": 0.24254633800228476,
+          "accumulation_refresh_s": 5.5357999372063205e-05,
+          "total_env_s": 0.24260169600165682
+        },
+        {
+          "base_env_s": 0.25146527100150706,
+          "accumulation_refresh_s": 5.37329979124479e-05,
+          "total_env_s": 0.2515190039994195
+        },
+        {
+          "base_env_s": 0.23971342900040327,
+          "accumulation_refresh_s": 5.6396998843410984e-05,
+          "total_env_s": 0.23976982599924668
+        },
+        {
+          "base_env_s": 0.23579676199733512,
+          "accumulation_refresh_s": 5.5551001423737034e-05,
+          "total_env_s": 0.23585231299875886
+        },
+        {
+          "base_env_s": 0.2345141700025124,
+          "accumulation_refresh_s": 5.354399763746187e-05,
+          "total_env_s": 0.23456771400014986
+        },
+        {
+          "base_env_s": 0.24533751999842934,
+          "accumulation_refresh_s": 6.499300070572644e-05,
+          "total_env_s": 0.24540251299913507
+        },
+        {
+          "base_env_s": 0.23717968100027065,
+          "accumulation_refresh_s": 5.583500023931265e-05,
+          "total_env_s": 0.23723551600050996
+        },
+        {
+          "base_env_s": 0.2393916770015494,
+          "accumulation_refresh_s": 5.369700011215173e-05,
+          "total_env_s": 0.23944537400166155
+        },
+        {
+          "base_env_s": 0.23714677400130313,
+          "accumulation_refresh_s": 5.600900112767704e-05,
+          "total_env_s": 0.2372027830024308
+        },
+        {
+          "base_env_s": 0.24343171600048663,
+          "accumulation_refresh_s": 5.124000017531216e-05,
+          "total_env_s": 0.24348295600066194
+        },
+        {
+          "base_env_s": 0.2468157940020319,
+          "accumulation_refresh_s": 5.686899748980068e-05,
+          "total_env_s": 0.2468726629995217
+        },
+        {
+          "base_env_s": 0.24014213799819117,
+          "accumulation_refresh_s": 5.662300100084394e-05,
+          "total_env_s": 0.24019876099919202
+        },
+        {
+          "base_env_s": 0.24697039599777781,
+          "accumulation_refresh_s": 5.602300007012673e-05,
+          "total_env_s": 0.24702641899784794
+        },
+        {
+          "base_env_s": 0.24574036500052898,
+          "accumulation_refresh_s": 5.31980003870558e-05,
+          "total_env_s": 0.24579356300091604
+        },
+        {
+          "base_env_s": 0.23961171199698583,
+          "accumulation_refresh_s": 5.4904001444811e-05,
+          "total_env_s": 0.23966661599843064
+        },
+        {
+          "base_env_s": 0.2391653619997669,
+          "accumulation_refresh_s": 5.401599992183037e-05,
+          "total_env_s": 0.23921937799968873
+        },
+        {
+          "base_env_s": 0.23733643999730702,
+          "accumulation_refresh_s": 5.4545002058148384e-05,
+          "total_env_s": 0.23739098499936517
+        },
+        {
+          "base_env_s": 0.2398765940015437,
+          "accumulation_refresh_s": 6.97879986546468e-05,
+          "total_env_s": 0.23994638200019835
+        },
+        {
+          "base_env_s": 0.23572542400142993,
+          "accumulation_refresh_s": 6.196499816724099e-05,
+          "total_env_s": 0.23578738899959717
+        },
+        {
+          "base_env_s": 0.23757386099896394,
+          "accumulation_refresh_s": 5.438399966806173e-05,
+          "total_env_s": 0.237628244998632
+        },
+        {
+          "base_env_s": 0.23888115000227117,
+          "accumulation_refresh_s": 5.366999903344549e-05,
+          "total_env_s": 0.23893482000130462
+        },
+        {
+          "base_env_s": 0.23800488499909989,
+          "accumulation_refresh_s": 5.6073000450851396e-05,
+          "total_env_s": 0.23806095799955074
+        },
+        {
+          "base_env_s": 0.24269545200149878,
+          "accumulation_refresh_s": 7.105099939508364e-05,
+          "total_env_s": 0.24276650300089386
+        },
+        {
+          "base_env_s": 0.2483801729977131,
+          "accumulation_refresh_s": 5.413899998529814e-05,
+          "total_env_s": 0.2484343119976984
+        },
+        {
+          "base_env_s": 0.24548272700121743,
+          "accumulation_refresh_s": 7.511999865528196e-05,
+          "total_env_s": 0.2455578469998727
+        },
+        {
+          "base_env_s": 0.24579580399949919,
+          "accumulation_refresh_s": 5.679800233338028e-05,
+          "total_env_s": 0.24585260200183257
+        },
+        {
+          "base_env_s": 0.2432360829989193,
+          "accumulation_refresh_s": 5.824600157211535e-05,
+          "total_env_s": 0.24329432900049142
+        },
+        {
+          "base_env_s": 0.24244490700220922,
+          "accumulation_refresh_s": 5.458699888549745e-05,
+          "total_env_s": 0.24249949400109472
+        },
+        {
+          "base_env_s": 0.2441480710003816,
+          "accumulation_refresh_s": 7.161800022004172e-05,
+          "total_env_s": 0.24421968900060165
+        },
+        {
+          "base_env_s": 0.24424244400142925,
+          "accumulation_refresh_s": 5.58339997951407e-05,
+          "total_env_s": 0.2442982780012244
+        },
+        {
+          "base_env_s": 0.2437878950004233,
+          "accumulation_refresh_s": 5.487700036610477e-05,
+          "total_env_s": 0.2438427720007894
+        },
+        {
+          "base_env_s": 0.24023713399947155,
+          "accumulation_refresh_s": 5.354599852580577e-05,
+          "total_env_s": 0.24029067999799736
+        },
+        {
+          "base_env_s": 0.23214925099819084,
+          "accumulation_refresh_s": 5.3539002692559734e-05,
+          "total_env_s": 0.2322027900008834
+        },
+        {
+          "base_env_s": 0.23911615800170694,
+          "accumulation_refresh_s": 4.926999827148393e-05,
+          "total_env_s": 0.23916542799997842
+        },
+        {
+          "base_env_s": 0.23960238799918443,
+          "accumulation_refresh_s": 4.914799865218811e-05,
+          "total_env_s": 0.23965153599783662
+        },
+        {
+          "base_env_s": 0.24552352799946675,
+          "accumulation_refresh_s": 6.344199937302619e-05,
+          "total_env_s": 0.24558696999883978
+        },
+        {
+          "base_env_s": 0.23742374600260518,
+          "accumulation_refresh_s": 4.8138997954083607e-05,
+          "total_env_s": 0.23747188500055927
+        },
+        {
+          "base_env_s": 0.2382531920011388,
+          "accumulation_refresh_s": 5.030399915995076e-05,
+          "total_env_s": 0.23830349600029876
+        },
+        {
+          "base_env_s": 0.24736596699949587,
+          "accumulation_refresh_s": 7.605100108776242e-05,
+          "total_env_s": 0.24744201800058363
+        },
+        {
+          "base_env_s": 0.24673557999994955,
+          "accumulation_refresh_s": 5.165800030226819e-05,
+          "total_env_s": 0.24678723800025182
+        },
+        {
+          "base_env_s": 0.25046613999802503,
+          "accumulation_refresh_s": 5.4509000619873405e-05,
+          "total_env_s": 0.2505206489986449
+        },
+        {
+          "base_env_s": 0.25191657899995334,
+          "accumulation_refresh_s": 5.688099918188527e-05,
+          "total_env_s": 0.25197345999913523
+        },
+        {
+          "base_env_s": 0.2499150080002437,
+          "accumulation_refresh_s": 5.907699960516766e-05,
+          "total_env_s": 0.24997408499984886
+        },
+        {
+          "base_env_s": 0.24810046799757401,
+          "accumulation_refresh_s": 4.8558002163190395e-05,
+          "total_env_s": 0.2481490259997372
+        },
+        {
+          "base_env_s": 0.244470610999997,
+          "accumulation_refresh_s": 5.228700320003554e-05,
+          "total_env_s": 0.24452289800319704
+        },
+        {
+          "base_env_s": 0.24543467900002724,
+          "accumulation_refresh_s": 4.971299858880229e-05,
+          "total_env_s": 0.24548439199861605
+        },
+        {
+          "base_env_s": 0.23957540399715072,
+          "accumulation_refresh_s": 5.10320023749955e-05,
+          "total_env_s": 0.2396264359995257
+        },
+        {
+          "base_env_s": 0.24518306399841094,
+          "accumulation_refresh_s": 5.868900188943371e-05,
+          "total_env_s": 0.24524175300030038
+        },
+        {
+          "base_env_s": 0.24700644299809937,
+          "accumulation_refresh_s": 5.236899960436858e-05,
+          "total_env_s": 0.24705881199770374
+        },
+        {
+          "base_env_s": 0.24567363900132477,
+          "accumulation_refresh_s": 5.24949973623734e-05,
+          "total_env_s": 0.24572613399868715
+        },
+        {
+          "base_env_s": 0.24588960799883353,
+          "accumulation_refresh_s": 5.7527999160811305e-05,
+          "total_env_s": 0.24594713599799434
+        },
+        {
+          "base_env_s": 0.24189375399873825,
+          "accumulation_refresh_s": 5.2290000894572586e-05,
+          "total_env_s": 0.24194604399963282
+        },
+        {
+          "base_env_s": 0.2415068349982903,
+          "accumulation_refresh_s": 5.254200004856102e-05,
+          "total_env_s": 0.24155937699833885
+        },
+        {
+          "base_env_s": 0.24261836799996672,
+          "accumulation_refresh_s": 5.090500053483993e-05,
+          "total_env_s": 0.24266927300050156
+        },
+        {
+          "base_env_s": 0.26630812299845275,
+          "accumulation_refresh_s": 5.1455001084832475e-05,
+          "total_env_s": 0.2663595779995376
+        },
+        {
+          "base_env_s": 0.27208513900041,
+          "accumulation_refresh_s": 5.5775999499019235e-05,
+          "total_env_s": 0.272140914999909
+        },
+        {
+          "base_env_s": 0.27200017900031526,
+          "accumulation_refresh_s": 8.016599895199761e-05,
+          "total_env_s": 0.27208034499926725
+        },
+        {
+          "base_env_s": 0.2684137450014532,
+          "accumulation_refresh_s": 5.586800034507178e-05,
+          "total_env_s": 0.2684696130017983
+        },
+        {
+          "base_env_s": 0.2746787989999575,
+          "accumulation_refresh_s": 6.130399924586527e-05,
+          "total_env_s": 0.2747401029992034
+        },
+        {
+          "base_env_s": 0.3395601980009815,
+          "accumulation_refresh_s": 5.618299837806262e-05,
+          "total_env_s": 0.33961638099935954
+        },
+        {
+          "base_env_s": 0.2683462720015086,
+          "accumulation_refresh_s": 5.100899943499826e-05,
+          "total_env_s": 0.2683972810009436
+        },
+        {
+          "base_env_s": 0.2619075949987746,
+          "accumulation_refresh_s": 4.9696998758008704e-05,
+          "total_env_s": 0.2619572919975326
+        },
+        {
+          "base_env_s": 0.2879974380011845,
+          "accumulation_refresh_s": 5.246599903330207e-05,
+          "total_env_s": 0.2880499040002178
+        },
+        {
+          "base_env_s": 0.2710724169992318,
+          "accumulation_refresh_s": 5.1611001254059374e-05,
+          "total_env_s": 0.27112402800048585
+        },
+        {
+          "base_env_s": 0.26653323199934675,
+          "accumulation_refresh_s": 5.314399822964333e-05,
+          "total_env_s": 0.2665863759975764
+        },
+        {
+          "base_env_s": 0.2702565770014189,
+          "accumulation_refresh_s": 6.732399924658239e-05,
+          "total_env_s": 0.2703239010006655
+        },
+        {
+          "base_env_s": 0.2836673830024665,
+          "accumulation_refresh_s": 5.6656997912796214e-05,
+          "total_env_s": 0.2837240400003793
+        },
+        {
+          "base_env_s": 0.2776826629997231,
+          "accumulation_refresh_s": 5.4096002713777125e-05,
+          "total_env_s": 0.2777367590024369
+        },
+        {
+          "base_env_s": 0.28949327699956484,
+          "accumulation_refresh_s": 5.445600254461169e-05,
+          "total_env_s": 0.28954773300210945
+        },
+        {
+          "base_env_s": 0.2974248930004251,
+          "accumulation_refresh_s": 5.635500201606192e-05,
+          "total_env_s": 0.29748124800244113
+        },
+        {
+          "base_env_s": 0.27599369599920465,
+          "accumulation_refresh_s": 5.531500210054219e-05,
+          "total_env_s": 0.2760490110013052
+        },
+        {
+          "base_env_s": 0.27444630800164305,
+          "accumulation_refresh_s": 8.788500053924508e-05,
+          "total_env_s": 0.2745341930021823
+        },
+        {
+          "base_env_s": 0.2759332200002973,
+          "accumulation_refresh_s": 5.317899922374636e-05,
+          "total_env_s": 0.27598639899952104
+        },
+        {
+          "base_env_s": 0.29296063799847616,
+          "accumulation_refresh_s": 5.156599945621565e-05,
+          "total_env_s": 0.2930122039979324
+        },
+        {
+          "base_env_s": 0.2846972150000511,
+          "accumulation_refresh_s": 5.341900032362901e-05,
+          "total_env_s": 0.2847506340003747
+        },
+        {
+          "base_env_s": 0.2717031970023527,
+          "accumulation_refresh_s": 5.977399996481836e-05,
+          "total_env_s": 0.2717629710023175
+        },
+        {
+          "base_env_s": 0.25793504700050107,
+          "accumulation_refresh_s": 5.37410014658235e-05,
+          "total_env_s": 0.2579887880019669
+        },
+        {
+          "base_env_s": 0.2920144159979827,
+          "accumulation_refresh_s": 5.5272001191042364e-05,
+          "total_env_s": 0.29206968799917377
+        },
+        {
+          "base_env_s": 0.30550854800094385,
+          "accumulation_refresh_s": 5.353199958335608e-05,
+          "total_env_s": 0.3055620800005272
+        },
+        {
+          "base_env_s": 0.2981784059993515,
+          "accumulation_refresh_s": 5.4026000725571066e-05,
+          "total_env_s": 0.2982324320000771
+        },
+        {
+          "base_env_s": 0.3062876399999368,
+          "accumulation_refresh_s": 5.1333001465536654e-05,
+          "total_env_s": 0.30633897300140234
+        },
+        {
+          "base_env_s": 0.29011602600076003,
+          "accumulation_refresh_s": 5.275799776427448e-05,
+          "total_env_s": 0.2901687839985243
+        },
+        {
+          "base_env_s": 0.27783226600149646,
+          "accumulation_refresh_s": 5.387399869505316e-05,
+          "total_env_s": 0.2778861400001915
+        },
+        {
+          "base_env_s": 0.2827540879989101,
+          "accumulation_refresh_s": 5.6696000683587044e-05,
+          "total_env_s": 0.2828107839995937
+        },
+        {
+          "base_env_s": 0.39024729399898206,
+          "accumulation_refresh_s": 6.64549988869112e-05,
+          "total_env_s": 0.39031374899786897
+        }
+      ]
+    },
+    "pathtracing-3": {
+      "extra_render_updates_per_observation": 3,
+      "settings": {
+        "/rtx/rendermode": "PathTracing",
+        "/rtx/post/aa/op": 3,
+        "/rtx-transient/dldenoiser/enabled": false,
+        "/rtx-transient/dlssg/enabled": false,
+        "/rtx/pathtracing/spp": 64,
+        "/rtx/pathtracing/totalSpp": 256,
+        "/rtx/pathtracing/optixDenoiser/enabled": true
+      },
+      "episode_wall_including_resets_and_video_s": 531.7474075999999,
+      "robolab_timing": {
+        "policy_inference_s": 2.747,
+        "policy_inference_avg_ms": 22.7,
+        "env_step_s": 520.201,
+        "env_step_avg_ms": 4299.2,
+        "video_write_s": 2.23,
+        "video_write_avg_ms": 18.4,
+        "wall_total_s": 525.178,
+        "it_per_sec": 0.23
+      },
+      "results": [
+        {
+          "env_id": 0,
+          "success": true,
+          "step": 121,
+          "instruction_fields": [
+            "default",
+            "vague",
+            "specific"
+          ],
+          "instruction_fields_used": [
+            "default"
+          ]
+        }
+      ],
+      "steps": 121,
+      "simulated_s": 8.066666666666666,
+      "step_timings": [
+        {
+          "base_env_s": 2.195938313001534,
+          "accumulation_refresh_s": 2.0035322369985806,
+          "total_env_s": 4.199470550000115
+        },
+        {
+          "base_env_s": 2.2227806000009878,
+          "accumulation_refresh_s": 2.007262257000548,
+          "total_env_s": 4.230042857001536
+        },
+        {
+          "base_env_s": 2.1966396419993544,
+          "accumulation_refresh_s": 2.0132331810018513,
+          "total_env_s": 4.209872823001206
+        },
+        {
+          "base_env_s": 2.2002514640007576,
+          "accumulation_refresh_s": 2.0140899489997537,
+          "total_env_s": 4.214341413000511
+        },
+        {
+          "base_env_s": 2.220889096999599,
+          "accumulation_refresh_s": 2.0143994450008904,
+          "total_env_s": 4.2352885420004895
+        },
+        {
+          "base_env_s": 2.200925951001409,
+          "accumulation_refresh_s": 2.020984609000152,
+          "total_env_s": 4.221910560001561
+        },
+        {
+          "base_env_s": 2.2046562260002247,
+          "accumulation_refresh_s": 2.0205052899982547,
+          "total_env_s": 4.2251615159984794
+        },
+        {
+          "base_env_s": 2.2055629070018767,
+          "accumulation_refresh_s": 2.0162534559967753,
+          "total_env_s": 4.221816362998652
+        },
+        {
+          "base_env_s": 2.216516413998761,
+          "accumulation_refresh_s": 2.01794187500127,
+          "total_env_s": 4.234458289000031
+        },
+        {
+          "base_env_s": 2.2040106690001267,
+          "accumulation_refresh_s": 2.0150795330009714,
+          "total_env_s": 4.219090202001098
+        },
+        {
+          "base_env_s": 2.2037654380001186,
+          "accumulation_refresh_s": 2.017171021998365,
+          "total_env_s": 4.220936459998484
+        },
+        {
+          "base_env_s": 2.2116375460027484,
+          "accumulation_refresh_s": 2.01603740399878,
+          "total_env_s": 4.2276749500015285
+        },
+        {
+          "base_env_s": 2.2033243280020542,
+          "accumulation_refresh_s": 2.0163033709977753,
+          "total_env_s": 4.21962769899983
+        },
+        {
+          "base_env_s": 2.2101484199993138,
+          "accumulation_refresh_s": 2.0197249410011864,
+          "total_env_s": 4.2298733610005
+        },
+        {
+          "base_env_s": 2.2074795849985094,
+          "accumulation_refresh_s": 2.027166379000846,
+          "total_env_s": 4.2346459639993554
+        },
+        {
+          "base_env_s": 2.205514665998635,
+          "accumulation_refresh_s": 2.0222293469996657,
+          "total_env_s": 4.227744012998301
+        },
+        {
+          "base_env_s": 2.2154878359979193,
+          "accumulation_refresh_s": 2.0291699030021846,
+          "total_env_s": 4.244657739000104
+        },
+        {
+          "base_env_s": 2.21092963800038,
+          "accumulation_refresh_s": 2.0384218489998602,
+          "total_env_s": 4.24935148700024
+        },
+        {
+          "base_env_s": 2.2093970149981033,
+          "accumulation_refresh_s": 2.0204653149994556,
+          "total_env_s": 4.229862329997559
+        },
+        {
+          "base_env_s": 2.2274610590029624,
+          "accumulation_refresh_s": 2.0212684009966324,
+          "total_env_s": 4.248729459999595
+        },
+        {
+          "base_env_s": 2.2148619150029845,
+          "accumulation_refresh_s": 2.0276195559999906,
+          "total_env_s": 4.242481471002975
+        },
+        {
+          "base_env_s": 2.217131220997544,
+          "accumulation_refresh_s": 2.021160389002034,
+          "total_env_s": 4.238291609999578
+        },
+        {
+          "base_env_s": 2.216810516998521,
+          "accumulation_refresh_s": 2.0319881800023722,
+          "total_env_s": 4.248798697000893
+        },
+        {
+          "base_env_s": 2.240127327000664,
+          "accumulation_refresh_s": 2.0311882579990197,
+          "total_env_s": 4.271315584999684
+        },
+        {
+          "base_env_s": 2.2149916650014347,
+          "accumulation_refresh_s": 2.0274932089996582,
+          "total_env_s": 4.242484874001093
+        },
+        {
+          "base_env_s": 2.2262744520012347,
+          "accumulation_refresh_s": 2.0287714969999797,
+          "total_env_s": 4.2550459490012145
+        },
+        {
+          "base_env_s": 2.228714051998395,
+          "accumulation_refresh_s": 2.0334932430014305,
+          "total_env_s": 4.2622072949998255
+        },
+        {
+          "base_env_s": 2.221440935998544,
+          "accumulation_refresh_s": 2.03297539200139,
+          "total_env_s": 4.254416327999934
+        },
+        {
+          "base_env_s": 2.2248396499999217,
+          "accumulation_refresh_s": 2.0331000680016587,
+          "total_env_s": 4.25793971800158
+        },
+        {
+          "base_env_s": 2.2159707579994574,
+          "accumulation_refresh_s": 2.0320761160000984,
+          "total_env_s": 4.248046873999556
+        },
+        {
+          "base_env_s": 2.222371687999839,
+          "accumulation_refresh_s": 2.0381451180001022,
+          "total_env_s": 4.260516805999941
+        },
+        {
+          "base_env_s": 2.220492214000842,
+          "accumulation_refresh_s": 2.034646434000024,
+          "total_env_s": 4.255138648000866
+        },
+        {
+          "base_env_s": 2.224552178002341,
+          "accumulation_refresh_s": 2.0382311079993087,
+          "total_env_s": 4.26278328600165
+        },
+        {
+          "base_env_s": 2.225495675000275,
+          "accumulation_refresh_s": 2.0352571990006254,
+          "total_env_s": 4.2607528740009
+        },
+        {
+          "base_env_s": 2.229205675997946,
+          "accumulation_refresh_s": 2.0401151410005696,
+          "total_env_s": 4.2693208169985155
+        },
+        {
+          "base_env_s": 2.2231979349999165,
+          "accumulation_refresh_s": 2.033318634999887,
+          "total_env_s": 4.256516569999803
+        },
+        {
+          "base_env_s": 2.2328185469996242,
+          "accumulation_refresh_s": 2.0363123520000954,
+          "total_env_s": 4.26913089899972
+        },
+        {
+          "base_env_s": 2.2216626349982107,
+          "accumulation_refresh_s": 2.036568496001564,
+          "total_env_s": 4.258231130999775
+        },
+        {
+          "base_env_s": 2.22142673900089,
+          "accumulation_refresh_s": 2.037474475997442,
+          "total_env_s": 4.258901214998332
+        },
+        {
+          "base_env_s": 2.229065013998479,
+          "accumulation_refresh_s": 2.038073447998613,
+          "total_env_s": 4.267138461997092
+        },
+        {
+          "base_env_s": 2.223914424001123,
+          "accumulation_refresh_s": 2.0396900189989537,
+          "total_env_s": 4.263604443000077
+        },
+        {
+          "base_env_s": 2.2326319310013787,
+          "accumulation_refresh_s": 2.0393902540017734,
+          "total_env_s": 4.272022185003152
+        },
+        {
+          "base_env_s": 2.229476260003139,
+          "accumulation_refresh_s": 2.0428724299999885,
+          "total_env_s": 4.272348690003128
+        },
+        {
+          "base_env_s": 2.236792781997792,
+          "accumulation_refresh_s": 2.0429017240021494,
+          "total_env_s": 4.279694505999942
+        },
+        {
+          "base_env_s": 2.2312172380006814,
+          "accumulation_refresh_s": 2.048160338999878,
+          "total_env_s": 4.2793775770005595
+        },
+        {
+          "base_env_s": 2.240041081997333,
+          "accumulation_refresh_s": 2.0452528440000606,
+          "total_env_s": 4.285293925997394
+        },
+        {
+          "base_env_s": 2.245191820002219,
+          "accumulation_refresh_s": 2.052093865997449,
+          "total_env_s": 4.297285685999668
+        },
+        {
+          "base_env_s": 2.2459215279995988,
+          "accumulation_refresh_s": 2.06167070200172,
+          "total_env_s": 4.307592230001319
+        },
+        {
+          "base_env_s": 2.253708453998115,
+          "accumulation_refresh_s": 2.0624739860031696,
+          "total_env_s": 4.316182440001285
+        },
+        {
+          "base_env_s": 2.2735161919990787,
+          "accumulation_refresh_s": 2.065945037000347,
+          "total_env_s": 4.339461228999426
+        },
+        {
+          "base_env_s": 2.269463160999294,
+          "accumulation_refresh_s": 2.0708261409999977,
+          "total_env_s": 4.340289301999292
+        },
+        {
+          "base_env_s": 2.2716375590025564,
+          "accumulation_refresh_s": 2.0678106429986656,
+          "total_env_s": 4.339448202001222
+        },
+        {
+          "base_env_s": 2.264690227999381,
+          "accumulation_refresh_s": 2.0773520190014096,
+          "total_env_s": 4.342042247000791
+        },
+        {
+          "base_env_s": 2.2661025970010087,
+          "accumulation_refresh_s": 2.07558339499883,
+          "total_env_s": 4.341685991999839
+        },
+        {
+          "base_env_s": 2.262170302998129,
+          "accumulation_refresh_s": 2.076401996000641,
+          "total_env_s": 4.33857229899877
+        },
+        {
+          "base_env_s": 2.2698372429986193,
+          "accumulation_refresh_s": 2.082684875000268,
+          "total_env_s": 4.3525221179988876
+        },
+        {
+          "base_env_s": 2.2698867619983503,
+          "accumulation_refresh_s": 2.086972647000948,
+          "total_env_s": 4.3568594089992985
+        },
+        {
+          "base_env_s": 2.275231024999812,
+          "accumulation_refresh_s": 2.087454437998531,
+          "total_env_s": 4.362685462998343
+        },
+        {
+          "base_env_s": 2.273927558999276,
+          "accumulation_refresh_s": 2.092213986998104,
+          "total_env_s": 4.36614154599738
+        },
+        {
+          "base_env_s": 2.278319692999503,
+          "accumulation_refresh_s": 2.0945719179981097,
+          "total_env_s": 4.372891610997613
+        },
+        {
+          "base_env_s": 2.297984959997848,
+          "accumulation_refresh_s": 2.0940865270022186,
+          "total_env_s": 4.3920714870000666
+        },
+        {
+          "base_env_s": 2.2791929520026315,
+          "accumulation_refresh_s": 2.1026816140001756,
+          "total_env_s": 4.381874566002807
+        },
+        {
+          "base_env_s": 2.306113992999599,
+          "accumulation_refresh_s": 2.1025781460011785,
+          "total_env_s": 4.408692139000777
+        },
+        {
+          "base_env_s": 2.2921991990006063,
+          "accumulation_refresh_s": 2.100880103997042,
+          "total_env_s": 4.3930793029976485
+        },
+        {
+          "base_env_s": 2.3042741550016217,
+          "accumulation_refresh_s": 2.1016279959985695,
+          "total_env_s": 4.405902151000191
+        },
+        {
+          "base_env_s": 2.2918386749988713,
+          "accumulation_refresh_s": 2.1063000639987877,
+          "total_env_s": 4.398138738997659
+        },
+        {
+          "base_env_s": 2.291109709000011,
+          "accumulation_refresh_s": 2.1049783669986937,
+          "total_env_s": 4.396088075998705
+        },
+        {
+          "base_env_s": 2.3115625680002267,
+          "accumulation_refresh_s": 2.106735896999453,
+          "total_env_s": 4.41829846499968
+        },
+        {
+          "base_env_s": 2.3065162080019945,
+          "accumulation_refresh_s": 2.1055546719981066,
+          "total_env_s": 4.412070880000101
+        },
+        {
+          "base_env_s": 2.307574927999667,
+          "accumulation_refresh_s": 2.10734850299923,
+          "total_env_s": 4.414923430998897
+        },
+        {
+          "base_env_s": 2.334166076998372,
+          "accumulation_refresh_s": 2.105915077998361,
+          "total_env_s": 4.440081154996733
+        },
+        {
+          "base_env_s": 2.3831117340014316,
+          "accumulation_refresh_s": 2.116120922000846,
+          "total_env_s": 4.4992326560022775
+        },
+        {
+          "base_env_s": 2.3148749520005367,
+          "accumulation_refresh_s": 2.1033598750000237,
+          "total_env_s": 4.4182348270005605
+        },
+        {
+          "base_env_s": 2.3175319930014666,
+          "accumulation_refresh_s": 2.1096808519978367,
+          "total_env_s": 4.427212844999303
+        },
+        {
+          "base_env_s": 2.3142045239983418,
+          "accumulation_refresh_s": 2.1068503450005664,
+          "total_env_s": 4.421054868998908
+        },
+        {
+          "base_env_s": 2.3131171290006023,
+          "accumulation_refresh_s": 2.103719369999453,
+          "total_env_s": 4.4168364990000555
+        },
+        {
+          "base_env_s": 2.3131494970002677,
+          "accumulation_refresh_s": 2.103469331999804,
+          "total_env_s": 4.416618829000072
+        },
+        {
+          "base_env_s": 2.331773408001027,
+          "accumulation_refresh_s": 2.100245757999801,
+          "total_env_s": 4.432019166000828
+        },
+        {
+          "base_env_s": 2.3241602149973914,
+          "accumulation_refresh_s": 2.101221147000615,
+          "total_env_s": 4.4253813619980065
+        },
+        {
+          "base_env_s": 2.321488629000669,
+          "accumulation_refresh_s": 2.0985816799984605,
+          "total_env_s": 4.420070308999129
+        },
+        {
+          "base_env_s": 2.3262721819992294,
+          "accumulation_refresh_s": 2.0957111079987953,
+          "total_env_s": 4.421983289998025
+        },
+        {
+          "base_env_s": 2.3217903939985263,
+          "accumulation_refresh_s": 2.125119453001389,
+          "total_env_s": 4.446909846999915
+        },
+        {
+          "base_env_s": 2.316555134999362,
+          "accumulation_refresh_s": 2.0925400179985445,
+          "total_env_s": 4.4090951529979066
+        },
+        {
+          "base_env_s": 2.320661932000803,
+          "accumulation_refresh_s": 2.0935511110001244,
+          "total_env_s": 4.414213043000927
+        },
+        {
+          "base_env_s": 2.309766064998257,
+          "accumulation_refresh_s": 2.0816445810014557,
+          "total_env_s": 4.391410645999713
+        },
+        {
+          "base_env_s": 2.3294509180013847,
+          "accumulation_refresh_s": 2.0793664310003805,
+          "total_env_s": 4.408817349001765
+        },
+        {
+          "base_env_s": 2.305895645000419,
+          "accumulation_refresh_s": 2.0746304280000913,
+          "total_env_s": 4.38052607300051
+        },
+        {
+          "base_env_s": 2.301442282001517,
+          "accumulation_refresh_s": 2.0725515390004148,
+          "total_env_s": 4.373993821001932
+        },
+        {
+          "base_env_s": 2.3132092769992596,
+          "accumulation_refresh_s": 2.0650041330009117,
+          "total_env_s": 4.378213410000171
+        },
+        {
+          "base_env_s": 2.313232421001885,
+          "accumulation_refresh_s": 2.0623207339995133,
+          "total_env_s": 4.375553155001398
+        },
+        {
+          "base_env_s": 2.277201831999264,
+          "accumulation_refresh_s": 2.0592828709995956,
+          "total_env_s": 4.33648470299886
+        },
+        {
+          "base_env_s": 2.2908698549981636,
+          "accumulation_refresh_s": 2.0456043680023868,
+          "total_env_s": 4.33647422300055
+        },
+        {
+          "base_env_s": 2.2612602679982956,
+          "accumulation_refresh_s": 2.0344249910012877,
+          "total_env_s": 4.295685258999583
+        },
+        {
+          "base_env_s": 2.2785105540024233,
+          "accumulation_refresh_s": 2.0234405970004445,
+          "total_env_s": 4.301951151002868
+        },
+        {
+          "base_env_s": 2.2428337199999078,
+          "accumulation_refresh_s": 2.0219472219978343,
+          "total_env_s": 4.264780941997742
+        },
+        {
+          "base_env_s": 2.2512717289973807,
+          "accumulation_refresh_s": 2.0153366700033075,
+          "total_env_s": 4.266608399000688
+        },
+        {
+          "base_env_s": 2.2358184889999393,
+          "accumulation_refresh_s": 2.016732119998778,
+          "total_env_s": 4.2525506089987175
+        },
+        {
+          "base_env_s": 2.2546909779994166,
+          "accumulation_refresh_s": 2.011220937001781,
+          "total_env_s": 4.2659119150011975
+        },
+        {
+          "base_env_s": 2.254949486999976,
+          "accumulation_refresh_s": 2.009741452999151,
+          "total_env_s": 4.264690939999127
+        },
+        {
+          "base_env_s": 2.242242876000091,
+          "accumulation_refresh_s": 2.0110621729982086,
+          "total_env_s": 4.2533050489983
+        },
+        {
+          "base_env_s": 2.245357381998474,
+          "accumulation_refresh_s": 2.0107877390000795,
+          "total_env_s": 4.2561451209985535
+        },
+        {
+          "base_env_s": 2.253306013997644,
+          "accumulation_refresh_s": 2.0101420620012505,
+          "total_env_s": 4.263448075998895
+        },
+        {
+          "base_env_s": 2.2396750709995104,
+          "accumulation_refresh_s": 2.006456047998654,
+          "total_env_s": 4.246131118998164
+        },
+        {
+          "base_env_s": 2.230029870999715,
+          "accumulation_refresh_s": 2.00234413599901,
+          "total_env_s": 4.232374006998725
+        },
+        {
+          "base_env_s": 2.2282850019983016,
+          "accumulation_refresh_s": 2.068063415001234,
+          "total_env_s": 4.296348416999535
+        },
+        {
+          "base_env_s": 2.230028289999609,
+          "accumulation_refresh_s": 2.006303801001195,
+          "total_env_s": 4.236332091000804
+        },
+        {
+          "base_env_s": 2.24705491700297,
+          "accumulation_refresh_s": 2.007355493999057,
+          "total_env_s": 4.254410411002027
+        },
+        {
+          "base_env_s": 2.237771682001039,
+          "accumulation_refresh_s": 2.0048705369990785,
+          "total_env_s": 4.242642219000118
+        },
+        {
+          "base_env_s": 2.24689716300054,
+          "accumulation_refresh_s": 2.000995663998765,
+          "total_env_s": 4.247892826999305
+        },
+        {
+          "base_env_s": 2.245357588999468,
+          "accumulation_refresh_s": 1.9964721010001085,
+          "total_env_s": 4.241829689999577
+        },
+        {
+          "base_env_s": 2.2199308990020654,
+          "accumulation_refresh_s": 1.9943464269999822,
+          "total_env_s": 4.214277326002048
+        },
+        {
+          "base_env_s": 2.213345965999906,
+          "accumulation_refresh_s": 1.9885545639990596,
+          "total_env_s": 4.201900529998966
+        },
+        {
+          "base_env_s": 2.2036154140005237,
+          "accumulation_refresh_s": 1.984164122997754,
+          "total_env_s": 4.187779536998278
+        },
+        {
+          "base_env_s": 2.20687597199867,
+          "accumulation_refresh_s": 1.9862992620001023,
+          "total_env_s": 4.1931752339987725
+        },
+        {
+          "base_env_s": 2.2032747570010542,
+          "accumulation_refresh_s": 1.971667758996773,
+          "total_env_s": 4.174942515997827
+        },
+        {
+          "base_env_s": 2.192477880998922,
+          "accumulation_refresh_s": 1.9681952569990244,
+          "total_env_s": 4.1606731379979465
+        },
+        {
+          "base_env_s": 2.199821938000241,
+          "accumulation_refresh_s": 1.9658539550000569,
+          "total_env_s": 4.165675893000298
+        },
+        {
+          "base_env_s": 2.185882898997079,
+          "accumulation_refresh_s": 1.959627233001811,
+          "total_env_s": 4.14551013199889
+        },
+        {
+          "base_env_s": 2.1967326710000634,
+          "accumulation_refresh_s": 1.959121027000947,
+          "total_env_s": 4.15585369800101
+        },
+        {
+          "base_env_s": 2.215085405998252,
+          "accumulation_refresh_s": 1.96234074899985,
+          "total_env_s": 4.177426154998102
+        },
+        {
+          "base_env_s": 2.2286436760005017,
+          "accumulation_refresh_s": 1.9670175110004493,
+          "total_env_s": 4.195661187000951
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "One closed-loop rollout per profile; actions can differ with images.",
+    "Post-step diagnostic refresh is not a dataset recorder integration."
+  ],
+  "policy_warmup_s": 49.92901483600144
+}

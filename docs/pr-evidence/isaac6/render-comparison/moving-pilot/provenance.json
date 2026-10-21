@@ -1,0 +1,13 @@
+{
+  "job_id": 4121162,
+  "job_cancelled_after_completed_profiles": true,
+  "profiles_completed": [
+    "realtime",
+    "pathtracing-3"
+  ],
+  "pathtracing_3_success": true,
+  "pathtracing_3_steps": 121,
+  "pathtracing_3_episode_wall_s": 531.7474075999999,
+  "purpose": "Longer motion pilot. The subsequent equal-length segments provide the fixed-length timing comparison. Single rollouts do not establish success rates.",
+  "source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c"
+}

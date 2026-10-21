@@ -10,5 +10,12 @@
   "matching": "Probe asserted object poses unchanged across render-only updates and both renderers; same seed 0, scene, original materials, lighting, and cameras.",
   "pathtracing_actual_aa_setting": 3,
   "pathtracing_optix_denoiser": true,
-  "limitations": "Archived Isaac 5 reference and accepted PR video frame are not matched camera/reset baselines; static accumulation does not demonstrate moving policy-camera quality or observation latency for path tracing."
+  "limitations": "Archived Isaac 5 reference and accepted PR video frame are not matched camera/reset baselines; static accumulation does not demonstrate moving policy-camera quality or observation latency for path tracing.",
+  "moving_review": {
+    "job_id": 4121162,
+    "pass": true,
+    "inspected": "All nine native first-control-step report/external/wrist frames; additional report/external/wrist frames at step 120 of the successful 3-update path-traced rollout.",
+    "findings": "Original room, robot and object textures visible; no blank views, missing geometry, or visible ray speckle in inspected frames. Path tracing changes shadows/reflections.",
+    "limitations": "16-update mode has first-step images and 26-step pre-cancellation throughput only; no completed task outcome or full temporal-artifact review for that mode."
+  }
 }

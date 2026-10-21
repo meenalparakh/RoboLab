@@ -1,0 +1,103 @@
+{
+  "job_id": 4121162,
+  "rows": [
+    {
+      "profile": "realtime",
+      "steps": 300,
+      "complete_episode": true,
+      "env_render_ms": 275.95409636667074,
+      "accumulation_refresh_ms": 0.05825042672465012,
+      "loop_s_per_step": 0.31331,
+      "timed_loop_s": 93.993,
+      "episode_including_resets_s": 95.3672788799995,
+      "results": [
+        {
+          "env_id": 0,
+          "success": false,
+          "step": 300,
+          "instruction_fields": [
+            "default",
+            "vague",
+            "specific"
+          ],
+          "instruction_fields_used": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "pathtracing-3",
+      "steps": 121,
+      "complete_episode": true,
+      "env_render_ms": 4295.68170944612,
+      "accumulation_refresh_ms": 2044.1794990908143,
+      "loop_s_per_step": 4.340314049586777,
+      "timed_loop_s": 525.178,
+      "episode_including_resets_s": 531.7474075999999,
+      "results": [
+        {
+          "env_id": 0,
+          "success": true,
+          "step": 121,
+          "instruction_fields": [
+            "default",
+            "vague",
+            "specific"
+          ],
+          "instruction_fields_used": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "pathtracing-16",
+      "steps": 26,
+      "complete_episode": false,
+      "env_render_ms": null,
+      "accumulation_refresh_ms": null,
+      "loop_s_per_step": 4.346153846153846,
+      "timed_loop_s": 113,
+      "measurement": "Approximate loop throughput from tqdm cumulative elapsed seconds, before cancellation. Per-step component timings and full-task outcome were not exported.",
+      "progress": [
+        "0/300 [00:00]",
+        "1/300 [00:05]",
+        "2/300 [00:09]",
+        "3/300 [00:14]",
+        "4/300 [00:18]",
+        "5/300 [00:22]",
+        "6/300 [00:27]",
+        "7/300 [00:31]",
+        "8/300 [00:35]",
+        "9/300 [00:39]",
+        "10/300 [00:44]",
+        "11/300 [00:48]",
+        "12/300 [00:52]",
+        "13/300 [00:57]",
+        "14/300 [01:01]",
+        "15/300 [01:05]",
+        "16/300 [01:10]",
+        "17/300 [01:14]",
+        "18/300 [01:18]",
+        "19/300 [01:22]",
+        "20/300 [01:27]",
+        "21/300 [01:31]",
+        "22/300 [01:35]",
+        "23/300 [01:40]",
+        "24/300 [01:44]",
+        "25/300 [01:48]",
+        "26/300 [01:53]"
+      ]
+    }
+  ],
+  "policy_warmup_excluded_s": 49.92901483600144,
+  "method": "One simulator and warmed pi0.5 server, L40, original materials/cameras, seed 0. Realtime and 3-update episodes completed; 16-update result is a partial pre-cancellation motion segment.",
+  "timing_scope": "Loop includes policy inference, environment/physics/rendering/RGB refresh, and video writes. Simulator startup, policy warmup, and resets are excluded. Environment/render and additional accumulation/refresh are separately measured for completed profiles.",
+  "limitations": [
+    "Single closed-loop trajectories can differ; these are throughput measurements, not comparative success rates.",
+    "16-update timing has one-second cumulative clock precision and no complete episode outcome.",
+    "Archived Isaac 5 reference has no measured timing.",
+    "Configured sample counts do not prove per-camera sample convergence."
+  ]
+}

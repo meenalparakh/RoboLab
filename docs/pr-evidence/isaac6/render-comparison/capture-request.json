@@ -5,7 +5,7 @@
   "source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c",
   "task": "BananasInBinOneMoreTask",
   "seed": 0,
-  "image": "/n/fs/pvl-vlaft/behavioral-ft/images/robolab-verified-isaac60.sif",
+  "image": "robolab-verified-isaac60.sif",
   "profiles": [
     "realtime",
     "pathtracing"
