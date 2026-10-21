@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "job_id": 31933408,
+  "scope": "Native report/external/wrist frames for both tasks, including intermediate and final views; report videos have verified dimensions and frame counts.",
+  "selected_frames": {
+    "RubiksCubeTask": "final (control step 137)",
+    "PickDrillTask": "0180"
+  },
+  "findings": "Original room/floor/wood textures, robot and gripper materials, colored cube faces, bowl glaze, drill body and printed labels, and cup patterns remain visible. No blank views, missing meshes or visible ray speckle in inspected native images.",
+  "outcomes": {
+    "RubiksCubeTask": "success after 137 steps",
+    "PickDrillTask": "not solved within the original 600-step / 40-second episode limit"
+  },
+  "limitations": "Single example episodes demonstrate rendering/execution; they do not measure success rates or prove parity with Isaac 5. No renderer comparison is included."
+}

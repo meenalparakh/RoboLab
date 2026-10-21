@@ -1,0 +1,237 @@
+{
+  "task": "RubiksCubeTask",
+  "label": "Cube into bowl",
+  "steps": 137,
+  "results": [
+    {
+      "env_id": 0,
+      "success": true,
+      "step": 137,
+      "instruction_fields": [
+        "default",
+        "vague",
+        "specific"
+      ],
+      "instruction_fields_used": [
+        "default"
+      ]
+    }
+  ],
+  "timing": {
+    "policy_inference_s": 67.989,
+    "policy_inference_avg_ms": 496.3,
+    "env_step_s": 31.681,
+    "env_step_avg_ms": 231.2,
+    "video_write_s": 2.413,
+    "video_write_avg_ms": 17.6,
+    "wall_total_s": 102.083,
+    "it_per_sec": 1.34
+  },
+  "selected_control_step": "final",
+  "profile_sha256": "6481f31931e02e2c2c4dfe688f04d8b78be63a54b380db83ded7366adfa52245",
+  "effective_settings": {
+    "/renderer/multiGpu/enabled": false,
+    "/renderer/activeGpu": 0,
+    "/rtx/rendermode": "RealTimePathTracing",
+    "/rtx/post/aa/op": 4,
+    "/rtx-transient/dlssg/enabled": false,
+    "/rtx-transient/dldenoiser/enabled": true,
+    "/persistent/rtx/modes/rt/enabled": false,
+    "/persistent/rtx/modes/rt2/enabled": true,
+    "/persistent/rtx/modes/pt/enabled": true
+  },
+  "camera_configs": {
+    "table_front_camera": {
+      "class_type": "isaaclab.sensors.camera.tiled_camera:TiledCamera",
+      "prim_path": "/World/envs/env_.*/table_front_camera",
+      "update_period": 0.0,
+      "debug_vis": false,
+      "offset": {
+        "pos": [
+          1.5,
+          0.0,
+          1.0
+        ],
+        "rot": [
+          0.312366,
+          0.312366,
+          0.634372,
+          0.634372
+        ],
+        "convention": "opengl"
+      },
+      "spawn": {
+        "func": "isaaclab.sim.spawners.sensors.sensors:spawn_camera",
+        "visible": true,
+        "semantic_tags": null,
+        "copy_from_source": true,
+        "spawn_path": "/World/envs/env_0/table_front_camera",
+        "projection_type": "pinhole",
+        "clipping_range": [
+          0.01,
+          1000000.0
+        ],
+        "focal_length": 24.0,
+        "focus_distance": 400.0,
+        "f_stop": 0.0,
+        "horizontal_aperture": 20.955,
+        "vertical_aperture": 15.29,
+        "horizontal_aperture_offset": 0.0,
+        "vertical_aperture_offset": 0.0,
+        "lock_camera": true
+      },
+      "depth_clipping_behavior": "none",
+      "data_types": [
+        "rgb"
+      ],
+      "width": 1280,
+      "height": 720,
+      "update_latest_camera_pose": false,
+      "semantic_filter": "*:*",
+      "colorize_semantic_segmentation": true,
+      "colorize_instance_id_segmentation": true,
+      "colorize_instance_segmentation": true,
+      "semantic_segmentation_mapping": {},
+      "renderer_cfg": {
+        "renderer_type": "isaac_rtx",
+        "semantic_filter": "*:*",
+        "colorize_semantic_segmentation": true,
+        "colorize_instance_id_segmentation": true,
+        "colorize_instance_segmentation": true,
+        "semantic_segmentation_mapping": {},
+        "depth_clipping_behavior": "none"
+      },
+      "isp_cfg": null
+    },
+    "over_shoulder_left_camera": {
+      "class_type": "isaaclab.sensors.camera.tiled_camera:TiledCamera",
+      "prim_path": "/World/envs/env_.*/over_shoulder_left_camera",
+      "update_period": 0.0,
+      "debug_vis": false,
+      "offset": {
+        "pos": [
+          0.05,
+          0.57,
+          0.66
+        ],
+        "rot": [
+          -0.195,
+          0.399,
+          0.805,
+          -0.393
+        ],
+        "convention": "opengl"
+      },
+      "spawn": {
+        "func": "isaaclab.sim.spawners.sensors.sensors:spawn_camera",
+        "visible": true,
+        "semantic_tags": null,
+        "copy_from_source": true,
+        "spawn_path": "/World/envs/env_0/over_shoulder_left_camera",
+        "projection_type": "pinhole",
+        "clipping_range": [
+          0.01,
+          1000000.0
+        ],
+        "focal_length": 2.1,
+        "focus_distance": 28.0,
+        "f_stop": 0.0,
+        "horizontal_aperture": 5.376,
+        "vertical_aperture": 3.024,
+        "horizontal_aperture_offset": 0.0,
+        "vertical_aperture_offset": 0.0,
+        "lock_camera": true
+      },
+      "depth_clipping_behavior": "none",
+      "data_types": [
+        "rgb"
+      ],
+      "width": 1280,
+      "height": 720,
+      "update_latest_camera_pose": false,
+      "semantic_filter": "*:*",
+      "colorize_semantic_segmentation": true,
+      "colorize_instance_id_segmentation": true,
+      "colorize_instance_segmentation": true,
+      "semantic_segmentation_mapping": {},
+      "renderer_cfg": {
+        "renderer_type": "isaac_rtx",
+        "semantic_filter": "*:*",
+        "colorize_semantic_segmentation": true,
+        "colorize_instance_id_segmentation": true,
+        "colorize_instance_segmentation": true,
+        "semantic_segmentation_mapping": {},
+        "depth_clipping_behavior": "none"
+      },
+      "isp_cfg": null
+    },
+    "wrist_cam": {
+      "class_type": "isaaclab.sensors.camera.tiled_camera:TiledCamera",
+      "prim_path": "/World/envs/env_.*/robot/Gripper/Robotiq_2F_85/base_link/wrist_cam",
+      "update_period": 0.0,
+      "debug_vis": false,
+      "offset": {
+        "pos": [
+          0.011,
+          -0.031,
+          -0.074
+        ],
+        "rot": [
+          0.57,
+          0.576,
+          -0.409,
+          -0.42
+        ],
+        "convention": "opengl"
+      },
+      "spawn": {
+        "func": "isaaclab.sim.spawners.sensors.sensors:spawn_camera",
+        "visible": true,
+        "semantic_tags": null,
+        "copy_from_source": true,
+        "spawn_path": "/World/envs/env_0/robot/Gripper/Robotiq_2F_85/base_link/wrist_cam",
+        "projection_type": "pinhole",
+        "clipping_range": [
+          0.01,
+          1000000.0
+        ],
+        "focal_length": 2.8,
+        "focus_distance": 28.0,
+        "f_stop": 0.0,
+        "horizontal_aperture": 5.376,
+        "vertical_aperture": 3.024,
+        "horizontal_aperture_offset": 0.0,
+        "vertical_aperture_offset": 0.0,
+        "lock_camera": true
+      },
+      "depth_clipping_behavior": "none",
+      "data_types": [
+        "rgb"
+      ],
+      "width": 1280,
+      "height": 720,
+      "update_latest_camera_pose": false,
+      "semantic_filter": "*:*",
+      "colorize_semantic_segmentation": true,
+      "colorize_instance_id_segmentation": true,
+      "colorize_instance_segmentation": true,
+      "semantic_segmentation_mapping": {},
+      "renderer_cfg": {
+        "renderer_type": "isaac_rtx",
+        "semantic_filter": "*:*",
+        "colorize_semantic_segmentation": true,
+        "colorize_instance_id_segmentation": true,
+        "colorize_instance_segmentation": true,
+        "semantic_segmentation_mapping": {},
+        "depth_clipping_behavior": "none"
+      },
+      "isp_cfg": null
+    }
+  },
+  "source_commit": "d839ddf31922381faa96fe643f24da7276ab6d7c",
+  "render_source_sha256": {
+    "robolab/core/environments/runtime.py": "19ecf7d46807318c622ccd5c97f8696a97730b7c356a608e5b80ff7f6522925a",
+    "robolab/robots/droid.py": "8dc3c6d2c9b1c76dcd5c8fa3a4e4d544156431378bf1ead0a1248f576fba26e5",
+    "robolab/variations/camera.py": "68b0b45db8d942a4d2cf2ea19d541a7dd39ecf30572507363eb0de9fb29d0a04"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "cube": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "136"
+      }
+    ],
+    "format": {
+      "duration": "9.067000"
+    }
+  },
+  "drill": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "599"
+      }
+    ],
+    "format": {
+      "duration": "39.934000"
+    }
+  }
+}
