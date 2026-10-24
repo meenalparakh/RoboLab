@@ -1,0 +1,1364 @@
+{
+  "task": "BlackItemsInBinTask",
+  "branch": "verified",
+  "source_commit": "24bb7c4153b3aa1f615305c41513f29b901346b7",
+  "source_files_sha256": {
+    "analysis/check_results.py": "5e0d461e913d327b41a0f812c8a3b027d019295bf8e34c802a1f89a3850746f2",
+    "analysis/compile_results.py": "e3f6e571e6ed93ce0fad4cafbb824d9c1bef8c7c78f3d073e795b083f819d788",
+    "analysis/deduplicate_error_logs.py": "4b16c92382e18f5565a7a6e8fadbae076b44ed44813323056dbf90aad6b75ca1",
+    "analysis/droid_dataset/droid_dataset_distribution.py": "4cbba3b1345f9acc168b76c87c43880a6dee76cae3aeeb534ec95305e2daf5df",
+    "analysis/extract_initial_poses.py": "8f6228759bbced79debbd1591fccd2e525a7fd4ec32403907aea77e05ead00c8",
+    "analysis/pilots/dense_phases_pilot.py": "6a0f75ca6896d69cf4199b16a8c4b0c56669f80dee2999f129af43b2c089bd14",
+    "analysis/read_results.py": "949b1796df644815ff440bf268086435c1132815fc7767fa275fa03e0fd3f3f1",
+    "analysis/sensitivity_analysis/posterior_inference.py": "c3ae22af0acca4cad6db345e3909f54d92f8d7226585bef2cc4c018dd5a78690",
+    "assets/backgrounds/_utils/generate_background_table.py": "d36274996d9a13c13d5349952b8b1f2bb605486607042faf41738df9b7cae447",
+    "assets/objects/_utils/common.py": "bb1e8557db0db83dd228b27af0ead8809bf91b2e3e56846a8b2eacee9f8f6e8d",
+    "assets/objects/_utils/convert_usd_format.py": "9e81b8f1b78602dbc6319afc7e33b1aa8d07ec45947460e57afa4b39ec766129",
+    "assets/objects/_utils/delete_usd.py": "d49ad6f2e16b493d9cacacad8b544f2d264487f9d0f070fc7a8b7627edffc1bf",
+    "assets/objects/_utils/fix_vomp_objects.py": "afda43b61600fafcd0bd9e80cae011128b7629113c609c57fb13cd80578b4557",
+    "assets/objects/_utils/generate_catalog.py": "fe32b300f8803b8acfdc3a3ac8514e87bc1e59a4ff0f46b6ec0991abdf525a9f",
+    "assets/objects/_utils/generate_object_screenshots.py": "47ee5cab6de68a3449901843b97127ee099a063397dd564d8d3d5f4e503fbb2c",
+    "assets/objects/_utils/generate_readme.py": "ba72bb14df5ebbfb100b499294f435f9bc73fa2b19657169855fa16196d45f5c",
+    "assets/objects/_utils/scatter_objects.py": "4baeffd376a2039b2fab09a90116d897a08fe748a72d22d4762f343b5406a40f",
+    "assets/objects/_utils/update_object_properties.py": "253a929bdf0b880b7e7c9c359bfdc8ef1b490cef72166919d61f49a96b8cadd9",
+    "assets/robots/franka_robotiq_2f_85_isaac60.usd": "ad11b975e1a7d32dcb6c55a971df7f0e20aad73536a8e1d075e6cf15f48001f6",
+    "assets/robots/franka_robotiq_2f_85_isaac60_solidpad.usd": "5241685d212e05a8193e5b98ade5b184fed7f88e863c154918d10b2541c0e793",
+    "assets/robots/franka_robotiq_2f_85_solidpad.usd": "88abda124442bd121a6b95a2cc66a3fcb9ba09b5b8d45aa72a5412695d1e5ca8",
+    "assets/scenes/_utils/chatgpt_multiview.py": "24600f252ca9a5134a3269cc5b94db1ce3cc71aef786c4fb78c66cc75c8af58e",
+    "assets/scenes/_utils/compute_scene_statistics.py": "0d2b87966b932c59c61a68b1b997564ab25aeee492f577c7cd887e5efed6c5b8",
+    "assets/scenes/_utils/generate_scene_metadata.py": "f54f631b8723270770ba03dd7e5ac5b4e703b7d7f336973d0c9a3751ca5b12b4",
+    "assets/scenes/_utils/generate_scene_readme_only.py": "253f8172a2bf8052567c6be67c063f593c23e1bb17f8507b999d61bf89c84487",
+    "assets/scenes/_utils/generate_scene_screenshots.py": "4f0d09417a6bee9ab4fa05d2c17cadea6ed227fac626e0b6ba87aea6cd08a791",
+    "assets/scenes/_utils/settle_scenes.py": "c771fc8138100f9ec1bb5990eefab7c0b21c2f4ecf98fa9dc9a9e8438661878d",
+    "assets/scenes/_utils/table_texture.py": "b091ad3659a49f743ceba14f981ecbef36f02c46a1bf3ea83c0a531f1ba8f351",
+    "assets/scenes/clutter_fruit_bottle_bluebin.usda": "335b6d4372e56bb2c2333767468e9827b57022602934eb9699a5308e9dd71562",
+    "assets/scenes/fruits_in_basket.usda": "d974d7b0f1c4df4221a2e2ffb048e3b88bc7230e0d3412bce2183b407adca974",
+    "assets/scenes/fruits_out_of_basket.usda": "6854428cbec18099268f69254ce28cb595a3cc385ac2497d3185a3f5128e24f2",
+    "assets/scenes/mugs4_measuringcup_drill_bowl_v2.usda": "5d92584272abf90d001f18e910ff8c67f33e0f42088d77d3b738a9c42bbd1db1",
+    "assets/scenes/shelf_with_cleaning_products.usda": "0ee4019a0266e6fa8652e54ae67b535db0d5c63780b0881e833bd42fa3c395d2",
+    "assets/scenes/workdesk_bin.usda": "8ed37ae17925c7689d3def8502a8c6a14782908a3377384420821fbac88d62e8",
+    "dashboard/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "dashboard/app.py": "1b30b2f3f72c3f6c98c9b3d7ed4da06280b6629a90fb7d8eb67175c31b7ec908",
+    "dashboard/cli.py": "d67f4d8a76f43741ce1595fa98656573e7abb5ac70cc3855633dab2bc03793e1",
+    "dashboard/loaders/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "dashboard/loaders/catalog.py": "a70e367d32e8313c9a6e8abe5c4449846246f1c901f42bd40165a7a20859fd64",
+    "dashboard/loaders/hdf5.py": "355ba09c51d8320099916e9b1e937cc1635cd27079dad2a86951c988d30e890a",
+    "dashboard/loaders/local.py": "681f9bbc688bd96e4f816a0ca5a176be49997b0d66383e5f204bd221cc479dc0",
+    "dashboard/loaders/sources.py": "123d062aab76c913bc100797ca5d3ca39d6074b888b207db9b00a20edccd1c57",
+    "dashboard/tests/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "examples/__init__.py": "674f84bce4c14326738801d9b0d5418d23bc918ed78bf52a5556c4d50a063cd5",
+    "examples/episodes.py": "ce913a9eb7cbd22566c46d8c4c1d34da2d967bd9644be0422b9683bb8c630548",
+    "examples/run_abs_ik_demo.py": "4abd81f9b8e33a9754e6c53b51537b14aa511648ce6b05ddef8c16edbdc653b8",
+    "examples/run_empty.py": "f03daa658d6300d0977603b8dfe58717d17da3ebcfca072b6da2b097186506a3",
+    "examples/run_gripper_toggle.py": "2f5a47f909cb0beed679b299bf03efe96b7e10c42ebe6ff1bf0656d1eebd32e4",
+    "examples/run_kinova_jointpos.py": "3938fb21c9d09923ce283fa3264a553ebdd1e58f290ff93ae1ca548b7e202a8b",
+    "examples/run_recorded.py": "d840fdede97fb4fd08984cdd3e6c54b3b3aa78b822c2b82b697b659f8b005dab",
+    "examples/run_rel_ik_demo.py": "1a4896ca5187649f0e3aed71f10aed6659b2cc28fd86ed137052d2223922de70",
+    "offline_tests/test_all_sources_parse.py": "11990c60ce4707928758de17b4174876f18f34725d65f53b9c1368a44fc9499c",
+    "offline_tests/test_audit_task_definitions.py": "b77e60bd33c0be11a66e4339a43c05b41717c565d28ecf974e17a8c719fba8ca",
+    "offline_tests/test_collateral.py": "94ba357d60eb6b9fa37181b11328bc285c699d0927d7d14c477b13705f26457d",
+    "offline_tests/test_confirmed_success.py": "2b7f6a449b84737507df14ef0623be327f6714c8d71c565260156f732c4437f5",
+    "offline_tests/test_dashboard_episode_videos.py": "7bcf705346c2104ac6e1d5cf8eb43ee4cbf7ee2b7cd6d124d5d395f6a05ec7e6",
+    "offline_tests/test_dashboard_http.py": "01969756911b5aa07f7a2079b703f59311e8a5a16ff65b1037072666f5e36619",
+    "offline_tests/test_dense_recorders.py": "1158612d1d997585742193e614384cccc66eb1dd600970e3fd89140da943e30a",
+    "offline_tests/test_event_lines.py": "238bcbe2b9a4e6424f965120fadb20a89f57c0121f9a0e700faea669c67fae6b",
+    "offline_tests/test_event_severity.py": "55cae05531fdde12a723b70986e4955d08cf88173840de3dcbc22ad43abdc909",
+    "offline_tests/test_final_score.py": "a4b3e400503a3a1d9d7af999137e5909b0af2107e0c44711027bc2ce43b94135",
+    "offline_tests/test_friction_sweep_report.py": "fa1a849376ece7edd4604c195dfa25ac3192c1928c52e44f441442e88a178720",
+    "offline_tests/test_grasp_tracker.py": "c2fab8b64024ddaa42315913298abf34312f2fc2b45dd90a133b96921c58a4c4",
+    "offline_tests/test_hull_check_offline.py": "6ef5e4279d2709fef97a5b40135e36b60ef40b82fde7a968f83cb35a37f78c03",
+    "offline_tests/test_in_contact_logicals.py": "640c34671a41b0abcb4b81b171a5eb5a8d9c069d57d72dcf3c4877e1b8dd65f4",
+    "offline_tests/test_list_form_subtasks.py": "3f4c9c2c1fec5422103c008bffd9a7b00d90bb221f21d786062087d9bd4acc21",
+    "offline_tests/test_off_table.py": "142b0e23f25cdff15eda5b6804c7fb3c2ddedbd99f9a65aa643ea8ec04d9440d",
+    "offline_tests/test_p57_detach_fold.py": "e37cdc3757029cdd43d782162dc72aee449ce543910e5459e1c63ccbc4c62707",
+    "offline_tests/test_p60_p61_grasp_lines.py": "8c4f7cc0506fdc37a8df66be679fe0fbf7aaa841e4941d9e92aee53e3e3e6091",
+    "offline_tests/test_p62_contact_recorder.py": "8ae08125f0a1ff2ca2585419b50a377da0cf329e151f39c3a3af1d142c0d5fa1",
+    "offline_tests/test_p64_spawn_true_rungs.py": "ceb9b89fd2dd69c8365b7b2be9ecfa5abb9ed6661754f3bdfa7a5ced4ce7bad2",
+    "offline_tests/test_p65_ladder_matches_success.py": "0d72641710df5ac7e5ed32f3a8c8f2043fda6e571561cc1dc6995a237691211c",
+    "offline_tests/test_p66_closed_gripper.py": "ebfe16007dd6ab21bb7d58c10f969e85cf56b5917f26f25dc2e95f31e3fdbdf4",
+    "offline_tests/test_p67_ee_channels.py": "4f32caa8a5dd5a1deed3cc64f736a1693ba211e1a4377cf298329b24ee253235",
+    "offline_tests/test_p68_gripper_name.py": "039561f7f74ef315d242ad395e511de2c3fb95428f0481a7f0f734b90eb07123",
+    "offline_tests/test_p70_task_page.py": "090094a85945fe05e3c777641900e39398c23b32cec863c9b30f6247be90b6a2",
+    "offline_tests/test_p71_p73_flag_cleanup.py": "3b14fead46b35bc7a47f90f197558516e57a0fb7c668ab2139944f6e87495298",
+    "offline_tests/test_p78_grip_rung.py": "66b10fdcfb65de2eae5639d81f947a9002a42ecea31727737b4dbd98575597e4",
+    "offline_tests/test_p79_friction.py": "1fb43601b4cf1beb52b36a5c561427178a0b73f78c4b4a7d019cd78df2b32c38",
+    "offline_tests/test_phases.py": "d912291d566aae35236bda3482e7baab970a3ac2690e31b73d1b2efcd7a76fe7",
+    "offline_tests/test_reflag_harness.py": "96863c82f0b0712ea693d02d0b98ddfdd28b5e7a2ae6bfa6f7c09173a1b0e6fd",
+    "offline_tests/test_release_cause.py": "026bf69d90f6dfadc3847b74099f524dff852bb782361cea921003475c3d6f89",
+    "offline_tests/test_rest_gate.py": "7887aa7f687c34d6a197fe9165025acff07be5834b8c512ff5c2ecd55332652e",
+    "offline_tests/test_review_labels.py": "67ef52f7ea9800cabcd5c7e49fcd6ad512ea803df242b1798b8ad7746a71a360",
+    "offline_tests/test_run_complete_marker.py": "a458e85c8efa8369a63183fa1956ebbda92eb8e27e60892ca2c468063f41304a",
+    "offline_tests/test_score_gold_conventions.py": "6a1501fdcb1e9083f94e7b7cec601f7048dfafacd58b399bdc908a7f3a3835ec",
+    "offline_tests/test_target_objects.py": "374bdb12bebdeba5a86c01ff5e935cb104b2e71ab2a255ab2fd2da98155eecee",
+    "offline_tests/test_tows.py": "43e9b7e3d3ac33284c32ea8f69d4462e1dc68187fdc7a9f8531f97ad71d64a94",
+    "offline_tests/test_trial_fixes.py": "6d6575432746c3d00791635bfc8ab48f08c647929ba0d155645d46b14f944c5c",
+    "offline_tests/test_verify_patches.py": "d5ee64e19e8ba09e4de647e083c170a280cb029d60a42ef693248c67f7083980",
+    "policies/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "policies/ai_native/__init__.py": "63522bac0a0bfb01055699042a38ef60664a58aa9d572889431cff2e3f7264e6",
+    "policies/ai_native/agentic/__init__.py": "dbdf0109b8dbf4829353720d91ec6c59f00566c0881c498d4958ade2c6cf1136",
+    "policies/ai_native/agentic/app_server.py": "6bf92b5c103ea76ac823dca188a8bf4b640159d881b4a16b03bf8c72ae1473ad",
+    "policies/ai_native/agentic/client.py": "9599533e083c38fd3ab3c6dfd340813d788e5d3a0028a05910c71ed7b7e1cced",
+    "policies/ai_native/agentic/coding_workspace.py": "d2fc9798c9f1f3bbd696d4e0ebffb8f5c1ce2dbc27a4a03ccb0c0bae83ce9734",
+    "policies/ai_native/agentic/demonstration.py": "3ad00dd691ffa2f76af6902c7e6542653f82afdc5285533a0ff64dae3fbbeb63",
+    "policies/ai_native/agentic/droid_joint_target.py": "3930ca7a2b4cb6e732880cd823ea904883f437323636e759769a8a5dc24e91d2",
+    "policies/ai_native/agentic/episode.py": "257cd03e762ca1b3bdaccd2d61b682a27936f460fa36fbba4953fd21c3ddb64e",
+    "policies/ai_native/agentic/history_channels.py": "536abfdf444c5a2ee0607d4f7ab1a850e9fc148259cce57b9344908e6bd2f1ef",
+    "policies/ai_native/agentic/joint_actions.py": "aec2aa4dc818f8fb4db1a6e85b858d2802cb929fb872cc93052244f432003314",
+    "policies/ai_native/agentic/prompts.py": "d7e73e2f2daed14e0bcedf43482561dd405d2367ca57c15480b2e2e41586d098",
+    "policies/ai_native/agentic/run.py": "57e7863509b8aa0c052c74ca95c5d5f08d94bcef434973e72388ce3c2e741e11",
+    "policies/ai_native/agentic/run_config.py": "03ea3bb57183a3726c2e0d395a45388a7f0993086915f6e2c842196c6822bd0b",
+    "policies/ai_native/agentic/runtime_options.py": "0717cf5278c95e439f36a4f7fb4f246c22af959077c1a60834bf2c2ccdcb1494",
+    "policies/ai_native/agentic/session.py": "6ceae0a53dd1feaa2a15c578ab88294416dc86153d0d1dac78915be935c129a3",
+    "policies/ai_native/agentic/setup.py": "a17f3ed8b7eec248d35e26895be115a209adc1742df63a2a3c29e7438f7c1c88",
+    "policies/ai_native/agentic/specs.py": "f6d24b8d4a05db77bf0d77987b237ee7f63b709e0ad048ad7b2e2a6fd1b00908",
+    "policies/ai_native/agentic/tools/__init__.py": "0cb21e680b37d676a1df827f1fb930f03e2eb41d74fecd4c6fe8134a374fb442",
+    "policies/ai_native/agentic/tools/prepare_demonstration.py": "071194c051c3867d8b9e3ccc1bb6977b0120376e9b95b2450f4e63a6fcee20bd",
+    "policies/ai_native/common/__init__.py": "17508fc90f03535d5d0918824233ab60d5ecc8c62b06d686c0ba8273de8ec647",
+    "policies/ai_native/common/agent_eef.py": "b71a6b60d10a30bc419b823e2b1986bb4516d04f91c61e83e18dd1ccc98a70a9",
+    "policies/ai_native/common/camera_geometry.py": "dcbe83210794c7101073b20e73835a4f27e8cae2546c3fc919a105ee50dfd14e",
+    "policies/ai_native/common/episode.py": "d9d9748ad62289bab3843e189ffe95e23ceb3ff4c19cab95a07428f2502c4ebb",
+    "policies/ai_native/common/prompts.py": "ad659da1b9848e005a532d56844ade3e39badbc5594b9c186e9b508c298eeab0",
+    "policies/ai_native/common/token_usage.py": "a2cfbd65389689e562791f3478d16186331997d7c2976549c1d8fd74cedbc0fc",
+    "policies/ai_native/direct_api/__init__.py": "6d793ec4c83eb932bed40e291ed35a7596c4d770c7f7128608f8ebe0e50f7678",
+    "policies/ai_native/direct_api/client.py": "4d1b3745e8c507be104021bbf97812e3919ce93863e480dc738e1db063e2262c",
+    "policies/ai_native/direct_api/eef_specs.py": "ce40cb62cdfa4b1f0352cb51a5374217cd9e907c139dfccf63d62ce10e557ab7",
+    "policies/ai_native/direct_api/episode.py": "61402d7e2bc91f8df3baadc1f9b8ee50149e34ee7af5c139b52a5f9120d814ce",
+    "policies/ai_native/direct_api/inference_log.py": "6bf073935f1af2e5e16b903ca8dce0ac1468fe29a8341ccba02104fc5adbf833",
+    "policies/ai_native/direct_api/list_models.py": "8f906001ed518aacd116934c6d4d487d2713685ff4d8c196ffc81f931f343640",
+    "policies/ai_native/direct_api/run.py": "ddc0965484765c8d6245dbc7d098d0318bf14c2e201131bcc9a9f40bda1f48fa",
+    "policies/ai_native/direct_api/setup.py": "a1befb9e23d6cabca1f3bdd498cad6afa7788d50516986eac9dcfc9e333339d7",
+    "policies/ai_native/direct_api/trajectory.py": "ab621769c3bb0d43ab2f1c7d6311e60f099ef7d61f43829a248fce7c335c519b",
+    "policies/cosmos3/__init__.py": "33f75277ef7c834f8d896e16133077781b6a0b6a41fbb237e5f03f9629352089",
+    "policies/cosmos3/client.py": "6eea7fcc0b3c49a9e7145821840eab13496b1061e4f9824b4fe481d812e1d8b8",
+    "policies/cosmos3/run.py": "9dce620453be89c4f6fc1115ae0b556324ac90184b9fa95a86d12117f8df4117",
+    "policies/dreamzero/__init__.py": "290531b4026e56e4830008d2038550aaf05b8005f5ea5a95ab94c6a74d4be79b",
+    "policies/dreamzero/client.py": "d1a2302945b0f9a96041c01a904a4233f27826d71a4d4c9452159a9ac13fdcd9",
+    "policies/dreamzero/run.py": "894dff0c06bab9af213ceadec9243c606124d29cd851408c62c398062b974c60",
+    "policies/gr00t/__init__.py": "1f5a34fb6565ad59576a661cbf2e9a34ad7e3213b0dca2466b93155c480223cb",
+    "policies/gr00t/client.py": "167a46fcab08787435172e7660ca0cf788f629c82551beb0d70144ae6f4488fd",
+    "policies/gr00t/run.py": "7f20ee1b05e134ab9257a6f080f7deed8a12f38b298050d4a42d65f84f085e63",
+    "policies/pi0_family/__init__.py": "ff6c1017134bfc2d8dfdd2627cd6435a088626da320b3bc9ce5e17f37f07f0c6",
+    "policies/pi0_family/client.py": "5b902d999455bd5f266923254f6182bd263999a55e6e32f96128c8a7b34e8f15",
+    "policies/pi0_family/run.py": "abb667d43119d13b7e17b954de41c71ed35ecb9f6ded91fe3e0eafe910ccee08",
+    "policies/pi0_family/run_background_variation.py": "dfb0488ad2589a3be603f4255eeb5473040b4bfe623d1e37aa7d650e0d556968",
+    "policies/pi0_family/run_camera_pose_variation.py": "eaa7a64d322dc7805b461744ceea50ec6f876c18f4903eecc266570123bbba1d",
+    "policies/pi0_family/run_lighting.py": "387750850d20929647e676684668ecae4ab4891d89561f8324f24d9787131cbb",
+    "policies/pi0_family/run_table_variation.py": "7900d9c7fc5b28d751ae801bbc9940591adbcfbd65d031f110d1621aae9e4109",
+    "policies/volo/__init__.py": "ed7fcb520d8b571131c8e10ef52ae71a368b1e9e7b8aa8ff3c92399bad5af3ec",
+    "policies/volo/client.py": "75e00cb18dcb63fea5d9aaee004f039adbd2da781061ef687b9ba1e5d1e5cb65",
+    "policies/volo/metadata.py": "d742ffec66b2a6f78be85fb9ee38dce681a3c66c8e9d5090e800804a5ef85c6a",
+    "policies/volo/registration.py": "dadc23f4f6462397718df09b1a92b0d04bda6bcc2a98b37689abb198145dd8c5",
+    "policies/volo/run.py": "d5b2c8e083682d0701c04e3471591a148b4a7c228ccf2f89296850f20a80a7af",
+    "pyproject.toml": "6dbfb0b06383bb62023ba9a04a16deacaeeec596826fcd2b9f236eb37b595dea",
+    "robolab/__init__.py": "d7912be543fa14354464740c9dd280e3530b38acbee28379b34a0ff825801d84",
+    "robolab/constants.py": "69497774e55c263edd514b1c190eb6812e2fc4b3ac1738706ef2472e03bcb825",
+    "robolab/core/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "robolab/core/actions/__init__.py": "f0a4efc8b92b78c6e4c759e93b7e4964af1ed53526031db985d4b727ce9568a3",
+    "robolab/core/actions/isaaclab_compat.py": "7875b66e144f0e13102b904856bd217c61e695f376ce5c975ab73ca666d91d52",
+    "robolab/core/environments/__init__.py": "7b49a044cd889dbab9f12671d6895f472cf16cf5b5518152de58e2c0c44d9b41",
+    "robolab/core/environments/base.py": "b507814ee48dcd6c2329ee8463e18454b17cda67fb2cfff861853417a489055e",
+    "robolab/core/environments/config.py": "dde4222e7e48ca8fe9db3d82aca9c43145b6b801abecac6c89e62b998d4077c9",
+    "robolab/core/environments/env.py": "0b8a84ed35450dee7a0f867ffeff277d1fc02388a90e7719e3ea02a8268d7bec",
+    "robolab/core/environments/factory.py": "bbbc3347380557d1f3fd735d6fa49a643d3f4c9af94875e9b64ccf64e84c1460",
+    "robolab/core/environments/runtime.py": "d9a66e7b31e63815066a945d9ab86ef7a47b81163676f754dde3278068d28cdd",
+    "robolab/core/environments/scene_fixture.py": "ba08a3c8b823cf4cc7b0fb888ae4389eb6d2afbae14ddef93e924a20ad62c594",
+    "robolab/core/events/basic_recorders.py": "df66874ebf1bbc4dd974b664d0d64f225e42debae1f0d94cf3d7ff5a0dbbfd94",
+    "robolab/core/events/dense_recorders.py": "5bd21a090be0120f141b2e68e20ee260212f72519e48a9661be2e406312a1284",
+    "robolab/core/events/event_lines.py": "d9079587cdc617000333631f8085db12095da24c15628b6d697542e6e95c7c32",
+    "robolab/core/events/reset_camera.py": "880e202d52879511709069d54aee7bda83355d0a8841b5deba93434a1c59feb1",
+    "robolab/core/events/reset_pose.py": "7ee666c635e1b5e154c6c98cf0f865cd0103ad68e2763efa28948786dccc20d4",
+    "robolab/core/events/subtask_recorder.py": "cf10e3f3d963f1eb06bc1e908c1e4f8f8795e823e6329661b0880f9b26dd05d8",
+    "robolab/core/events/utils.py": "a5b0e2573a81dcbacb473a416891bc95cba583ed1bc331eaaee20cde8736c83a",
+    "robolab/core/export/__init__.py": "ac6229264a25d197c830ec2d042a544b2ab2a9b63ac9eabc9feac4594bdabbe8",
+    "robolab/core/export/lerobot_exporter.py": "6fd16017b092682e46d3392d89e6efa3e28cf1d86d6149d33ba650190a35fcfd",
+    "robolab/core/logging/frame_compat.py": "42af2a3654984f955b4a6aef14ead7ce702e0eb00e0d7b26cef23db84fdffd78",
+    "robolab/core/logging/recorder_manager.py": "df8b9a9232564029ba346155bd16d31b10fcd7a5cc240e24645d40437f8c3a10",
+    "robolab/core/logging/results.py": "28381e17a13d6ba3a019e0443225907b1de1e8f325e04fd9c88e217e30c259b6",
+    "robolab/core/logging/state_logging_interval.py": "c2e7e10a2eb553ec5c332717ee1465cf3ce43017b222ca0aafe4b9ac33ced5f1",
+    "robolab/core/logging/streaming_hdf5_handler.py": "d9ed96ea2a699db88a02e7a10c9ec1150f73d3fe6fca304deec2d2de315d630e",
+    "robolab/core/metrics/__init__.py": "4c9df10a952b0d32fb5cc9676716990dbeb04ac3674d48cbeab8a91f9387482d",
+    "robolab/core/metrics/compute_metrics.py": "370ba93d3cbb9d4f2feb68dfbdc32e1fc9b6efc31c1c895bcaa69fc5dcaeabd3",
+    "robolab/core/metrics/metrics_recorder.py": "20efc5139164acf3bdf563df4cfdee5aa9faff86bc7a0022961094967a1502b1",
+    "robolab/core/metrics/trajectory_metrics.py": "df008dd1aac5ced8b9d98d91aa197cadea34ce614e5c8a292888b7a6160ec3ef",
+    "robolab/core/observations/example.py": "5722673edf21bafb4ee1592d73c1b5a5165f47e53e02e34509663e644d9dab59",
+    "robolab/core/observations/observation_utils.py": "2e3eefe60a44e9b750a11119680d7f123a0e9e3aa2dd3e4624e86685c7d12ab2",
+    "robolab/core/physics/__init__.py": "2854eb85351e930b7950ce17249759f74f8060eac22a46448c98d3c426378c5a",
+    "robolab/core/physics/friction.py": "fe0d7c47447c5088cd1032ef7f9e98e8eec870d66f5a917a483fe3808c8d4876",
+    "robolab/core/replay/__init__.py": "6ee462f87a386080a059d3a3c02fca1d836f4915642698429c7b056280e68504",
+    "robolab/core/replay/env_config.py": "918cc3741c4d22fe1892fe106b6f5948e05519a3b21dc9e948e3da384b8cb8bc",
+    "robolab/core/replay/scene_state.py": "d124b8fef60dc19a4d0ef79eafa561b3aef21b4b0149b6d12b0124074ee0fb08",
+    "robolab/core/scenes/__init__.py": "ff7cf089ee99dd2a71849f382e3a180a5bfbd5e556ed0778c599a6a3b379c1f2",
+    "robolab/core/scenes/utils.py": "44279e629389d79999827d0b0d9fd384b0ff52190c522dfd30a1bcc0c1f9bd1a",
+    "robolab/core/sensors/camera_utils.py": "f5e5b7baccb5e448a6312aff2281d2bbca748c2b1eeb31f85dca0d39e9ba6be8",
+    "robolab/core/sensors/contact_sensor_utils.py": "93bebfa58426d03fd94424a0953913369226515ec11fdfda743ac672e2ee48b6",
+    "robolab/core/task/collateral.py": "53d35198ecb5e8d64186f84953aaab37660c7917cfd2690dea7f8bf7984139b5",
+    "robolab/core/task/conditionals.py": "c290bd6dac6f361cabfc7631ab03419e79f23c08a881fdca4270b813a804ddc4",
+    "robolab/core/task/conditionals_state_machine.py": "58db9a6e298a4e1dd988836222dd12d9a25f28f3d310fd09868deb013e8c05ba",
+    "robolab/core/task/confirm.py": "9a5cf01b020914cae29692cbc9bd5d8ebf1479a828e42ea1b967d2de626c350f",
+    "robolab/core/task/decorators.py": "fe6771f37c0b1ad56388a17329727b7a792bb7cc0bfc6bdf56ff33ca82b59bce",
+    "robolab/core/task/event_tracker.py": "472df337cc8306cc9471efe59203ee9e37573973710e5200bc15d75bfe597b1d",
+    "robolab/core/task/grasp.py": "eb11b8aa585b30da1a17b241a13e8f152a4583a5cd4cf95c294b597eaca75b45",
+    "robolab/core/task/hull_check.py": "4f7bc6feb68557c41d32d77215a77c696cf5ca173e33b56293af61103c3e29bf",
+    "robolab/core/task/instruction.py": "4b64bf4c2a74dac076e659c6d019f880777d0866cc841ce6b4cb0817bf2e4b72",
+    "robolab/core/task/off_table.py": "d0af33844fbf9e446f5ee8840ea74b1347d92867be5b6a93dc00795e0d64ab5c",
+    "robolab/core/task/predicate_logic.py": "d455299e72113506d97efab3fcdaf26691504fed9554ecfa743e789cd24946d9",
+    "robolab/core/task/rest.py": "74a7cb7a02fde5bd6e0827d6dc8473fe8f21b64367fd01699c1a80ccf5b4be5e",
+    "robolab/core/task/status.py": "04a5a60554a77dc328d6260190307e24c7bd85c49aad2b3a13d3be114228ec7c",
+    "robolab/core/task/subtask.py": "613e24671dfcf65a47dc273ed7b3ed1ca1caa2a889d1821e2f6efcae4bb76a4b",
+    "robolab/core/task/subtask_state_machine.py": "e79fdd4a73c64f3c2fefab91dc7ef40c363e54f79f321de1cec965e5b3902bf0",
+    "robolab/core/task/subtask_utils.py": "1ad214d382a4f89f64307c06318e7a20597ca94c7581dc5b0dced218733975ab",
+    "robolab/core/task/target_objects.py": "283f70396b34ada5ecd30b09d0ce438cb8af2734f61c756b363fffaee5f3d3a6",
+    "robolab/core/task/task.py": "9a7fa68ec77b81bf758e4b11616c5214bf4a071492c44dad937183db3c167762",
+    "robolab/core/task/task_utils.py": "5c2294eb4bd900868479fc3d2c7a9dd11365e79a64218160a6dd6a49f1135fa1",
+    "robolab/core/utils/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "robolab/core/utils/adaptive_sampling.py": "e56b2bcceb056e78350d60ad26faf60897bd6b557688276b72d5a6b664ebef9e",
+    "robolab/core/utils/csv_utils.py": "99902e9ef54dad0dfda7c9e189d1de381fb14f287f2924abe25cd34752eabc3b",
+    "robolab/core/utils/cv2_utils.py": "8dcbb904878ab6b7e32b77ae2199b811ec940de9bf0eef19cd9e9f05bacc9763",
+    "robolab/core/utils/debug_utils.py": "6bc568a6c38fbf460405acfd6102d226b19fca9bd76ba4551dda9f00234e45eb",
+    "robolab/core/utils/file_utils.py": "dcf77cf77f37adc1120cdba7d1e7fbfbd914766e8d406407b3336c40ab638128",
+    "robolab/core/utils/function_loader.py": "d84a324703353450d3cf46cda45e51fe201eeb03ddd3e08d66b73760b77df3eb",
+    "robolab/core/utils/geometry_utils.py": "3beb76b1d776e7e1b67347efc6b570bad9dcd8e7e11bc221bb8f02b4697af25a",
+    "robolab/core/utils/gym_utils.py": "c9c8629b7f2cfacb3dbe0eebf446c95597ef7d7c89ebaf068f6aa36611bca9ed",
+    "robolab/core/utils/image_utils.py": "aead0c246b696ce5feabbbc63df93f42762365cc6315269fa08ad5c98e1a3d94",
+    "robolab/core/utils/isaaclab_compat.py": "2f6d495eb0c3ca5b125f14ec3ae0a2ced27cc46fc4734bbef3b63c68c2b006b5",
+    "robolab/core/utils/params_utils.py": "4a7651c45b3375fdc0b9035c595b8806d6cb1a82003570c56a3a3bbd018b7281",
+    "robolab/core/utils/physics_utils.py": "1bad0cfaec3e47a3c58ee6f6bd57a9a0e79768b5d3810a40610be6bc1e6d8bf7",
+    "robolab/core/utils/plot_utils.py": "b062a057faf5e2c2e607391c4aa8cfbfd3158c99ee73c9d0b84226f5b72401c3",
+    "robolab/core/utils/print_utils.py": "a998084846602ef5d4116a71b8453aba59857a8ffdffb6fe23165687c3820bf0",
+    "robolab/core/utils/render_utils.py": "93748a7cce534dbced08090bcaa5cfa95bdbbf245eac130d95ed524bceefff76",
+    "robolab/core/utils/scene_timing_utils.py": "687c024811126fa0ccd8c164139df6ab2b05b26862c14efdd1e7962ffc3c0804",
+    "robolab/core/utils/transform_utils.py": "09585c4ec8810bc42fba82b7fcefc34b51b2b03734859b2da934b72b005e682c",
+    "robolab/core/utils/usd_utils.py": "34e00f558d85dfc70b9ce6b0154cd6283655a4d10c7afa4c96f232bca681ae57",
+    "robolab/core/utils/version_utils.py": "d7578609eddc0b947b1db9b5c6cbce67b3b6da32a99bddd5c089ab7893317ba7",
+    "robolab/core/utils/video_utils.py": "a8573da961c7fb26dc21ccddc0f39b2c87a7712b12e694bcc8dfd3fa77f0637e",
+    "robolab/core/utils/vis_utils.py": "7ad087f372944b0ac30a7824091ec3120b031b3fb57c27396615efb6aa33fa3a",
+    "robolab/core/world/world_state.py": "dcebb18c1c4c2c3e4b0cf9455a605116196a5b02b648592a94d9b7eac56a2195",
+    "robolab/eval/__init__.py": "f0ba63052651417d431cbe88cad654fd1358ee7cc96e7fccfa9176b298a88891",
+    "robolab/eval/base_client.py": "20e299d8e3f0001c546a12633f93eae59975c390e1faefad2288ed6297a5f7fa",
+    "robolab/eval/episode.py": "3adea2e4de2fd7a4b9cb20cecedf46118e09a0a5db59166fa2d0ecde4783003f",
+    "robolab/eval/gt_state.py": "cc6c4517004dc08d53268eb903a01aebd03b2cf1c4e87739930490f1cd746d72",
+    "robolab/eval/phases.py": "27b6d7e0e0663f69872a19f92ab863488a8bf12364a91306e59ff1cf7a9db8b1",
+    "robolab/eval/run_utils.py": "e28d745096a245e8ed8ddb35260f3cbd3959fbbf1d391d2eda54efd69408d107",
+    "robolab/eval/runner.py": "eb7df72cbb253ae24cc85cb4200d130e0eb3d3b2f969dcf19d0e228fad60c987",
+    "robolab/eval/summarize.py": "1e76aa8d476ebfd27b4f9ef6c5ae0e82cece24429a3363557208beac80825141",
+    "robolab/eval/tows.py": "29f81871f1be20db7a7740af097e2937475399017d005f60a20e86a1e9c3cf85",
+    "robolab/eval/tracker_replay.py": "f36de738e16bcd1709c87d4e4540164a48b8a119d2c3dc78549672bae19d1b27",
+    "robolab/eval/websocket_transport.py": "bc6757210b3a7bfe8df95fb2da13f60ae7c6492d69788bdd173a9a10f0fa84fd",
+    "robolab/registrations/droid/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "robolab/registrations/droid/auto_env_registrations_abs_ik.py": "fe9c8a6fc361bf527672223a0c7f3936162ea689ae891d7d7fd8c0283b264621",
+    "robolab/registrations/droid/auto_env_registrations_bg_variations.py": "d1e4e906e0bcd18451b555644c98361b3d96ff6d9b6a73d961d5444da1df8cc1",
+    "robolab/registrations/droid/auto_env_registrations_jointpos.py": "2429f6e9f12be709ffba0db9b502f15311dfa0f1a4dd8567fa46f215191a6992",
+    "robolab/registrations/droid/auto_env_registrations_lighting_variations.py": "5c14069482c1924d9b23a08c62186145eb8d5c2270f72e5a766fcfc0ebd30aa5",
+    "robolab/registrations/droid/auto_env_registrations_rel_ik.py": "4864bea6c9d20cf9584ebc6974b8559afcf73bbf9887f2e11b982c6d6e4f8cd3",
+    "robolab/registrations/droid/camera_presets.py": "06ce41334a5264718e0fdd1c7d7f7a5de3b6281c20bb97a9379fc4d80d83f64c",
+    "robolab/registrations/droid_jointpos/__init__.py": "15a5552c6b671f2a06dab7a386c6e27751e047136feef3d27e6e2e620a0f0f17",
+    "robolab/registrations/droid_jointpos/auto_env_registrations.py": "274978eb02c1021597ac2549be0d8ce3eb4f1d7e925f78f00ecc04a2c11ef4cc",
+    "robolab/registrations/droid_jointpos/auto_env_registrations_abs_ik.py": "8d86866f36d033abeb54af37d35d89e105c7a88c6fa6ee7a898a5d8948c0c452",
+    "robolab/registrations/droid_jointpos/auto_env_registrations_bg_variations.py": "cf2569c1403aced2323e6589b3877a988450b3a84d2a7fe61e24587894d4b430",
+    "robolab/registrations/droid_jointpos/auto_env_registrations_lighting_variations.py": "97024491fe15da4726cc5d6e28c106cfc9c50bdc53210b9868ef8a0982b32b9e",
+    "robolab/registrations/droid_jointpos/camera_presets.py": "1e28ed6c671eebfe7265b8932886333dc7f90df5d8ed10701c9b96a8a5719132",
+    "robolab/registrations/example/auto_env_registration.py": "cdb4e15bbde009da825fb85fa836ae60d38528817039a81cca9fb7b76e93029b",
+    "robolab/registrations/kinova/__init__.py": "44546ba57479a3ca3064d1731c1fc5000b04cf4104cbd53d8484ec6a33428eed",
+    "robolab/registrations/kinova/auto_env_registrations_jointpos.py": "e8a6357ed94b011ab0d25abedb621c9d37b313fe8e8cbef2568f289fa8e3e722",
+    "robolab/robots/delta_actions.py": "aa4192cc49f9f17580db7deac86a53b197dc03562d69e4fe4cae0e0144c130a5",
+    "robolab/robots/droid.py": "3058388d424c4d5648aebebd46ab61769509ba655d09cb403b09f7df7fd27bde",
+    "robolab/robots/franka.py": "ed702b4d130d5a9577b0e0d4a0e33c462ffa3cd2075ed23708a066cbc9c7e1ad",
+    "robolab/robots/franka_definitions.py": "b40b94283ed6455197f0515e060bece9f6293b5337d0f4578ccd58d35fa64a97",
+    "robolab/robots/franka_high_pd.py": "1764ec8507fbb78c6fd8d2843b139ae1fc0741c64a3dfbce6cd8c4f5f8e56487",
+    "robolab/robots/kinova_gen3.py": "5c64b430bc24081141f5670b77da99c53f6872371245fcc9708ee8580eebf5c6",
+    "robolab/scene_gen/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "robolab/scene_gen/llm_scene_gen/__init__.py": "cd7fcc5caab1f32945ceed32ab41d351095503ed8647ba5f9300ab2fc4868e4e",
+    "robolab/scene_gen/llm_scene_gen/feedback_system.py": "c8c4acc8ce0b01918634526a460436ba507f18c5501717e102e5bb71d1a7d2a9",
+    "robolab/scene_gen/llm_scene_gen/physical_solver.py": "f3990545bc900518f16ed3420f97cff62d3f1d25d31c617d908797847206b302",
+    "robolab/scene_gen/llm_scene_gen/predicates.py": "2bc933445b9651f2de4967879bc1189d32bb918b7ece643978ca127dbb62ddad",
+    "robolab/scene_gen/llm_scene_gen/spatial_solver.py": "aefd493c366de671af35a6ea7e61501f36044f929d2863eee9fe5d6b15f66ded",
+    "robolab/tasks/__init__.py": "39b67a3543de12fbe919327958818a53222b223688ef8ece33a12bc1e46d1f14",
+    "robolab/tasks/_utils/compute_task_statistics.py": "e21226db7ca17bb9180fd976f8d740b50d716db81100c1f79780f59de88a908b",
+    "robolab/tasks/_utils/generate_task_metadata.py": "9eb6d5d1f465fe0af67b2b37a3e31795a7affe8e878ca8d049a20462c8e37003",
+    "robolab/tasks/_utils/load_task_info.py": "95db9ef02dbb0a920026b5777924fe83f29c70d4b5f421eec467aba3ac57c176",
+    "robolab/tasks/benchmark/animals_in_bin.py": "4cdb2fc16a549cea673908a972eff797f571408f19f338414b6db21eee03c14e",
+    "robolab/tasks/benchmark/apple_and_yogurt_in_bowl_task.py": "d0514512d5a4f096df8ae669c2cebfbd979c1c0d0d8e69ea70cd64a7fb2c62b5",
+    "robolab/tasks/benchmark/bagel_on_plate_task.py": "e0cef8ecc8a44ea76c7529c7ff170a9cd3d04d0d89fb6c78472e96f7228f8c03",
+    "robolab/tasks/benchmark/banana_in_bowl_task.py": "ceaba5a9944cf6a9cd1ba6809a73251c01786059c0d4bd02604bf0c9c824ab4a",
+    "robolab/tasks/benchmark/banana_on_plate_task.py": "c07cd538e616ae5fbefa4a8a7b342ce5a0c0da95d12e2329c2bd9d972ce025fc",
+    "robolab/tasks/benchmark/banana_then_rubiks_cube.py": "b08a14f857dee2c5f99caa7fa20c1ed11b84e2bbafe94a98ddb204a8fbce2539",
+    "robolab/tasks/benchmark/bananas_in_bin_one_more.py": "3380ad1107be0c08643e391719fdf101144421d4f4ad5ebd21b90dbecf6bcad2",
+    "robolab/tasks/benchmark/bananas_in_bin_three.py": "4f15107dc913e3a429f8aca1f75d99b028b53c12994f8f9671cde6985ae66198",
+    "robolab/tasks/benchmark/bananas_in_crate.py": "634b076a8561a658e85aa25a0ad4aaf295d22807f13ffd16cc37b8b63846492a",
+    "robolab/tasks/benchmark/bananas_out_of_bin.py": "e7bc770d1d98decf746ec42cb5d3d73e776b89d5218a030aff4fc2c1b6b72df4",
+    "robolab/tasks/benchmark/bbq_sauce_in_bin_task.py": "2bf0a74c7b1b1790195fddc035531dd0fc66289c7611f226f221e24e8a6933ed",
+    "robolab/tasks/benchmark/bigger_object.py": "c1f52455bb90e3be4fc3e08678d5c4e8e232475f4c8df561a4d997a73532bbbe",
+    "robolab/tasks/benchmark/black_items_in_bin.py": "ca54ad89fc4b1b82e629228826ae72a7566f64ff2c5f4f8e92a2b8ce25bc23b0",
+    "robolab/tasks/benchmark/block_stacking_order_agnostic_task.py": "01da33887db6070823203c2cad2d8fea521fa39b3155669401c8e3045d1544fa",
+    "robolab/tasks/benchmark/block_stacking_specified_order_task.py": "3e8bd2831dd95891d926eff64d5084c7ae6910e4e4d4bc1867fd83424a41899e",
+    "robolab/tasks/benchmark/blocks_in_bin.py": "f5983c5bcc2d32875278dec18a9f86b4b98b92e4eb5c2747c1b14e900efac56b",
+    "robolab/tasks/benchmark/bottles_on_shelf_task.py": "8f510893be9e140bddd1f3f45c83a8289da8c43867d26e8fa68baf02052bfb27",
+    "robolab/tasks/benchmark/bowl_in_bin_task.py": "fb7ffe99ad9ad0c5658aa9be24a33b271ee67e8bbc1add9364f4d6e683ac3e7d",
+    "robolab/tasks/benchmark/bowl_stacking_left_on_right.py": "5f97aaf30c16459fcf138f02f665626204b0b60fac6cd06225974aaf8decbed3",
+    "robolab/tasks/benchmark/bowl_stacking_right_on_left.py": "c64c46a825f097df4c69ef954efa7ea7ec018afbb03f1aaaa1cfffd6ce12b49b",
+    "robolab/tasks/benchmark/butter_above_raisin_task.py": "28173a5ad5dab5dfd0f0814897ea3154cdda19fd4db0969755e24ce0dc874f05",
+    "robolab/tasks/benchmark/canned_food_in_bin_task.py": "d37250587651a05462ef7e567af9374a2e768738ceedea4957343eac27ea5e67",
+    "robolab/tasks/benchmark/clamp_in_right_bin.py": "521df10c8b31faf3c5c317b0f1b3cd65aa1653ec79dc1f2e8a774b9dc6bebc2a",
+    "robolab/tasks/benchmark/clean_up_toys.py": "4285aec58714dfabc47bf95c3e5c42af00b3a5f2ad38e6371841dd4edf32efb0",
+    "robolab/tasks/benchmark/clutter_big_pumpkin_task.py": "a9684a19a6496a19ba502d6a8f35ebf92a2ae3430f907c5b00c2d9c03bcd9b5a",
+    "robolab/tasks/benchmark/clutter_organic_objects_task.py": "da448a449ae7607fc20258bd0734cdf9756b719317a7695b949f45a796a5863f",
+    "robolab/tasks/benchmark/clutter_plastic_task.py": "01abecd9aa125c72ff6b291650f5372392c6cfabbc5411d458b9cf970f3c1e81",
+    "robolab/tasks/benchmark/clutter_pumpkin_task.py": "cbfe1107f68f43d73c9993298caf0ba9e066473a85dbd8b9f5c50f6a3d082248",
+    "robolab/tasks/benchmark/clutter_small_pumpkin_task.py": "f69ff8ef0b4011286f3329c4426d0cf0c42dc833864f80b6eb1fe2c2d143750b",
+    "robolab/tasks/benchmark/coffee_pot_in_bin.py": "71c1f2a92379b58320b0bc84e2d675db23288315503595a2e467a9b2de87f96d",
+    "robolab/tasks/benchmark/condiments_in_bin_task.py": "c4302403af9c69ada700e01ffa070de1d0c37d047e72f5e9dd6ad169629b557c",
+    "robolab/tasks/benchmark/cooking_clear_plate_specific.py": "6f10906a03be46efa836591ddca80120a0083760d8cf71a836258c8c52c77b03",
+    "robolab/tasks/benchmark/cooking_orange_object.py": "ca1af737c3f53c4b0a77538088ee52d8b939588dad3408ff668ef00648997eee",
+    "robolab/tasks/benchmark/cooking_pick_pasta_tool.py": "e2b0a7c1ac3f0de99ebaa771f1b64a8eaeb9d4f76bea4a9dcdbc5e3f504e3f64",
+    "robolab/tasks/benchmark/cubes_and_blocks_in_bin.py": "24ca284ea12d467061d414b477220366713df0d59ec923c1a954c6814c07fd59",
+    "robolab/tasks/benchmark/dishes_in_bin.py": "e852b8601fbaea5e897e5daeb519551a43678f79351ce60555f5ea22a09a00bf",
+    "robolab/tasks/benchmark/electronics_in_bin_task.py": "13f909fc2215bc1cbb89369f1f45822c10224a1d3eadb356fff7d6c0b2cd2fe3",
+    "robolab/tasks/benchmark/food_packing_by_color_task.py": "eb7c08529a792eec5d6102495942d490db9c452cbaa9e80d49f44076f5baf992",
+    "robolab/tasks/benchmark/foodpacking_1bin_1box.py": "b53a441de5882abcefdb8101d77c195dd96769395c8c76c1667903a718552833",
+    "robolab/tasks/benchmark/foodpacking_1bin_1can.py": "73cce34aadcf9af9d6d219b0799242ac9733318444f7c66e13cdea44c5ddc0a2",
+    "robolab/tasks/benchmark/foodpacking_1bin_2box.py": "f4fcebe1b148617792fa1ff70a739f73398f620c92ff40fe7bacc7ba63720774",
+    "robolab/tasks/benchmark/foodpacking_1bin_2can.py": "58b10756038e79aa46a797388ff8c24fa8a39937256b514f4cae110e0475b86a",
+    "robolab/tasks/benchmark/foodpacking_1bin_3box.py": "41f08918426ece2c015c9d199db372409b53a691d52399ed851dff2fe0a9926a",
+    "robolab/tasks/benchmark/foodpacking_1bin_3can.py": "2d934a9ede3e2fdefdc1d1a7ef8822f82dcf0d454353e022a173b5a7d0814dad",
+    "robolab/tasks/benchmark/fruits_green_limes_on_plate.py": "7101de14929bf0b4753865f7c13573c7d668369180230eff00302d65fffeb194",
+    "robolab/tasks/benchmark/fruits_move_orange.py": "f42fac0ad76499ca4a8bfdeb3b3d13cca019253956766326ee41b1787a22b304",
+    "robolab/tasks/benchmark/fruits_move_orange_or_lime.py": "fe6f28323dddbad91e19c2fee61cd5843e11db1e3b33fc336774085547b05d27",
+    "robolab/tasks/benchmark/fruits_onion_to_bowl.py": "8cb0e0bb2f6254cb8b8266fe8aed6676a841cbb2c9ca8815b067f737b1f444c6",
+    "robolab/tasks/benchmark/fruits_onion_to_plate.py": "eab8edf1d2dac1f68b2263b7fcf6076cd01f82fd3bacdc315274e5a65884387a",
+    "robolab/tasks/benchmark/fruits_oranges_on_plate.py": "297d169b6b8e8365a0630ca858ccc0c8cd7be6f3138a4c92fd42ee5e8a6a0922",
+    "robolab/tasks/benchmark/fruits_to_plate.py": "8c0275c2c9ca1f202aface07084e1d108faa1d1162bd2791e28c5ea29fa51780",
+    "robolab/tasks/benchmark/fruits_to_plate_3.py": "54ed599e98279b1bdb743fdf4d8c2290026791008f0e96ab53ed4dd6bb3e09d0",
+    "robolab/tasks/benchmark/grab_a_bagel.py": "9f53b2d7a39356330f10b58b0fbbcfbeb33c9148ad2ff816eff7c0e3a470ebef",
+    "robolab/tasks/benchmark/grab_a_fruit.py": "493e1698413bf0cc90b753898ed2a0720f4ce401fea272b762c21573fddd7c5e",
+    "robolab/tasks/benchmark/green_spoons_in_pot.py": "5633e6ce82020124c279d3131b11726dd32b30d6cb866e18804bd405139faa9e",
+    "robolab/tasks/benchmark/jugs_on_shelf_task.py": "d9ec335357567d49699ef278d2ebf101a1f30d4fbfbf2af909ec7c0a6e441bcc",
+    "robolab/tasks/benchmark/keyboard_out_of_bin_task.py": "d7d359270bc397e03429624f235556cc294c38212d0977751ac142c82e2700da",
+    "robolab/tasks/benchmark/lizard_in_bin_task.py": "74381a1d287d2ac23a427bfcd596846f695bd8f0db33c16868523bf0bc39e403",
+    "robolab/tasks/benchmark/marker_in_mug_task.py": "e6dd8c9f96a1f5a3dbf5792dd72e4246940429c520b39a5c2f8fbe05781f70eb",
+    "robolab/tasks/benchmark/mouse_on_keyboard.py": "d20859b4bc90f470498a49d45b34bcc2080cd45947ebb5dc67ce5e977d8667c5",
+    "robolab/tasks/benchmark/move_banana_to_bagel_plate.py": "f8a7ad1cbf22a8543d0ca28e2d79e1fabad0f2ca1683f9b73e8e4b2dc61cd7cc",
+    "robolab/tasks/benchmark/mustard_above_raisin_task.py": "18320ac679014b6d1cfcc24765f66d0debf456c03a0cd38dc055db3b31ef8387",
+    "robolab/tasks/benchmark/mustard_in_left_bin.py": "026518480c0d5dc0a1f518a41a6bc6a4937ce320b41bd547dd9c95e3be3b5bb6",
+    "robolab/tasks/benchmark/mustard_in_right_bin.py": "b7c17a542d6bb5fc308766c0cd1fe0a8c3dc94dfecb3946a555259e82f5116f8",
+    "robolab/tasks/benchmark/non_hammer_tools_in_right_bin.py": "da87e285ab3ad862b42d40ea3ad0af7247f5df4c9fb50c70a26cf4a0e5daeef9",
+    "robolab/tasks/benchmark/one_bottle_in_square_pail.py": "999f3e4aed2ceed3e8543b6e56aaf2ac9cde5fab1196a67fc6b035a383f46b00",
+    "robolab/tasks/benchmark/one_bottle_on_shelf_task.py": "cc4e1c456804d3f58e5b29ca08c3f5ab7ea132af94808d8ce91e5202d4bdb6ba",
+    "robolab/tasks/benchmark/phone_or_remote_in_bin_task.py": "c12e0d7baad60bad14e9400887a665731a1ca41d5a140231dcb06d012c87caab",
+    "robolab/tasks/benchmark/pick_drill.py": "c8f15d8e12b5e26cbcf309239c00a9b804236e1cc596d2816d54e6b2d1e9c781",
+    "robolab/tasks/benchmark/pick_glasses_task.py": "ea466f46f58fe3ffb8b91196016dc2de6de26c8e6f8d6aa643aec0e644ede79f",
+    "robolab/tasks/benchmark/pick_up_blue_pitcher.py": "254c6287a5ad881a67726ef89c27015f9df2fcc96c2d35dc6a8d5a545e4afea6",
+    "robolab/tasks/benchmark/pick_up_green_object.py": "c7f1e6688e2c65f42f0ec41521396312ed2d2b42b376b528f7c1760027f49e5a",
+    "robolab/tasks/benchmark/pink_spoon_in_pot.py": "1dca36fb43e28312b2e623cfb386d0d18c44e50a3cde6289c562963971de7c2d",
+    "robolab/tasks/benchmark/put_bowl_on_shelf.py": "988efa001ed44628b52695f67eeb24f20d270f941a71e71a993670f550436674",
+    "robolab/tasks/benchmark/put_mugs_on_shelf.py": "df4dd954652edd9860566ce712794b1a12cffa827f13ebd15ae1724175a10228",
+    "robolab/tasks/benchmark/put_two_mugs_on_shelf.py": "80ecdde7b439fb03a4dbf46b6c35d56f354c3426c314303a581fb5a8c92828c5",
+    "robolab/tasks/benchmark/recycle_cartons.py": "3e6db59dcc342f5b82d174e9452d23e3ae59328221c6da306b361fed6dd0aa1a",
+    "robolab/tasks/benchmark/recycle_cartons_on_box.py": "6f1bcfbca9f8976b452f483a0bc05bab96082c1a550c89c626cd12f90a9e8d7a",
+    "robolab/tasks/benchmark/recycle_cartons_vertical_crate.py": "63926482f1a11ff9952a4d867fb00aaa09b80df3667d94a06614749d5c045477",
+    "robolab/tasks/benchmark/red_dishes_in_bin.py": "4295a299098bf369e890efd3380168ae4be4e5a93cf895d84a3f824083523fb0",
+    "robolab/tasks/benchmark/red_items_in_bin.py": "75fd9c6d96df9b44544ff8faa27f4b777db10bb5dfc995ef3d32696f50582fd0",
+    "robolab/tasks/benchmark/reorient_all_mugs_task.py": "a6b324d4eab54a1eb629939d8b20b1dd6cac54f5bf535d6c929dade73a8f9dbc",
+    "robolab/tasks/benchmark/reorient_jug.py": "7877da74f6263fd59e6e8a64e42e79bb3edbc5f36b6f8003dc4f4857710039b9",
+    "robolab/tasks/benchmark/reorient_red_mugs_task.py": "6f420c45b707a0dd7d37acb37e45e156189536ba8dd0b9b11fde533e2cd4f69a",
+    "robolab/tasks/benchmark/reorient_white_mugs.py": "d88ff10dd34013aa49c564c56d0abf6dbef14224010d46e6956b5671ee48b086",
+    "robolab/tasks/benchmark/rubiks_cube_and_banana_task.py": "3687a21481ffb7482b42a801ab2950dbdb684c39cfc122dff3a8edbaf923f90f",
+    "robolab/tasks/benchmark/rubiks_cube_behind_bowl.py": "3746906d19cf03bf1ea3c1919fa7c2a4c7d81167b26618e14f2e2c938c17a719",
+    "robolab/tasks/benchmark/rubiks_cube_in_front_of_bowl.py": "137563d76ce15889cd3c55ea7ed5c904a5c9fe3305cea677bc3c9138cc1f4ec2",
+    "robolab/tasks/benchmark/rubiks_cube_left_of_bowl.py": "96c86ef512784503f286afe7bc179e0e473eb12b36202581a8c04d8a486ac267",
+    "robolab/tasks/benchmark/rubiks_cube_or_banana_task.py": "ecbab8502d01dd3518d9e16acb81f44831a011a5574d05b5eea2573fc13531f8",
+    "robolab/tasks/benchmark/rubiks_cube_right_of_bowl.py": "670363f60052af98baf0988614e0edf544f52a00cf41934df85e5d20ce794b85",
+    "robolab/tasks/benchmark/rubiks_cube_stacking_task.py": "7c4e011d75015d1df1d0dd3da7ed2dc94736b31f88bd2e737aa7dfda9108f865",
+    "robolab/tasks/benchmark/rubiks_cube_task.py": "ee4a137d56feb6277efb537a274e36b23ede210dbc46829bbb44bf2a8369b3eb",
+    "robolab/tasks/benchmark/rubiks_cube_then_banana.py": "a7cb6b2469f4269f888f3d4b0441254a844bf95583516473610a714dfaa2e23f",
+    "robolab/tasks/benchmark/rubiks_cubes_in_bin.py": "05ba9ca865771082fba06d4db51e01de5bf43785e6355cfd4628c527740c2337",
+    "robolab/tasks/benchmark/sauce_bottles_crate_task.py": "a1df82f6f75f1b313e15b016b1bdc6ed0710c5f841a865848f18960d3cb0fe68",
+    "robolab/tasks/benchmark/smaller_object.py": "3c7f367e16f67b6dc36b35c37e141104783e69e406d48eb1e0da393c9f633a73",
+    "robolab/tasks/benchmark/smartphone_in_bin_task.py": "845f1de1d03ebe39ee6aeb385792df88e548781d24f5c119535e05851ae67576",
+    "robolab/tasks/benchmark/spoon_in_mug_task.py": "be5879182d41a102b981478bd76a872c01309661853ba03e20bba1bdbd0e6b8f",
+    "robolab/tasks/benchmark/spoons_in_pot.py": "508aaf1c123c9e85e1b9ead538be3c607b0993ebc16229c164a99ac3cf56ce6e",
+    "robolab/tasks/benchmark/stack_white_mugs_task.py": "b15cf6cb5925d83b11890f9cb16cfbc16b0f0133b51128f3fae5f86878f8f074",
+    "robolab/tasks/benchmark/stack_yellow_on_red.py": "68a73fd9f0a0ccb95e190d45e9b0eea25d9d24e856469b01e671489c56e5f695",
+    "robolab/tasks/benchmark/take_measuring_spoon_out.py": "c5366831ac38eb47b8725364eae11f3b857aeeb1c5ec805d4d51fc98aa3b8b17",
+    "robolab/tasks/benchmark/take_mugs_off_of_shelf.py": "216fa88892d6b24387df06236c736937c8fb405df90244405150ac4a520debb2",
+    "robolab/tasks/benchmark/take_spatula_off_shelf.py": "fe62dc7de036736f858f37e7cec9b1abaa5f3977acee8af8f1c63682a96053f1",
+    "robolab/tasks/benchmark/throw_away_apple_task.py": "11ca905019112a562c233a6c8d97840a6dfb0a67160661b5893922d0263eed73",
+    "robolab/tasks/benchmark/throw_away_snacks_task.py": "d19eb1964d575ff3bd711fa1f82685435e6515c2e11f5ba58763d5cfb28dbd76",
+    "robolab/tasks/benchmark/tool_organization_both_task.py": "d124e3a74fd43af17258b67b8a84963764da4ebccf2308aba980fe422e03807a",
+    "robolab/tasks/benchmark/tool_organization_left_task.py": "7d0ce35a2d767cec0eaf94b4cd2121684b35a3354e52a3bf0b75434bb1d93629",
+    "robolab/tasks/benchmark/tool_organization_task.py": "a87758d67e781a8f7b1aaeab40939c6ef79605dce7c4e4ade6f104e2f987bce2",
+    "robolab/tasks/benchmark/tools_picking_all_hammers.py": "6c4799f53d76697a6b809453d023a95b25d52b7aa279575157274007d8df5e65",
+    "robolab/tasks/benchmark/tools_picking_drill.py": "ebe3617aa758405b54f491b7a20a50a18d6d7857c241707e2b69bb194e2cbce2",
+    "robolab/tasks/benchmark/tools_picking_hammer.py": "51eb553be33b270c5571bda515d977a0ecff804d517fee615f0e0a292d27ba86",
+    "robolab/tasks/benchmark/unstack_rubiks_cube.py": "fb9066401231860a765937826354c5651fc65fe33e4f1cc96fe5c757066f09d1",
+    "robolab/tasks/benchmark/utensils_in_mug.py": "3aa16d7d687f598d7d8f6b2ace85c57e8cac27392b1207f84f178bc69e137fb5",
+    "robolab/tasks/benchmark/white_mug_in_center_of_table.py": "83b2194de795d57b575b69024b1d6b1f4ff22c428799ec70e64dabd500e1a745",
+    "robolab/tasks/benchmark/white_mugs_in_bin.py": "67213dc1bcd5a0a276f35f2d0fadb81db5b6abf6b9b0dd1c3504839e99221294",
+    "robolab/tasks/benchmark/wood_spatula_to_bowl.py": "dc1c0f448958e2cc0576a9d614f797b924ff63caa43ce8c2924de68c13f21e79",
+    "robolab/tasks/benchmark/yellow_and_white_objects_in_bin.py": "5a96febcfc22ff62a80aadb8291e1195449807a6cedcbb332ab801cd835b9563",
+    "robolab/tasks/benchmark/yogurt_in_bowl.py": "569f73b6c2cab20d9e865f3e3416a94aa503f884ed34c92b3a3a5b719bc0ec9c",
+    "robolab/tasks/randomize_initial_pose/banana_in_bowl_uniform_10cm.py": "bea6d8bfca1e32cd7fc5e05bf8b88af98ca782157bc59eda8462b9af5c6729fd",
+    "robolab/tasks/randomize_initial_pose/banana_in_bowl_uniform_20cm.py": "e4a179bee476b4b6d5ddf7a36ad795babe12bcedd5690e52ef3603deffe948de",
+    "robolab/tasks/randomize_initial_pose/banana_in_bowl_uniform_30cm.py": "d4edbf2df1cbfdac5d51148ec943d7c4119aff9b8eb71d88fa6d86046bab9f59",
+    "robolab/tasks/randomize_initial_pose/rubiks_cube_and_banana_uniform_10cm.py": "b5266a2edb41dcd5c36ec46acf274f87d6c1b49ff2f8813750dde9db1e9d1620",
+    "robolab/tasks/randomize_initial_pose/rubiks_cube_and_banana_uniform_20cm.py": "b4e4eab23ab1e50e377e0056d6d342b2a5e3db1a1a31dd12eb74152880074088",
+    "robolab/tasks/randomize_initial_pose/rubiks_cube_and_banana_uniform_30cm.py": "e18e2b243e040ddf6e0c6aa1cd0596ac264c8ec3ee90a939661ff56e2960cd2e",
+    "robolab/tasks/test_tasks/banana_in_bowl_task_explicit.py": "a823243769ae53d941955d1b0e2a7201a25d85c0570cd562b00eaee31a5fb01a",
+    "robolab/tasks/test_tasks/banana_in_bowl_task_import.py": "0769176d627e3da887143ccaf689241c45cb9dd9bd2c2b0f7bc692fb23c25035",
+    "robolab/tasks/test_tasks/conditionals_task.py": "26449ab29621836f44b21a216d6327a0fe018752b754e298981a663d47c38b18",
+    "robolab/tasks/test_tasks/fruits_oranges_on_plate_test.py": "20018a2160575dc64fbf37a7abbc4e84c0b49c5cc3f32ab4081690e77f546c5a",
+    "robolab/tasks/test_tasks/marble.py": "d2edb91a980fb24d07ef0e669e8612b9670d605ec26bf39c67138e444f2c06e4",
+    "robolab/tasks/test_tasks/plate_banana_rubiks_cube.py": "5b613d08fe84f69b8a7828456427ed6b550ea6e8e70e454c3cc880f65b720eaf",
+    "robolab/variations/backgrounds.py": "b1a9d286371d94a030928323951e9b9bff7b2235b70e4be23427daa378e1a2db",
+    "robolab/variations/camera.py": "75e12a83378cf02292f58b31bb3c1b3d783faad4e870bf2547c191839a678b3b",
+    "robolab/variations/lighting.py": "5f7cb7fd53c9325c7b1aed45e8ed307cfe2da92a920c084c635e157bfad6e7a7",
+    "scripts/annotate_phases.py": "3eed1aa6ed4da3d714e4be088a2d8420893548cd77017e6880104a91d869d540",
+    "scripts/audit_task_definitions.py": "d15f0f76d15be4019830ee10d989a6c98d40cb3651884066ae2ccf22c242e2f6",
+    "scripts/check_dense_channels.py": "f269c33d08a96af975f393ffa2ca70d132c2e513693bac1d313624b646c00563",
+    "scripts/check_rest_heights.py": "a3749604af93fb71e20014651675610e14d905a3f2ac4255486e291808bea80f",
+    "scripts/check_scene_intersections.py": "b701edaa4effd376deb85e3ea1c3e82a82d18a4c8fed61a347815dc51a271feb",
+    "scripts/contact_force_profile.py": "ffd8439380cf17c08eff1617b97678017c3833a485ff53ef6d1924027126128f",
+    "scripts/convert_to_lerobot.py": "17f8b6abb72917bbc592c0f4a4fcd18c38fb2c63f9458dbb44708037190a61ca",
+    "scripts/find_open_hand_carries.py": "221779743123100474404774835a6632166e50f2738253e5b2a3db13edb45e12",
+    "scripts/find_sinking_objects.py": "d57c2b8fd83ec180efadf85c120555bfaf4be2ff5633081f6834b418b4dbdce0",
+    "scripts/find_task_definition_conflicts.py": "861be22ab42b4035cff4837e085dd4ab1f99c3835d24fc09cf83bc2fcbf9318b",
+    "scripts/flag_regression.py": "b51840fd41eefd39d7cc962e6e6c961503eafe4bd1530bd20298e49f9fae8a82",
+    "scripts/flag_tows.py": "2036a677f9aaddf858fc4dc92f2f5d155ae31ffc5f5a8eebe3e372dfb58e54d4",
+    "scripts/friction_sweep_report.py": "50f7fa3e207f959e0e426b019e4c72d82608157f8e07d3b000e84295b32fa128",
+    "scripts/grip_before_carry.py": "121aaf6e4ab4dd07d60a1027a3336a9efd71e58ef8ca83f7bbbe57b0ee332c85",
+    "scripts/h7_log_disagreement.py": "9d4b62fdac3d1308c5dbce69839f0ef85bb9dadfa99f3b05cf2585a0287bdf14",
+    "scripts/phase_mode_check.py": "f5f38b32f698c5544a74d59d72b3d4a86e3291d82bd70fcb6a9061d308b74463",
+    "scripts/phase_sensitivity.py": "35315dff8464cd79bc4dbb04537c8e01d2cc03ca47f76186e52d981952b6f53d",
+    "scripts/phase_stability.py": "6f6ca3e842eafdd8a86617f31bb7965eaabb08626bc7e956eb4959f49353ef8c",
+    "scripts/policy_failure_taxonomy.py": "bdfccfecd9cc9775494499ca5450f2f386a61288218730b800b4b22df1ef1896",
+    "scripts/preflight_tasks.py": "c82e39cb8dbdb86fe476bffb8d48f1b61c612b954a0566234e9f238f3d8e971c",
+    "scripts/read_subtask_status_from_hdf5.py": "42cc6741be63a571dede22ab02ecbe60004d214c86552e381fe63b4ba400c69a",
+    "scripts/reflag.py": "57151ab53ffdcbebcc02367e950220507b7d42381b40166fee5dd6f5ce1a80a9",
+    "scripts/reflag_phases.py": "615e3013a432d621440507012607cc62c9d98b485cf17cfbd8089328fd7c5117",
+    "scripts/score_gold.py": "f3e51d981c272655c37a3d06852d2fca2caf51a6ddf51e9b1ac533d969f7e3cf",
+    "scripts/select_gold_episodes.py": "238f9430accef18f078ca21a676d1ed068e7adc9ff7dea5d6595a9dcde3ded5b",
+    "scripts/verify_patches.py": "1da22f49d7f503044333b7e964a7b31b0ce9b15019068ddaad9f0468543c73ae",
+    "tests/__init__.py": "db594cd67e3f2b455b85de73490fbade57d066b3b4cc5e6998c7b08ec137e806",
+    "tests/conftest.py": "d69d780d93a4dc17c4c45e67126a4475710cf85dbd8a94f6e22e1735f3ac9ec0",
+    "tests/test_contact_gripper.py": "3080dc9dc787eab604482354f0ff3530b7453dafd1f55668e7989369e3a4f1f7",
+    "tests/test_content_pack_defaults.py": "ab58af94e157e6d6cac71d18081b2649249aa33654e1711270b9c45892d523fe",
+    "tests/test_cosmos3_client.py": "3a03de25302071b5d5a5fc1676d589543deadb0942695ea92164a429fe5883c8",
+    "tests/test_counting_conditionals.py": "1eff2a1a723f246568c472eb05b88c4e7eab1dd805ce592672c40331d892dd0a",
+    "tests/test_counting_in_sim.py": "50585280d49ed0143d4156dec46ef65f9f3e7e06fb5bd65ef7b1043e286f881d",
+    "tests/test_depth_registration.py": "21c01f3c27dfe191ea2dda4cd794f2a370a5f4f9bf8154c0f0f7b08df33b2815",
+    "tests/test_dreamzero_transport.py": "1ff31ceae1f1190cbaa64e98d447108b6bd37619e0f9908f598fccdba768b6cb",
+    "tests/test_droid_isaac60_asset.py": "f032e38edfd62811c72b863ec406be98d7e8a2e7cdac8a443aa7dfdc7e35a6fa",
+    "tests/test_frame_contract.py": "0765c555c55f237a28723d7d254df7f3ec069ba384dda9c7589dd379f62cf58f",
+    "tests/test_gripper_conditionals.py": "4bb042f9cbac4fd6dc63b1d168d247529a2fa36b22549730800dca2597ecc6fb",
+    "tests/test_gt_state.py": "37e7697913ae4368e7daf6a5ea0be80202e18f4ad1efc31d169eccae2a49806a",
+    "tests/test_hull_check.py": "de0dd7208d66f88943dde8806117c4a04ad121ca6b86642a7db0a928435e6bc7",
+    "tests/test_inference_chunk_horizon.py": "ccad68d8de111c2934599b7be0ca7aeb46c991de86fcbca76e7f0176dd8daa17",
+    "tests/test_instruction_fields.py": "3f82c2b4f48d45fa053e4e293f375f2ef497b3fd0455bedc174a471564003db4",
+    "tests/test_isaaclab.py": "98a3da14de7ad2a5d2741291fa9dbb1eca531bab36707c729bc99794823f82f5",
+    "tests/test_isaaclab_compat.py": "8ecc1e9f32b488291fadbbbc67079f194a9e93911a7179c3bf83041f38fc8780",
+    "tests/test_kinova_asset.py": "9b705dcbc809e34704a4ec14b5bcf4dc6f00cf986393e41eacc3a77284689b5a",
+    "tests/test_lfs_pointers.py": "f73b4d84ba602192964545bf752f3338fcd72d3fda6127169fefe20a2de70f62",
+    "tests/test_llm_scene_gen_physical_solver.py": "10045d1fbf96ea0078386ba4ae9fbdd57df1fe592298dd8f43b886cf00f6907d",
+    "tests/test_object_state_obs.py": "fecc8efb16986dfe560bc3330467e6abbfc136f15a9229102e732ac0c3d5e054",
+    "tests/test_policy_metadata.py": "55af30995f54d5b672092d2460aebe3f23098bae0fdec05be73dffe47eadfcad",
+    "tests/test_recorder_export.py": "ea87a7089ac2be240cb06926298103c8b836ee47206300407c7b7bfa673a11af",
+    "tests/test_recorder_slicing.py": "bc2ae1b6d79cba2a26305338b571e657a56a58f3cb9f2b5b431815e6a94889a7",
+    "tests/test_registered_envs.py": "7025d31ac1ce08b20a65de861ee33649953415fcc7f6954c4994a441d9bfb4d6",
+    "tests/test_replay_env_config.py": "eed94d30def3077c3b2b939883efa92c6b5741bb56ce7216845f3e09166c04b8",
+    "tests/test_robot_labels.py": "442056c01babcac3d601be64ae5572c44fcfd067a3983e69052da1ff72b1a99e",
+    "tests/test_robovolo_predicates.py": "02cb25657887f89d1d69e013bb38567e744ce7583d4985c91fb29298ad66d759",
+    "tests/test_run_empty.py": "2144adea31be7bb9a63fb73d4825c49d125143380389b34f98ff1122c05d2d8e",
+    "tests/test_run_utils.py": "4c0d537b03170c0064ac33ccedabeeda027354869b563b6f5ccfd64df6b4e334",
+    "tests/test_runner_args.py": "28f51930c6152144483c3942ded5bf93a812fba7e3236672cbe895f2a9477029",
+    "tests/test_scene_ground.py": "7028d79be09ae54bfac2284dc01620fbe64b88c400a2573296debd29b5e6d623",
+    "tests/test_scene_overrides.py": "7f3b8993393be73f57b56dcb66880f552fa49df9ac0ee279638aa4ac5c27802c",
+    "tests/test_task_definitions.py": "2630396466d806ef9bfe260d3df983c266e6ce6f89eccbc6c73e4fbfc1c515ce",
+    "tests/test_tasks_valid.py": "40616cc59192702901cb383318d5afeaee693be687e844a99cce829920de70d9",
+    "tests/test_trajectory_metrics.py": "38893550768c5a242f5ed2dd1f217c4066918a38451866b156cad8f491dc7196",
+    "tests/test_video_utils.py": "94c69af03ccaf312964c925501d78ca7eafed97717e496c4902956874940be76",
+    "tests/test_volo_interop.py": "9a1ae284ddef655ac0f969043b9b220c74cdfc425f0b1eee2aace5e332aa4da9",
+    "tests/test_websocket_transport.py": "df6a4804838c58f09dd5468454c34ccb88b1c0aa99daa1e52554fed545d1b222",
+    "uv.lock": "b2873482fa7588a45ecdd1dcadfaba0b6672df1004adf09fb310b93d0418eaea"
+  },
+  "seed": 0,
+  "steps": 45,
+  "simulated_duration_s": 3.0,
+  "action": [
+    [
+      0.0,
+      -0.6283185482025146,
+      0.0,
+      -2.5132741928100586,
+      0.0,
+      1.884955644607544,
+      0.0,
+      0.0
+    ]
+  ],
+  "policy": "stationary absolute-joint hold; gripper open",
+  "max_arm_drift_rad": 0.0,
+  "score_after_hold": 0.0,
+  "score_peak": 0.0,
+  "env_results_after_export": [
+    {
+      "env_id": 0,
+      "success": null,
+      "step": null,
+      "early_resets": 0,
+      "pre_satisfied": false,
+      "success_first_hold_step": null,
+      "success_confirmed_step": null,
+      "score_final": null,
+      "collateral_placed": 0,
+      "towed_objects": []
+    }
+  ],
+  "profile_sha256": "6481f31931e02e2c2c4dfe688f04d8b78be63a54b380db83ded7366adfa52245",
+  "extra_render_updates": 0,
+  "episode_completed": false,
+  "trace": [
+    {
+      "step": 1,
+      "score": 0.0,
+      "keyboard_in_bin": false,
+      "keyboard_position": [
+        0.5686957240104675,
+        -0.11269039660692215,
+        0.1031809002161026
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 2,
+      "score": 0.0,
+      "keyboard_in_bin": false,
+      "keyboard_position": [
+        0.568739116191864,
+        -0.11273786425590515,
+        0.10297027975320816
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 3,
+      "score": 0.0,
+      "keyboard_in_bin": false,
+      "keyboard_position": [
+        0.5687403678894043,
+        -0.1127423495054245,
+        0.10297688841819763
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 4,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687406659126282,
+        -0.11274175345897675,
+        0.10298258066177368
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 5,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687336325645447,
+        -0.11273618787527084,
+        0.10297618061304092
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 6,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687476992607117,
+        -0.1127333864569664,
+        0.10298044234514236
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 7,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.568744957447052,
+        -0.11272896081209183,
+        0.10297832638025284
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 8,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.568743884563446,
+        -0.11273045837879181,
+        0.10297201573848724
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 9,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687565803527832,
+        -0.11274359375238419,
+        0.10296010971069336
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 10,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687414407730103,
+        -0.1127389445900917,
+        0.10296354442834854
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 11,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687476396560669,
+        -0.11274725943803787,
+        0.10295964032411575
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 12,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687546730041504,
+        -0.11276087164878845,
+        0.10295149683952332
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 13,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687605738639832,
+        -0.11275716871023178,
+        0.10295263677835464
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 14,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687577724456787,
+        -0.11275465786457062,
+        0.10295194387435913
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {},
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 15,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687581896781921,
+        -0.11275556683540344,
+        0.1029520034790039
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 16,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687596797943115,
+        -0.11275433003902435,
+        0.1029500663280487
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 17,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687596797943115,
+        -0.11275279521942139,
+        0.10294937342405319
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 18,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687586069107056,
+        -0.11274821311235428,
+        0.10294913500547409
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 19,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687583088874817,
+        -0.11274436861276627,
+        0.10295018553733826
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 20,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687586069107056,
+        -0.11274051666259766,
+        0.10295149683952332
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 21,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687538385391235,
+        -0.11273916065692902,
+        0.10295156389474869
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 22,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.568754255771637,
+        -0.11273688077926636,
+        0.10294869542121887
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 23,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687549710273743,
+        -0.11273504793643951,
+        0.10294842720031738
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 24,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687534809112549,
+        -0.11273223161697388,
+        0.10295050591230392
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 25,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687523484230042,
+        -0.11272978782653809,
+        0.10294872522354126
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 26,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687518119812012,
+        -0.11272585391998291,
+        0.10295209288597107
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 27,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687497854232788,
+        -0.1127241775393486,
+        0.10295135527849197
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 28,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687515139579773,
+        -0.1127246767282486,
+        0.1029481291770935
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 29,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687510371208191,
+        -0.11272193491458893,
+        0.10295160114765167
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 30,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687482357025146,
+        -0.11271964013576508,
+        0.10295173525810242
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 31,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687503218650818,
+        -0.1127198338508606,
+        0.10295016318559647
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 32,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687471628189087,
+        -0.11271607875823975,
+        0.10295184701681137
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 33,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.568748950958252,
+        -0.11271616816520691,
+        0.10294840484857559
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 34,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687488913536072,
+        -0.11271123588085175,
+        0.10295086354017258
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 35,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687447786331177,
+        -0.11270838975906372,
+        0.10295140743255615
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 36,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687465667724609,
+        -0.11270568519830704,
+        0.1029498502612114
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 37,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.568744421005249,
+        -0.11270342767238617,
+        0.10295115411281586
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 38,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687454342842102,
+        -0.11270100623369217,
+        0.1029474213719368
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 39,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687445998191833,
+        -0.11269604414701462,
+        0.10295099765062332
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 40,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687403082847595,
+        -0.11269187182188034,
+        0.10295125097036362
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 41,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.568742036819458,
+        -0.1126890555024147,
+        0.10294876992702484
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 42,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687420964241028,
+        -0.11268536746501923,
+        0.10295030474662781
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 43,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687389969825745,
+        -0.11268217861652374,
+        0.10295148938894272
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 44,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687397718429565,
+        -0.11267873644828796,
+        0.10294877737760544
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    },
+    {
+      "step": 45,
+      "score": 0.0,
+      "keyboard_in_bin": true,
+      "keyboard_position": [
+        0.5687400698661804,
+        -0.11267532408237457,
+        0.10294967144727707
+      ],
+      "keyboard_rungs_credited": [
+        false,
+        false
+      ],
+      "spawn_excluded_rungs": {
+        "keyboard": [
+          1
+        ]
+      },
+      "max_arm_drift_rad": 0.0
+    }
+  ]
+}

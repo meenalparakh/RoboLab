@@ -1,0 +1,114 @@
+{
+  "source_commit": "24bb7c4153b3aa1f615305c41513f29b901346b7",
+  "date": "2026-10-20",
+  "job_id": 4120981,
+  "evaluation_exit_code": 0,
+  "container_exit_code": 0,
+  "runtime_image": "robolab-verified-isaac60.sif",
+  "gpu": "NVIDIA L40",
+  "driver_version": "610.57.04",
+  "project_api_overlay": false,
+  "material_replacements": false,
+  "episode_result": {
+    "env_name": "BananasInBinOneMoreTask",
+    "task_name": "BananasInBinOneMoreTask",
+    "run_name": "BananasInBinOneMoreTask_0",
+    "run": 0,
+    "episode": 0,
+    "env_id": 0,
+    "policy": "pi05",
+    "instruction": "Put one (1) more bananas in the grey bin.",
+    "attributes": [
+      "semantics",
+      "counting",
+      "moderate"
+    ],
+    "success": true,
+    "episode_step": 241,
+    "duration": 16.066666666666666,
+    "early_resets": 0,
+    "pre_satisfied": false,
+    "collateral_placed": 0,
+    "towed_objects": [],
+    "physics_artifact": false,
+    "success_first_hold_s": 16.066666666666666,
+    "success_confirmed_s": 16.066666666666666,
+    "dt": 0.06666666666666667,
+    "metrics": {
+      "ee_sparc": -4.5004823877165965,
+      "joint_sparc_mean": -4.940859454206982,
+      "ee_isj": 346.7547343799732,
+      "joint_isj": 5363.237080852847,
+      "ee_path_length": 1.6230955410249959,
+      "joint_rmse_mean": 0.031132513878177785,
+      "ee_speed_max": 0.3984374403953552,
+      "ee_speed_mean": 0.09848134219646454
+    },
+    "events": {
+      "GRASP_ATTEMPT_FAILED": 3,
+      "GRIPPER_FULLY_CLOSED": 1,
+      "TARGET_OBJECT_BUMPED": 2,
+      "OBJECT_GRIPPED": 1,
+      "OBJECT_CARRIED": 1,
+      "OBJECT_GRABBED_SUCCESS": 1,
+      "OBJECT_RELEASED": 1,
+      "SUBTASK_COMPLETED": 1
+    },
+    "instruction_fields": [
+      "default",
+      "vague",
+      "specific"
+    ],
+    "instruction_fields_used": [
+      "default"
+    ],
+    "instruction_type": "default",
+    "timing": {
+      "policy_inference_s": 45.062,
+      "policy_inference_avg_ms": 187.0,
+      "env_step_s": 79.816,
+      "env_step_avg_ms": 331.2,
+      "video_write_s": 3.356,
+      "video_write_avg_ms": 13.9,
+      "wall_total_s": 128.235,
+      "it_per_sec": 1.88
+    },
+    "score": 1.0,
+    "score_peak": 1.0,
+    "reason": "Completed subtask 'pick_and_place' 1/1",
+    "phases": {
+      "time_by_family_s": {
+        "motion": 6.6,
+        "grasp": 3.47,
+        "in_hand": 2.87,
+        "still": 1.53,
+        "scene": 1.27,
+        "settle": 0.33
+      },
+      "n_phases": 24,
+      "n_picks": 2,
+      "n_picks_pass": 1,
+      "n_picks_wrong_object": 0,
+      "n_drops": 0,
+      "n_places_by_cause": {
+        "released": 1
+      },
+      "n_places_pass": 1,
+      "first_contact_s": 5.07,
+      "time_in_hand_s": 2.87,
+      "time_press_table_s": 0.0,
+      "n_flags": 1
+    },
+    "tows": {
+      "tow_tier": null,
+      "n_tow": 0,
+      "n_drag": 0,
+      "n_press": 1,
+      "n_squeeze": 0,
+      "towed_objects": [],
+      "tow_time_s": 0.0,
+      "first_tow_s": null,
+      "max_depth_mm": 5.4
+    }
+  }
+}

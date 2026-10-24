@@ -1,0 +1,37 @@
+{
+  "task": "BlackItemsInBinTask",
+  "seed": 0,
+  "steps": 45,
+  "method": "Stationary absolute-joint hold with open gripper; bounded scoring probe, not a completed episode",
+  "compatibility_source": "d839ddf31922381faa96fe643f24da7276ab6d7c",
+  "feature_source": "4d8ac0121c6e34eb1eeb43a5962cce9330531b7f",
+  "paired_gpu_feature_source": "24bb7c4153b3aa1f615305c41513f29b901346b7",
+  "runtime_source_unchanged_after_probe": true,
+  "changes_after_probe": [
+    "tests/test_hull_check.py"
+  ],
+  "full_pytest_source": "4d8ac0121c6e34eb1eeb43a5962cce9330531b7f",
+  "before_score": 0.2,
+  "after_score": 0.0,
+  "keyboard_in_bin_in_both_runs": true,
+  "keyboard_trajectory_max_difference_m": 0.0,
+  "profile_sha256": "6481f31931e02e2c2c4dfe688f04d8b78be63a54b380db83ded7366adfa52245",
+  "rendering_settings": {
+    "/renderer/multiGpu/enabled": false,
+    "/renderer/activeGpu": 0,
+    "/rtx/rendermode": "RealTimePathTracing",
+    "/rtx/post/aa/op": 4,
+    "/rtx-transient/dlssg/enabled": false,
+    "/rtx-transient/dldenoiser/enabled": true,
+    "/persistent/rtx/modes/rt/enabled": false,
+    "/persistent/rtx/modes/rt2/enabled": true,
+    "/persistent/rtx/modes/pt/enabled": true
+  },
+  "extra_render_updates": 0,
+  "pytest": {
+    "tests": 327,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

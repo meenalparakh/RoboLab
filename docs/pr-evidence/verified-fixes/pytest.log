@@ -1,0 +1,1102 @@
+WARNING: SINGULARITY_TMPDIR and APPTAINER_TMPDIR have different values, using the latter
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0
+cachedir: /tmp/pytest-cache
+rootdir: /workspace/robolab
+configfile: pyproject.toml
+plugins: anyio-4.7.0, flaky-3.8.1, hydra-core-1.3.3, mock-3.15.1, typeguard-4.4.2
+collected 327 items
+
+tests/test_contact_gripper.py ......                                     [  1%]
+tests/test_content_pack_defaults.py ...                                  [  2%]
+tests/test_cosmos3_client.py ..........                                  [  5%]
+tests/test_counting_conditionals.py ...............                      [ 10%]
+tests/test_counting_in_sim.py ....                                       [ 11%]
+tests/test_depth_registration.py ...                                     [ 12%]
+tests/test_dreamzero_transport.py .                                      [ 12%]
+tests/test_droid_isaac60_asset.py ..                                     [ 13%]
+tests/test_frame_contract.py ...                                         [ 14%]
+tests/test_gripper_conditionals.py ...                                   [ 15%]
+tests/test_gt_state.py .....                                             [ 16%]
+tests/test_hull_check.py .................                               [ 22%]
+tests/test_inference_chunk_horizon.py ..........                         [ 25%]
+tests/test_instruction_fields.py ................                        [ 29%]
+tests/test_isaaclab.py ..                                                [ 30%]
+tests/test_isaaclab_compat.py .....                                      [ 32%]
+tests/test_kinova_asset.py ...                                           [ 33%]
+tests/test_lfs_pointers.py .                                             [ 33%]
+tests/test_llm_scene_gen_physical_solver.py .......                      [ 35%]
+tests/test_object_state_obs.py ..                                        [ 36%]
+tests/test_policy_metadata.py .                                          [ 36%]
+tests/test_recorder_export.py .                                          [ 36%]
+tests/test_recorder_slicing.py ......                                    [ 38%]
+tests/test_registered_envs.py ....                                       [ 39%]
+tests/test_replay_env_config.py ....                                     [ 40%]
+tests/test_robot_labels.py ............                                  [ 44%]
+tests/test_robovolo_predicates.py ..                                     [ 45%]
+tests/test_run_empty.py .                                                [ 45%]
+tests/test_run_utils.py ..................                               [ 51%]
+tests/test_runner_args.py ....                                           [ 52%]
+tests/test_scene_ground.py ....                                          [ 53%]
+tests/test_scene_overrides.py ..                                         [ 54%]
+tests/test_task_definitions.py ..                                        [ 54%]
+tests/test_tasks_valid.py .............................................. [ 68%]
+........................................................................ [ 90%]
+....                                                                     [ 92%]
+tests/test_trajectory_metrics.py .                                       [ 92%]
+tests/test_video_utils.py .....                                          [ 93%]
+tests/test_volo_interop.py ............                                  [ 97%]
+tests/test_websocket_transport.py ........                               [100%]
+
+=============================== warnings summary ===============================
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: 'RigidBodyMaterialCfg' is deprecated and will be removed in 5.0. Use 'isaaclab_physx.sim.spawners.materials.PhysxRigidBodyMaterialCfg' for PhysX properties, or 'isaaclab.sim.spawners.materials.RigidBodyMaterialBaseCfg' for solver-common properties only.
+    f1(*args, **kwargs)
+
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: 34 warnings
+tests/test_counting_in_sim.py: 1 warning
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: 'RigidBodyPropertiesCfg' is deprecated and will be removed in 5.0. Use 'isaaclab_physx.sim.schemas.PhysxRigidBodyPropertiesCfg' for PhysX properties, or 'isaaclab.sim.schemas.RigidBodyBaseCfg' for solver-common properties only.
+    f1(*args, **kwargs)
+
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: 33 warnings
+tests/test_counting_in_sim.py: 1 warning
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: 'ArticulationRootPropertiesCfg' is deprecated and will be removed in 5.0. Use 'isaaclab_physx.sim.schemas.PhysxArticulationRootPropertiesCfg' for PhysX properties, or 'isaaclab.sim.schemas.ArticulationRootBaseCfg' for solver-common properties only.
+    f1(*args, **kwargs)
+
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: 'JointDrivePropertiesCfg' is deprecated and will be removed in 5.0. Use 'isaaclab_physx.sim.schemas.PhysxJointDrivePropertiesCfg' for PhysX properties, or 'isaaclab.sim.schemas.JointDriveBaseCfg' for solver-common properties only.
+    f1(*args, **kwargs)
+
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: 'CollisionPropertiesCfg' is deprecated and will be removed in 5.0. Use 'isaaclab_physx.sim.schemas.PhysxCollisionPropertiesCfg' for PhysX properties, or 'isaaclab.sim.schemas.CollisionBaseCfg' for solver-common properties only.
+    f1(*args, **kwargs)
+
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: 'FixedTendonPropertiesCfg' is deprecated and will be removed in 5.0. Use 'isaaclab_physx.sim.schemas.PhysxFixedTendonPropertiesCfg' instead.
+    f1(*args, **kwargs)
+
+../isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/torch/jit/_script.py:1480: 35 warnings
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/torch/jit/_script.py:1480: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+../isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: 8 warnings
+tests/test_counting_in_sim.py: 4 warnings
+tests/test_frame_contract.py: 3 warnings
+tests/test_run_empty.py: 3 warnings
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/configclass.py:513: DeprecationWarning: TiledCameraCfg is deprecated. Use CameraCfg directly — Camera now includes TiledCamera's vectorized rendering optimizations.
+    f1(*args, **kwargs)
+
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+tests/test_frame_contract.py::test_recorded_episode_frame_contract
+tests/test_frame_contract.py::test_recorded_episode_frame_contract
+tests/test_frame_contract.py::test_recorded_episode_frame_contract
+tests/test_run_empty.py::test_run_empty_episode
+tests/test_run_empty.py::test_run_empty_episode
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/source/isaaclab/isaaclab/utils/string.py:221: DeprecationWarning: TiledCamera is deprecated and will be removed in a future release. Use Camera directly — it now includes TiledCamera's vectorized rendering optimizations via the same Renderer abstraction.
+    return self._resolve()(*args, **kwargs)
+
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/warp/_src/context.py:7499: DeprecationWarning: Implicit use of ProxyArray as a torch.Tensor is deprecated. Use the explicit .torch property instead (e.g., array.torch).
+    if hasattr(src, "requires_grad"):
+
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+  /workspace/isaaclab/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py:4116: DeprecationWarning: wp.to_torch(<ProxyArray>) is deprecated; use the `.torch` accessor on the ProxyArray directly (e.g. `asset.data.joint_pos.torch`).
+    stiffness=wp.to_torch(self._data.joint_stiffness)[:, joint_ids],
+
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+tests/test_frame_contract.py::test_recorded_episode_frame_contract
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/source/isaaclab/isaaclab/envs/manager_based_env.py:125: FutureWarning: [93m[1m[DEPRECATION WARNING] ManagerBasedEnvCfg.rerender_on_reset is deprecated. Use ManagerBasedEnvCfg.num_rerenders_on_reset instead.[0m
+    self._init_sim()
+
+tests/test_counting_in_sim.py: 7 warnings
+tests/test_frame_contract.py: 3 warnings
+tests/test_run_empty.py: 3 warnings
+  /workspace/robolab/robolab/core/physics/friction.py:322: DeprecationWarning: The `root_physx_view` property will be deprecated in a future release. Please use `root_view` instead.
+    view = getattr(asset, "root_physx_view", None)
+
+tests/test_counting_in_sim.py::test_count_matches_boolean_conditionals
+tests/test_frame_contract.py::test_recorded_episode_frame_contract
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/robolab/robolab/core/physics/friction.py:327: DeprecationWarning: The `root_physx_view` property will be deprecated in a future release. Please use `root_view` instead.
+    view = getattr(robot, "root_physx_view", None)
+
+tests/test_counting_in_sim.py::test_teleport_into_bin_raises_count
+  /workspace/robolab/tests/test_counting_in_sim.py:121: DeprecationWarning: The function 'write_root_pose_to_sim' will be deprecated in a future release. Please use 'write_root_pose_to_sim_index' instead.
+    banana.write_root_pose_to_sim(pose)
+
+tests/test_counting_in_sim.py::test_teleport_into_bin_raises_count
+  /workspace/robolab/tests/test_counting_in_sim.py:122: DeprecationWarning: The function 'write_root_velocity_to_sim' will be deprecated in a future release. Please use 'write_root_velocity_to_sim_index' instead.
+    banana.write_root_velocity_to_sim(torch.zeros((1, 6), device=sim_env.device))
+
+tests/test_frame_contract.py::test_recorded_episode_frame_contract
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananaInBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PickUpGreenObjectTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPacking3BoxesTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubesInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananasInCrateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment UnstackRubiksCubeTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RecycleCartonsVerticalCrateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CannedFoodInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BlockStackingSpecifiedOrderTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ToolOrganizationBothTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment UtensilsInMugTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ToolsPickingAllHammersTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananasInBinOneMoreTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RecycleCartonsOnBoxTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PutMugsOnShelfTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment MustardInLeftBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PickGlassesTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment YellowAndWhiteObjectsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ElectronicsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeInFrontOfBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ReorientAllMugsTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment SmallerObjectButterInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPacking2CansTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ThrowAwayAppleTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BowlStackingLeftOnRightTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment NonHammerToolsInRightBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BlockStackingOrderAgnosticTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPacking3CansTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RecycleCartonTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment TakeSpatulaOffShelfTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsOnPlate3Task already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment LargerObjectRaisinBoxInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PutBowlOnShelfTopTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPacking1CansTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ButterAboveRaisinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment SauceBottlesCrateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PhoneOrRemoteInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment MoveBananaToBagelPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RedDishesInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeOrBananaTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PickUpBluePitcherTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananasOutOfBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPacking2BoxesTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CoffeePotInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment KeyboardOutOfBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ToolsPickingHammerTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BowlInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ClampInRightBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment HammersInLeftBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BowlStackingRightOnLeftTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment SpoonsInPotTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BBQSauceInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment MustardInRightBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CleanUpToysTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPacking1BoxesTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ToolsPickingDrillTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ReorientRedMugTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BigPumpkinInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment YogurtInBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CookingClearPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BagelsOnPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment AppleAndYogurtInBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ToyInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment DishesInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ToolOrganizationTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PlasticBottlesInSquarePailTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment WoodSpatulaToBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ClutterPumpkinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsOnionToPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PickDrillTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment StackWhiteMugsTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BlocksInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeRightOfBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment StackYellowOnRedTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment SmartphoneInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment Stack3RubiksCubeTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment AnimalsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FoodPackingByColorTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment OneBottleInSquarePailTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RedItemsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment GreenSpoonsInPotTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeLeftOfBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ThrowAwaySnacksTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ReorientJugTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsMovingOrangeOrLimeTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CookingPickPastaToolTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment TakeMugsOffOfShelfTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ClutterPlasticTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment JugsOnShelfTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsMovingTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment MarkerInMugTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PutTwoMugsOnShelfTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ReorientWhiteMugsTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment WhiteMugsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CubesAndBlocksInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsOnPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeThenBananaTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeAndBananaTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment MouseOnKeyboardTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment ClearOrganicObjectsTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment OneBottleOnShelfTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PinkSpoonInPotTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment GrabAFruitTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment TakeMeasuringSpoonOutTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment SmallPumpkinInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment WhiteMugInCenterOfTableTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment MustardAboveRaisinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananasInBinThreeTotalTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananaThenRubiksCubeTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BlackItemsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment BananaOnPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment CondimentsInBinTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsOrangesOnPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment RubiksCubeBehindBowlTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment SpoonInMugTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment GrabABagelTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsGreenLimesOnPlateTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment FruitsOnionTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+tests/test_registered_envs.py::test_auto_register_runs
+tests/test_registered_envs.py::test_envs_registered
+tests/test_registered_envs.py::test_canonical_env_in_gym_registry
+tests/test_registered_envs.py::test_no_duplicate_registrations
+tests/test_run_empty.py::test_run_empty_episode
+  /workspace/isaaclab/_isaac_sim/kit/python/lib/python3.12/site-packages/gymnasium/envs/registration.py:636: UserWarning: [33mWARN: Overriding environment PickOrangeObjectTask already in registry.[0m
+    logger.warn(f"Overriding environment {new_spec.id} already in registry.")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+----------------- generated xml file: /test-results/junit.xml ------------------
+================ 327 passed, 763 warnings in 382.02s (0:06:22) =================
