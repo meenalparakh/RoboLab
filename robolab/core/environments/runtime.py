@@ -258,6 +258,23 @@ def create_env(scene: str | ManagerBasedEnvCfg,
         attributes=getattr(env_cfg, '_task_attributes', None),
     )
 
+    # P79: record what PhysX holds after start-up (friction_applied.json), under
+    # `--friction upstream` too, so the baseline's coefficients are a measurement.
+    from robolab.core.physics.friction import write_applied
+    try:
+        write_applied(env, env.output_dir)
+    except Exception:
+        logger.exception("friction readback failed; env_cfg.friction still records the request")
+
+    # R1 (dense_annotations.md §5): the articulation's joint and body order, so an
+    # offline reader finds `finger_joint` by name instead of hard-coding column 7.
+    try:
+        robot = env.scene["robot"]
+        env_cfg.robot_joint_names = list(robot.data.joint_names)
+        env_cfg.robot_body_names = list(robot.data.body_names)
+    except Exception:
+        logger.exception("robot joint/body names not stamped into env_cfg")
+
     # Save env_cfg as json for metadata
     with open(os.path.join(env.output_dir, "env_cfg.json"), "w") as f:
         json.dump(env_cfg_to_recording_dict(env_cfg), f, default=str)

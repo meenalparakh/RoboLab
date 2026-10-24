@@ -516,6 +516,135 @@ body.sidebar-resizing { cursor: col-resize; user-select: none; }
   background: var(--bg-0);
   display: flex; align-items: center; gap: 6px;
 }
+/* shared video transport: [play] [time] [event timeline = scrubber] [speed] */
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-2);
+}
+.transport-btn {
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg-0);
+  color: var(--text-1);
+  min-width: 2.2rem;
+  padding: 0.15rem 0.4rem;
+  cursor: pointer;
+  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.transport-btn:hover { border-color: var(--accent); color: var(--accent-fg); }
+.transport .events-strip { flex: 1; margin: 0; touch-action: none; }
+.transport-time {
+  font-size: 11px;
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.transport-speed {
+  background: var(--bg-0);
+  color: var(--text-1);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  font-size: 11px;
+  padding: 0.15rem 0.25rem;
+  cursor: pointer;
+}
+/* per-tile link toggle (linked = driven by the transport) */
+.link-btn {
+  margin-left: 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-2);
+  padding: 1px 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.7;
+}
+.link-btn:hover { opacity: 1; border-color: var(--border-strong); color: var(--text-1); }
+.cam-tile.unlinked .cam-tile-label { border-bottom-color: var(--accent); }
+.cam-tile.unlinked .cam-tile-label .dot { background: var(--accent); }
+.cam-tile.unlinked .link-btn { color: var(--accent-fg); opacity: 1; }
+
+/* subgoal checklist under the language instruction */
+.subgoal-list { display: flex; flex-direction: column; gap: 2px; }
+.subgoal-row {
+  display: flex; align-items: baseline; gap: 0.5rem;
+  font-size: 13px; color: var(--text-0);
+  padding: 2px 0;
+}
+.subgoal-row.never { color: var(--text-1); }
+.subgoal-box {
+  flex: none; width: 13px; height: 13px; align-self: center;
+  border: 1.5px solid var(--border-strong); border-radius: 3px;
+  background: transparent; position: relative;
+  transition: background 120ms linear, border-color 120ms linear;
+}
+.subgoal-box.partial { border-color: var(--text-1); background: linear-gradient(90deg, var(--border-strong) 50%, transparent 50%); }
+.subgoal-box.done { border-color: var(--success); background: var(--success); }
+.subgoal-box.done::after {
+  content: ''; position: absolute; left: 3.5px; top: 0.5px; width: 4px; height: 8px;
+  border: solid #0b0f19; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.subgoal-index { color: var(--text-2); font-size: 11px; min-width: 1.2em; }
+.subgoal-conds { color: var(--text-2); font-size: 11px; }
+.subgoal-when { margin-left: auto; color: var(--text-2); font-size: 10px; white-space: nowrap; }
+
+/* task page: progress buckets + per-card stage boxes */
+.bucket-chip { cursor: pointer; border: 1px solid transparent; }
+.bucket-chip:hover { border-color: var(--border-strong); }
+.bucket-chip.active { border-color: var(--accent); color: var(--accent-fg); }
+.stage-boxes { display: inline-flex; align-items: center; gap: 2px; margin-left: auto; }
+.stage-box {
+  width: 9px; height: 9px; border-radius: 2px;
+  border: 1px solid var(--border-strong); background: transparent;
+}
+.stage-box.done { background: var(--success); border-color: var(--success); }
+.stage-box.partial { background: linear-gradient(90deg, var(--border-strong) 50%, transparent 50%); }
+.stage-count { font-size: 10px; color: var(--text-2); margin-left: 3px; }
+
+/* sidebar: policy-family groups + filter */
+.family-row {
+  cursor: pointer; user-select: none;
+  background: var(--bg-1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px; letter-spacing: 0.02em;
+  color: var(--text-0);
+}
+.family-row:hover { background: var(--bg-2); }
+.family-name { font-weight: 600; }
+.family-stats { font-size: 10px; color: var(--text-2); white-space: nowrap; }
+.sidebar-filter {
+  width: 100%; font-size: 12px; padding: 4px 8px;
+  background: var(--bg-0); color: var(--text-0);
+  border: 1px solid var(--border-strong); border-radius: 6px; outline: none;
+}
+.sidebar-filter:focus { border-color: var(--accent); }
+
+.run-date {
+  flex: none;
+  font-size: 10px;
+  color: var(--text-2);
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.mirror-tag {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-2);
+  opacity: 0.7;
+  white-space: nowrap;
+  cursor: help;
+}
 .cam-tile-label .dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--text-2);
@@ -725,3 +854,85 @@ table thead th { padding: 0.5rem 0.75rem; font-weight: 500; }
 
 /* Plotly tweaks for dark */
 .plotly .modebar-btn svg path { fill: var(--text-2) !important; }
+
+/* dense phase lanes under the transport strip + the gold-label panel
+   (docs/verified/dense_annotations.md) */
+.transport-col { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.transport-col .events-strip { flex: none; }
+.phase-lane {
+  position: relative; height: 24px;
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: 4px;
+  overflow: hidden; cursor: pointer; touch-action: none;
+}
+.phase-lane-l1 { height: 17px; }
+.phase-lane-labels { height: 15px; background: var(--bg-0); }
+.transport-strip { position: relative; }
+.nav-window { position: absolute; top: 0; bottom: 0; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.85); border-radius: 3px; background: rgba(255,255,255,0.10); cursor: grab; z-index: 4; }
+.nav-window.full { pointer-events: none; border-color: transparent; background: transparent; }
+.nav-window:active { cursor: grabbing; }
+.nav-handle { position: absolute; top: 0; bottom: 0; width: 7px; cursor: ew-resize; }
+.nav-handle.left { left: -3px; } .nav-handle.right { right: -3px; }
+.phase-seg {
+  position: absolute; top: 1px; bottom: 1px; box-sizing: border-box;
+  border-radius: 2px; border-right: 1px solid rgba(0, 0, 0, 0.45);
+  opacity: 0.85; color: #0b0d12; font-size: 11px; line-height: 20px; padding: 0 4px;
+  white-space: nowrap; overflow: hidden; cursor: pointer;
+}
+.phase-seg.phase { font-size: 10px; line-height: 14px; padding: 0 3px; }
+.phase-seg.active { opacity: 1; outline: 1px solid white; z-index: 1; }
+.phase-seg.ncs { background: repeating-linear-gradient(45deg, #374151 0 4px, #1f2937 4px 8px) !important; color: var(--text-2); }
+.phase-mark { position: absolute; top: 0; bottom: 0; width: 2px; background: #fbbf24; transform: translateX(-50%); cursor: pointer; }
+.phase-mark.seg { width: auto; background: rgba(251, 191, 36, 0.35); border-left: 2px solid #fbbf24; border-right: 2px solid #fbbf24; transform: none; }
+.phase-legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; color: var(--text-2); align-items: center; }
+.phase-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.attempt-list { display: flex; flex-direction: column; gap: 1px; }
+.attempt-row { display: flex; gap: 8px; align-items: center; font-size: 12px; padding: 2px 6px; cursor: pointer; border-radius: 4px; }
+.attempt-row:hover { background: var(--bg-1); }
+.attempt-row.active { background: var(--bg-1); outline: 1px solid var(--border-strong); }
+.attempt-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.labels-toggle { cursor: pointer; user-select: none; }
+.labels-toggle:hover { color: var(--text-1); }
+.labels-caret { display: inline-block; width: 1em; }
+.label-panel { border: 1px solid var(--border); border-radius: 8px; background: var(--bg-2); padding: 6px 8px; font-size: 12px; }
+.label-panel input, .label-panel select { background: var(--bg-0); color: var(--text-1); border: 1px solid var(--border); border-radius: 4px; padding: 2px 4px; font-size: 12px; }
+.label-panel .transport-btn { font-size: 11px; padding: 0.1rem 0.4rem; }
+.label-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 4px; }
+.label-list { display: flex; flex-direction: column; gap: 1px; }
+.label-del { border: none; background: transparent; color: var(--text-2); cursor: pointer; font-size: 14px; margin-left: auto; }
+.label-del:hover { color: var(--fail); }
+
+/* Deep-link loading state. A #/results/... link has to fetch the run index,
+   the task's episodes and the episode itself before anything paints; without
+   this the pane is blank for seconds and the link reads as broken. */
+.deeplink-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 55vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.deeplink-spinner {
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--accent-fg);
+  border-radius: 50%;
+  animation: deeplink-spin 0.8s linear infinite;
+}
+
+@keyframes deeplink-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .deeplink-spinner { animation-duration: 2.4s; }
+}
+
+/* review mode of the label panel (plan §9.4) */
+.review-list { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.review-row { flex-wrap: wrap; }
+.review-row .verdict.ok { color: var(--pass, #22c55e); }
+.review-row .verdict.bad { color: var(--fail, #ef4444); font-weight: 600; }
+.review-corr { width: 100%; margin: 2px 0 0 0; }

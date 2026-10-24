@@ -12,6 +12,7 @@ This module provides functions for:
 """
 
 import logging
+import robolab.constants
 from typing import Any, Type
 
 import gymnasium as gym
@@ -94,10 +95,14 @@ def generate_scene_env_cfg(task_class: Task,
         "table_fixture": table_fixture_asset(fixture, robot_cfg),
         "root_z_above_ground": None,
         "ee_recorder_bodies": None,
+        "friction_bodies": None,
+        "contact_extra_bodies": None,
         "__annotations__": {
             "table_fixture": "AssetBaseCfg | None",
             "root_z_above_ground": "float | None",
             "ee_recorder_bodies": "dict[str, str] | None",
+            "friction_bodies": "list[str] | None",
+            "contact_extra_bodies": "dict[str, str] | None",
         },
     }
     cfg_cls = type(class_name, tuple(bases), members)
@@ -126,7 +131,9 @@ def generate_task_env_cfg(task_class: Task,
                          gripper_closure_cfg: dict | None = None,
                          lazy_sensor_update: bool = True,
                          ee_recorder_bodies: dict[str, str] | None = None,
-                         object_state_obs: bool = False) -> Type[RobolabDefaultEnvCfg]:
+                         object_state_obs: bool = False,
+                         friction_bodies: list[str] | None = None,
+                         contact_extra_bodies: dict[str, str] | None = None) -> Type[RobolabDefaultEnvCfg]:
     """
     Generate a complete task environment configuration class.
 
@@ -153,6 +160,9 @@ def generate_task_env_cfg(task_class: Task,
             meters), ``<object>_quat`` (world-frame w, x, y, z), and
             ``<object>_vel`` (world-frame) terms for every entry of the
             task's ``contact_object_list`` (minus fixtures). Default False.
+        friction_bodies: The robot's finger-pad body names, from its optional
+            ``friction_bodies`` label; the targets of a ``--friction`` override (P79,
+            robolab/core/physics/friction.py). None: objects only, pads untouched.
 
     Returns:
         A complete environment configuration class
@@ -182,6 +192,8 @@ def generate_task_env_cfg(task_class: Task,
     # body would shadow the parameter before it can be read (class bodies do
     # not close over names they also assign).
     _ee_recorder_bodies = ee_recorder_bodies
+    _friction_bodies = friction_bodies
+    _contact_extra_bodies = contact_extra_bodies
 
     @configclass
     class GeneratedTaskEnvCfg(RobolabDefaultEnvCfg):
@@ -211,9 +223,27 @@ def generate_task_env_cfg(task_class: Task,
             self.scene = scene_env_cfg(num_envs=num_envs, env_spacing=env_spacing)
             self.scene.lazy_sensor_update = lazy_sensor_update
             self.contact_gripper = contact_gripper
+            # R2 (dense_annotations.md §5): extra robot bodies with per-object contact sensors.
+            self.contact_extra_bodies = _contact_extra_bodies
             self.gripper_closure_cfg = gripper_closure_cfg
             self.instruction = task_class.instruction
             self.terminations = task_class.terminations()
+            # A2: score success only once the targets are at rest (robolab/core/task/confirm.py).
+            # P38: end the episode as a failure once a required target has left the
+            # table (robolab/core/task/off_table.py); a non-required one is a flag only.
+            if getattr(self.terminations, "success", None) is not None and robolab.constants.OFF_TABLE_DROP_M > 0:
+                from isaaclab.managers import TerminationTermCfg as _DoneTerm
+                from robolab.core.task.off_table import required_groups, targets_lost
+                _groups = required_groups(dict(getattr(self.terminations.success, "params", {}) or {}))
+                if _groups:
+                    self.terminations.target_lost = _DoneTerm(func=targets_lost, params={"groups": _groups})
+            if getattr(self.terminations, "success", None) is not None and robolab.constants.SUCCESS_REST_S > 0:
+                from robolab.core.task.confirm import confirmed_success_term
+                self.terminations.success = confirmed_success_term(
+                    self.terminations.success,
+                    rest_s=robolab.constants.SUCCESS_REST_S,
+                    max_speed=robolab.constants.SUCCESS_MAX_SPEED,
+                )
             self.contact_object_list = task_class.contact_object_list
 
             # Set optional rewards if provided by the task
@@ -223,6 +253,12 @@ def generate_task_env_cfg(task_class: Task,
             # Set optional events if provided by the task
             if getattr(task_class, 'events', None) is not None:
                 self.events = task_class.events()
+
+            # P79: friction as a run parameter. Under the default ("upstream") this only
+            # stamps `self.friction` for provenance; otherwise it adds one start-up event
+            # term per rigid object (+ the pads) that sets the PhysX shape materials.
+            from robolab.core.physics.friction import install as _install_friction
+            _install_friction(self, self.scene.scene.spawn.usd_path, _friction_bodies)
 
             # Must specify this after the scene is set.
             create_contact_sensors(self)
@@ -284,7 +320,9 @@ def auto_generate_task_env(task_file_path: str,
     # Generate the complete task environment configuration
     task_env_cfg = generate_task_env_cfg(
         task_class, scene_env_cfg, observations_cfg, actions_cfg,
-        ee_recorder_bodies=ee_recorder_bodies, **env_kwargs
+        ee_recorder_bodies=ee_recorder_bodies,
+        friction_bodies=getattr(robot_cfg, "friction_bodies", None),
+        contact_extra_bodies=getattr(robot_cfg, "contact_extra_bodies", None), **env_kwargs
     )
 
     return task_env_cfg

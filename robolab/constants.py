@@ -76,7 +76,136 @@ DEBUG = False
 VERBOSE = False
 VISUALIZE = False
 ENABLE_SUBTASK_PROGRESS_CHECKING = True
+# Confirmed success (findings.md A2): an episode is scored a success when the
+# success predicate holds AND every target object has been at rest (slower than
+# SUCCESS_MAX_SPEED m/s) for SUCCESS_REST_S seconds in a row. An object already at
+# rest when the goal is reached ends the episode immediately; a moving one makes
+# the episode wait until it settles. 0 restores upstream's first-frame termination.
+SUCCESS_REST_S = 0.2
+# A *placement* is credited in the subtask ladder only once the object has been at
+# rest (< SUCCESS_MAX_SPEED) for PLACEMENT_REST_S — the same question P30 asks of
+# success, so a bounce through a container no longer scores (findings.md A2/H-B25;
+# BananaInBowl v_ env3). 0 restores upstream's credit-on-first-frame.
+PLACEMENT_REST_S = 0.2
+SUCCESS_MAX_SPEED = 0.02
+# A grasp is a carry, not a touch (findings.md B1; robolab/core/task/grasp.py):
+# the object must stay in contact for GRASP_HOLD_S with its offset to the hand
+# changing < GRASP_COUPLING_M while the hand moves >= GRASP_HAND_MOVE_M. A contact
+# that ends earlier with the hand >= GRASP_ATTEMPT_CLOSURE closed is one
+# GRASP_ATTEMPT_FAILED; after a grasp, losing contact is OBJECT_RELEASED when the
+# hand is below GRASP_RELEASE_CLOSURE (opening) and OBJECT_DROPPED otherwise.
+GRASP_HOLD_S = 0.2
+GRASP_COUPLING_M = 0.005
+GRASP_HAND_MOVE_M = 0.01
+GRASP_ATTEMPT_CLOSURE = 0.3
+GRASP_RELEASE_CLOSURE = 0.1
+# TOWED_WITHOUT_GRASP: a carry with the hand below GRASP_TOW_CLOSURE closed. Corpus
+# calibration (The reviewer, 2026-08-25): real grips of wide objects (oranges, cans) sit at
+# 0.2-0.35 of the closure range, confirmed tows at 0.00; 0.1 separates them.
+# Consecutive failed grasp attempts on the same object within GRASP_ATTEMPT_BURST_S
+# are one line with a count (a fumble at a banana produced 9 lines in 5 s).
+GRASP_ATTEMPT_BURST_S = 2.0
+GRASP_TOW_CLOSURE = 0.1
+# ...AND the object sits off-centre along the jaw axis by >= GRASP_TOW_OFFSET_M in the
+# hand frame (GRASP_JAW_BODY's +y): a centred object between fully open jaws (a can as
+# wide as the aperture) is a grip; one hanging 4-11 cm off-centre on one finger is a tow.
+GRASP_TOW_OFFSET_M = 0.03
+# ...and the object must actually be off its support: a tow lifts the object clear,
+# a drag slides it along the table (The reviewer 2026-08-26: "this was more of a drag on the
+# table… tighten it to when the dragged item is basically in the air").
+GRASP_TOW_LIFT_M = 0.02
+GRASP_JAW_BODY = "base_link"
+# Scene settling (findings.md B12): object motion during the first
+# SETTLE_WARMUP_S of an episode, for objects the hand is not touching, is the
+# scene settling — reported once per env as SCENE_SETTLING, not as OBJECT_BUMPED
+# / OBJECT_MOVED on the robot's account.
+SETTLE_WARMUP_S = 1.0
+
+# P64 (H-R9-9 / H-R9-T1 / H-R9-T3): a ladder rung that is ALREADY TRUE at reset
+# is not something the policy achieved, so it earns no credit. The state machine
+# probes every rung once on the first step of an episode and marks the true ones
+# "excluded": they stay in the ladder (the ladder walks past them) but they carry
+# no score, and the remaining rungs are renormalised so the group can still reach
+# 1.0. Evidence: BananasOutOfBin logs "Completed subtask 'bananas_out_of_bin' 1/1"
+# at 0.07 s in both envs because its LAST rung is object_dropped (= not in contact),
+# which is true before the arm moves; BlackItemsInBin credits
+# object_in_container(keyboard, grey_bin) at 0.07 s because the keyboard spawns in
+# the bin. Set False to restore upstream behaviour.
+SUBTASK_EXCLUDE_SPAWN_TRUE_RUNGS = True
+
+# P66 (H-R9-13 / H-R9-3): the GRIPPER_FULLY_CLOSED event means what its name says.
+# `gripper_fully_closed` defaults to closed_threshold=0.75 -- "at least 75 % closed"
+# -- and `gripper_slightly_closed` reuses it at 0.30, so the predicate's default
+# cannot be raised without moving that one too. The EVENT gets its own threshold.
+# Measured on isaac60_robolab120_pi05 (80 episodes with joint traces): the driving
+# finger_joint reaches 100 % of the nominal pi/4 span in 68 of 80 episodes, so this
+# is a narrow fix, not a broad one -- but it is exactly the reported case.
+# BlackItemsInBin env0 peaks at 0.830 of the span (the smartphone is wedged between
+# the fingers and blocks further closure) and never reaches 98 %, yet it emitted 69
+# GRIPPER_FULLY_CLOSED lines -- 93 % of that episode's entire log. At 0.98 it emits
+# none. Corpus closure transitions 501 -> 411; only 2 of the 70 episodes that fire
+# at all have a peak below 98 %.
+GRIPPER_CLOSED_EVENT_THRESHOLD = 0.98
+
+# P57: a WRONG_OBJECT_DETACHED line is folded into the release/drop for the same
+# object when one lands within this window. In the rc2 corpus every one of the 43
+# detach lines was followed by a release/drop for the same object inside 0.5 s
+# (median 0.07 s), so the two lines always described one physical event.
+DETACH_FOLD_S = 0.5
+
+# P75: PLACED_WITHOUT_LIFT (P41) is retired. In three runs it fired four times, all
+# four on BlackItemsInBin's keyboard -- "placed without ever being carried" because
+# the keyboard *starts* in the bin, which is the P74 bug rather than a dragged
+# placement. No true positive has ever been observed. Set True to re-enable.
+EMIT_PLACED_WITHOUT_LIFT = False
+# An object OFF_TABLE_DROP_M below its starting height has left the table:
+# OBJECT_FELL_OFF_TABLE flag; TARGET_LOST terminal failure when the success
+# condition can no longer be met (robolab/core/task/off_table.py).
+OFF_TABLE_DROP_M = 0.15
+# P79: object + finger-pad friction as a run parameter. "upstream" leaves the authored
+# USD materials untouched (the benchmark default); a number sets one coefficient on every
+# object and on the robot's `friction_bodies`; "realistic" or a .json path selects a
+# per-class table. Set from `--friction` by robolab.eval.runner.run_evaluation; read by
+# robolab.core.physics.friction.install at env-cfg build time. See docs/physics.md.
+FRICTION = "upstream"
 RECORD_IMAGE_DATA = False
+# R2 (docs/verified/dense_annotations.md §5): contact sensors on the robot's
+# `contact_extra_bodies`. Env ROBOLAB_EXTRA_CONTACT_BODIES=0 disables them (H10 cost check).
+RECORD_EXTRA_CONTACT_BODIES = os.environ.get("ROBOLAB_EXTRA_CONTACT_BODIES", "1") != "0"
+# Dense annotation on the run path (docs/verified/dense_annotations.md, open decision 3): after each
+# episode's log is written, robolab.eval.phases.write_phases writes phases_<run>_env<env>.json next
+# to it and the L2 summary lands in episode_results.jsonl under "phases". ROBOLAB_ANNOTATE_PHASES=0 disables.
+ANNOTATE_PHASES = os.environ.get("ROBOLAB_ANNOTATE_PHASES", "1") != "0"
+
+# Towing artifact flag on the run path (docs/verified/towing.md, P124): after each episode,
+# robolab.eval.tows.write_tows recomputes the object's depth inside each finger pad's collision
+# box from the recorded state and writes tows_<run>_env<env>.json; a tier-A tow marks the episode
+# physics_artifact. ROBOLAB_FLAG_TOWS=0 disables. Needs usd-core for the object meshes.
+FLAG_TOWS = os.environ.get("ROBOLAB_FLAG_TOWS", "1") != "0"
+# A hook is one pad at least TOW_HOOK_DEPTH_MM inside the object for TOW_HOOK_MIN_S. Calibrated on
+# the reviewer's 51 tow episodes: hooked objects sit 3-9 mm inside the pad (through the 6 mm slab),
+# genuine carries <= 0.7 mm on both pads; the shallowest confirmed tow (a box corner) read 2.2 mm
+# and the shortest confirmed one lasted 0.8 s.
+TOW_HOOK_DEPTH_MM = 2.0
+TOW_HOOK_MIN_S = 0.6
+# Class by the object's motion during the hook: tow (rises), drag (moves along its support), press.
+TOW_RISE_M = 0.02
+TOW_DRAG_PATH_M = 0.02
+# A deep one-sided contact with the finger mid-range AND the far pad touching is a genuine pinch
+# rendered with interpenetration (marker, orange), not a hook.
+TOW_SQUEEZE_FAR_MM = 1.0
+# Tier A (the flag): finger at a hard limit for >= 50 % of the segment, median depth, duration, rise.
+TOW_TIER_A_DEPTH_MM = 3.0
+TOW_TIER_A_MIN_S = 2.0
+TOW_TIER_A_RISE_M = 0.03
+TOW_TIER_B_DEPTH_MM = 2.5
+TOW_TIER_B_MIN_S = 1.0
+# Evaluation cadence and object sampling: every TOW_EVAL_STEP control steps while the object is within
+# reach of a pad, TOW_OBJECT_POINTS surface samples plus the mesh vertices; objects larger than
+# TOW_MAX_OBJECT_RADIUS_M (racks, shelves) are skipped.
+TOW_EVAL_STEP = 3
+TOW_OBJECT_POINTS = 2500
+TOW_MAX_OBJECT_RADIUS_M = 0.35
 DEVICE = "cuda:0"
 
 # Difficulty scoring constants (authoritative source for compute_difficulty_score in subtask_utils.py)

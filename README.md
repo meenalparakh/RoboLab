@@ -37,15 +37,18 @@ Requires [uv](https://docs.astral.sh/uv/getting-started/installation/) and a sys
 ### Installation
 
 ```bash
-sudo apt install ffmpeg
-git clone <repo_url>
+sudo apt install ffmpeg git-lfs
+git lfs install
+git clone https://github.com/NVlabs/RoboLab.git robolab
 cd robolab
 uv venv --python 3.11
 source .venv/bin/activate
-uv sync --extra isaac50          # Isaac Sim 5.0 / Isaac Lab 2.2.0 (default)
-# uv sync --extra isaac51        # Isaac Sim 5.1 / Isaac Lab 2.3.2.post1 (Python 3.11)
-# uv sync --python 3.12 --extra isaac60  # Isaac Sim 6.0.1 / Isaac Lab 3.0 beta
+uv sync --extra isaac50 --extra test  # Isaac Sim 5.0 / Isaac Lab 2.2.0 (default)
+# uv sync --extra isaac51 --extra test  # Isaac Sim 5.1 / Isaac Lab 2.3.2.post1 (Python 3.11)
+# uv sync --python 3.12 --extra isaac60 --extra test  # Isaac Sim 6.0.1 / Isaac Lab 3.0 beta
 ```
+
+On a minimal Linux GPU image, install the GL/Vulkan runtime before launching Isaac Sim: `sudo apt install libegl1 libgl1 libglvnd0 libopengl0 libglx0 libgles2 libglu1-mesa libxt6 libvulkan1 vulkan-tools`.
 
 The stacks cannot coexist in one environment. To keep multiple versions available, install each into its own venv:
 
@@ -57,12 +60,12 @@ UV_PROJECT_ENVIRONMENT=.venv-60 uv sync --python 3.12 --extra isaac60
 
 Verify installation:
 ```bash
-uv run pytest tests/
+uv run --no-sync pytest tests/
 ```
 
 This runs the install-verification suite end-to-end: isaaclab importable, all task definitions valid, env factory populated, one full episode runs. The suite auto-accepts the NVIDIA Omniverse EULA so the run is fully headless with no prompts. More details at [Debugging → Diagnostic Scripts](docs/debug.md#diagnostic-scripts).
 
-> **Running without activating the venv**: if you don't `source .venv/bin/activate`, prefix every `python` command with `uv run` (e.g. `uv run pytest tests/`).
+> **Running without activating the venv**: if you don't `source .venv/bin/activate`, prefix every `python` command with `uv run --no-sync` (e.g. `uv run --no-sync pytest tests/`).
 
 > **EULA outside the test suite**: when running other entry points (e.g. `policies/pi0_family/run.py`) for the first time, set `export OMNI_KIT_ACCEPT_EULA=Y` once. Cached after first acceptance.
 

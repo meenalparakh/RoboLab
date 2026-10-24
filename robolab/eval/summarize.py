@@ -10,11 +10,14 @@ consumes exactly what ``run_episode`` emits and writes results to the same
 ``scene_output_dir`` layout that ``run_eval.py`` and its variants share.
 """
 
+import logging
 import os
 import re
 from collections import Counter
 
 import h5py
+
+import robolab.constants
 
 from robolab.core.logging.results import (
     dump_results_to_file,
@@ -27,6 +30,9 @@ from robolab.core.metrics import compute_episode_metrics, load_demo_data
 from robolab.core.task.instruction import primary_instruction
 from robolab.core.task.status import EVENT_STATUS_CODES, StatusCode, get_status_name
 from robolab.core.utils.file_utils import load_file
+
+
+logger = logging.getLogger(__name__)
 
 
 def _read_final_score_from_hdf5(hdf5_path: str, env_id: int) -> float | None:
@@ -54,6 +60,11 @@ def _tally_events(events: list[dict]) -> dict:
     """Tally a v2 events list (each entry has ``code``, ``info``, ...) and
     return ``{event_name: count, ..., wrong_objects_grabbed: [...]}``.
 
+    Every line of the episode log is counted under its name, ladder lines included
+    (``OBJECT_GRABBED_SUCCESS``, ``SUBTASK_COMPLETED``, ...). Upstream counted only the
+    codes in ``EVENT_STATUS_CODES``, so an episode's ``events`` field could show two
+    releases and no grasp while its log held the carry and the credit.
+
     Pure function: works on in-memory event dicts, used by both ``summarize_run``
     (post-episode) and ``extract_events_from_log`` (file-based, v1 or v2).
     """
@@ -62,7 +73,7 @@ def _tally_events(events: list[dict]) -> dict:
 
     for change in events:
         status_code = change.get("code", change.get("status", 0))
-        if status_code not in EVENT_STATUS_CODES:
+        if not status_code:          # OK / unknown: not an event
             continue
 
         event_name = change.get("name") or get_status_name(status_code)
@@ -93,8 +104,8 @@ def _nonconflicting_episode_metadata(env_result: dict, reserved: set[str]) -> di
 
 
 def extract_events_from_log(log_file: str) -> dict:
-    """Read a per-env JSON log (v1 or v2) and tally occurrences of each status
-    code in :data:`EVENT_STATUS_CODES`. For ``WRONG_OBJECT_GRABBED_FAILURE``,
+    """Read a per-env JSON log (v1 or v2) and tally occurrences of each event
+    name. For ``WRONG_OBJECT_GRABBED_FAILURE``,
     also collects the name of each wrong object.
 
     v1 logs are dense per-step lists; v2 logs are sparse event arrays under a
@@ -168,6 +179,13 @@ def build_run_summary(
         "success": env_result["success"],
         "episode_step": env_result["step"],
         "duration": env_result["step"] * dt if env_result["step"] else 0,
+        "early_resets": env_result.get("early_resets", 0),
+        "pre_satisfied": env_result.get("pre_satisfied", False),
+        "collateral_placed": env_result.get("collateral_placed", 0),
+        "towed_objects": list(env_result.get("towed_objects") or []),
+        "physics_artifact": bool(env_result.get("towed_objects")),
+        "success_first_hold_s": (env_result["success_first_hold_step"] * dt) if env_result.get("success_first_hold_step") is not None else None,
+        "success_confirmed_s": (env_result["success_confirmed_step"] * dt) if env_result.get("success_confirmed_step") is not None else None,
         "dt": dt,
         "metrics": traj_metrics or {},
         "events": events or {},
@@ -196,6 +214,11 @@ def build_run_summary(
         # per-event score in the v2 events log).
         if final_score is not None:
             summary["score"] = final_score
+        # H-B3: `score` is the ladder judged on the final frame; the live (monotone)
+        # number is kept as `score_peak` — subgoals reached vs subgoals kept.
+        summary["score_peak"] = summary.get("score")
+        if env_result.get("score_final") is not None:
+            summary["score"] = float(env_result["score_final"])
         elif events_list:
             summary["score"] = events_list[-1].get("score")
         else:
@@ -299,6 +322,29 @@ def summarize_run(
         dump_results_to_file(log_file, log_obj, append=False)
         per_env_events[eid] = _tally_events(events)
 
+    # Dense annotation by default (P107): phases_<run>_env<env>.json next to each log, from the
+    # recording just written; the L2 summary goes into the episode row. Never fails the run.
+    phase_summaries: dict[int, dict] = {}
+    if robolab.constants.ANNOTATE_PHASES:
+        from robolab.eval.phases import write_phases  # noqa: PLC0415
+        for eid in range(num_envs):
+            try:
+                events = per_env_events_list[eid] if eid < len(per_env_events_list) else []
+                phase_summaries[eid] = write_phases(scene_output_dir, eid, run_idx, log_events=events).doc["summary"]
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("phases not written for env %d run %d: %s: %s", eid, run_idx, type(exc).__name__, exc)
+
+    # Towing artifact flag (P124): tows_<run>_env<env>.json next to each log; a tier-A tow marks the
+    # episode physics_artifact (the runtime TOWED_WITHOUT_GRASP rule misses most of them). Never fails the run.
+    tow_summaries: dict[int, dict] = {}
+    if robolab.constants.FLAG_TOWS:
+        from robolab.eval.tows import write_tows  # noqa: PLC0415
+        for eid in range(num_envs):
+            try:
+                tow_summaries[eid] = write_tows(scene_output_dir, eid, run_idx)["summary"]
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("tows not written for env %d run %d: %s: %s", eid, run_idx, type(exc).__name__, exc)
+
     for r in env_results:
         env_id = r["env_id"]
         traj_data = load_demo_data(hdf5_path, f"demo_{env_id}")
@@ -330,6 +376,15 @@ def summarize_run(
             extra_fields=extra_fields,
             final_score=final_score,
         )
+
+        if env_id in phase_summaries and isinstance(run_summary, dict):
+            run_summary["phases"] = phase_summaries[env_id]
+        if env_id in tow_summaries and isinstance(run_summary, dict):
+            tows = tow_summaries[env_id]
+            run_summary["tows"] = tows
+            if tows.get("tow_tier") == "A":
+                run_summary["physics_artifact"] = True
+                run_summary["towed_objects"] = sorted(set(run_summary.get("towed_objects") or []) | set(tows.get("towed_objects") or []))
 
         episode_results = update_experiment_results(
             run_summary=run_summary,

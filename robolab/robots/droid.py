@@ -84,7 +84,10 @@ class DroidCfg:
             # internal prototype roots remain instanceable.  This derivative keeps
             # the articulation/collision structure intact and de-instances only the
             # eight Robotiq visual prototype roots.
-            usd_path=DROID_USD_PATH,
+            # ROBOLAB_ROBOT_USD swaps the rig asset (docs/verified/towing.md: the solid-pad variant
+            # franka_robotiq_2f_85_solidpad.usd is the tested fix for the towing artifact on the 5.x
+            # rig, franka_robotiq_2f_85_isaac60_solidpad.usd the same fix for this rig; default unchanged).
+            usd_path=os.environ.get("ROBOLAB_ROBOT_USD") or DROID_USD_PATH,
             activate_contact_sensors=True,
             rigid_props=sim_utils.RigidBodyPropertiesCfg(
                 disable_gravity=True,
@@ -181,7 +184,29 @@ DroidCfg.table_fixture = FRANKA_TABLE_FIXTURE
 # EE-pose recorder channels (HDF5 channel name -> EE body name), consumed by
 # create_recorder_config. "base_link" is the Robotiq 2F-85 gripper base
 # (Gripper/Robotiq_2F_85/base_link).
-DroidCfg.ee_recorder_bodies = {"ee_pose": "base_link"}
+# R1 (dense_annotations.md §5): the inner finger pads are what GraspTracker.hand_position
+# reads live; recording them makes the offline replay exact and gives the TCP as the
+# pad midpoint instead of a measured 15 cm offset from base_link.
+DroidCfg.ee_recorder_bodies = {
+    "ee_pose": "base_link",
+    "finger_left": "left_inner_finger",
+    "finger_right": "right_inner_finger",
+}
+# R2: robot bodies beyond the pads that get a per-object batch contact sensor and a
+# `contact_body/<label>__<object>` channel (robolab/core/events/dense_recorders.py).
+# Switch off with ROBOLAB_EXTRA_CONTACT_BODIES=0 (robolab.constants) to measure the cost.
+DroidCfg.contact_extra_bodies = {
+    "knuckle_outer_left": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/left_outer_knuckle",
+    "knuckle_outer_right": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/right_outer_knuckle",
+    "knuckle_inner_left": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/left_inner_knuckle",
+    "knuckle_inner_right": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/right_inner_knuckle",
+    "finger_outer_left": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/left_outer_finger",
+    "finger_outer_right": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/right_outer_finger",
+    "gripper_base": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/base_link",
+}
+# P79: the finger-pad bodies a `--friction` override is applied to (the two prims that
+# carry the Robotiq PhysicsMaterial in the USD). See docs/physics.md#friction.
+DroidCfg.friction_bodies = ["left_inner_finger", "right_inner_finger"]
 
 
 @configclass
@@ -196,9 +221,27 @@ class WristCameraCfg:
 ########################################################
 
 # IsaacLab ContactSensor requires exactly one prim per env for filter_prim_paths_expr
-# (force_matrix_w) to work. .*_inner_finger matches 2 bodies (left + right) per env,
-# breaking filtered contact detection. Use one finger only.
-contact_gripper = {"gripper": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/left_inner_finger"}
+# (force_matrix_w) to work, so a regex matching both fingers breaks filtered contact
+# detection. Upstream therefore watched the LEFT pad only — an object touched by the
+# right pad registered no contact at all (findings.md H-B22; on the pod
+# 2026-08-26 BowlStacking env0/env2 closed on the bowl and were logged "Gripper
+# closed on nothing"). Declare one concrete sensor per pad and an alias group, which
+# the contact layer already supports ("gripper" = either pad).
+contact_gripper = {
+    "gripper": ["gripper_left", "gripper_right"],
+    "gripper_left": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/left_inner_finger",
+    "gripper_right": "{ENV_REGEX_NS}/robot/Gripper/Robotiq_2F_85/right_inner_finger",
+}
+
+# Both pads share Robotiq's single actuated joint; declare it for each label so
+# gripper_fully_closed()/gripper_slightly_closed() work for either pad and for the
+# "gripper" group (H-B13: without a declaration the fallback only matched one label).
+import math as _math
+
+gripper_closure_cfg = {
+    "gripper_left": ("finger_joint", 0.0, _math.pi / 4),
+    "gripper_right": ("finger_joint", 0.0, _math.pi / 4),
+}
 
 ########################################################
 # Definitions

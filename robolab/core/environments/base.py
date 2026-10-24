@@ -21,12 +21,18 @@ from robolab.core.events.basic_recorders import (
     InitialStateRecorderCfg,
     PostStepBBoxRecorderCfg,
     PostStepEndEffectorPoseRecorderCfg,
+    PostStepContactRecorderCfg,
     PostStepRobotRootPoseRecorderCfg,
     PostStepStatesRecorderCfg,
     PreStepActionsRecorderCfg,
     PreStepFlatPolicyObservationsRecorderCfg,
 )
 from robolab.core.events.subtask_recorder import SubtaskCompletionRecorderCfg
+from robolab.core.events.dense_recorders import (
+    PostStepConditionsRecorderCfg,
+    PostStepExtraContactRecorderCfg,
+    PostStepTrackerStateRecorderCfg,
+)
 
 
 @configclass
@@ -57,6 +63,9 @@ class BaseRecorderManagerCfg(RecorderManagerBaseCfg):
     # the robot cfg's mandatory ee_recorder_bodies label (one term per channel).
     record_robot_root_pose: PostStepRobotRootPoseRecorderCfg = PostStepRobotRootPoseRecorderCfg()
     record_bbox: PostStepBBoxRecorderCfg = PostStepBBoxRecorderCfg()
+    # P62: per-pad gripper contact, the one signal the event logic uses that was
+    # not being written to disk (~1 % of the file).
+    record_contact: PostStepContactRecorderCfg = PostStepContactRecorderCfg()
     record_policy_observations: PreStepFlatPolicyObservationsRecorderCfg | None = None
     record_subtask_completion: SubtaskCompletionRecorderCfg | None = None
     dataset_export_mode: DatasetExportMode = DatasetExportMode.EXPORT_ALL
@@ -141,6 +150,13 @@ def create_recorder_config(
     # Conditionally add subtask tracking
     if include_subtask_tracking:
         config.record_subtask_completion = SubtaskCompletionRecorderCfg()
+
+    # Dense-annotation channels (docs/verified/dense_annotations.md §5, R2/R4). Attached
+    # after the subtask term so the tracker state they read is this step's. Each term
+    # records nothing when its source (tracker, ladder, extra sensors) is absent.
+    config.record_tracker_state = PostStepTrackerStateRecorderCfg()
+    config.record_conditions = PostStepConditionsRecorderCfg()
+    config.record_extra_contact = PostStepExtraContactRecorderCfg()
 
     return config
 
