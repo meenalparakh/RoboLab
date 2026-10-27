@@ -43,7 +43,7 @@ Key fields:
 | `height` / `width` | Image resolution in pixels |
 | `data_types` | List of data types to capture (e.g., `["rgb"]`, `["rgb", "depth"]`) |
 | `spawn` | Camera model — `PinholeCameraCfg` with focal length, aperture, etc. |
-| `offset` | Camera pose: `pos` (x, y, z), `rot` (quaternion w, x, y, z), and `convention` (`"opengl"` or `"ros"`) |
+| `offset` | Camera pose: `pos` (x, y, z), explicit `rot` ([WXYZ](frames.md#authoring-config-rotations)), and `convention` (`"opengl"` or `"ros"`, which selects camera axes, not quaternion component order) |
 
 ### Built-in Scene Cameras
 

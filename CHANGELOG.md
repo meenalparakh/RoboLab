@@ -1,5 +1,21 @@
 # Changelog
 
+## Since last tag
+
+### Added
+
+- Opt-in Isaac Lab 3.0 beta 2 patch 1 / Isaac Sim 6.0.1 support with
+  Python 3.12, a resolved dependency lock, setup documentation, and task
+  preflight commands. Isaac Sim 5.0 remains the default.
+  ([#47](https://github.com/NVlabs/RoboLab/pull/47))
+
+### Fixed
+
+- DROID/Robotiq rendering and plate/fork USD hierarchies on Isaac Sim 6.
+- Quaternion conversion at simulator boundaries, including explicit WXYZ
+  configuration defaults and consistent orientations in multi-camera resets.
+- Evaluation display-mode detection across Isaac Lab 2 and 3.
+
 ## [0.3.2] - 2026-10-18
 
 ### Added

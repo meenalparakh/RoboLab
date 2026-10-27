@@ -35,6 +35,7 @@ class FrankaCfg:
             # collision_props=sim_utils.CollisionPropertiesCfg(contact_offset=0.005, rest_offset=0.0),
         ),
     init_state=ArticulationCfg.InitialStateCfg(
+        rot=(1.0, 0.0, 0.0, 0.0),
         joint_pos={
             "panda_joint1": 0.0,
             "panda_joint2": -0.569,
@@ -75,6 +76,7 @@ class FrankaCfg:
     )
 
     frames = FrameTransformerCfg(
+        source_frame_offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
         prim_path="{ENV_REGEX_NS}/robot/panda_link0",
         debug_vis=False,
         visualizer_cfg=frame_marker_cfg,
@@ -83,6 +85,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_hand",
                 name="end_effector",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=[0.0, 0.0, 0.0],
                 ),
             ),
@@ -106,6 +109,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_rightfinger",
                 name="rightfinger",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=(0.0, 0.0, 0.046),
                 ),
             ),
@@ -113,6 +117,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_leftfinger",
                 name="leftfinger",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=(0.0, 0.0, 0.046),
                 ),
             ),
@@ -120,6 +125,7 @@ class FrankaCfg:
     )
 
     ee_frame = FrameTransformerCfg(
+        source_frame_offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
         prim_path="{ENV_REGEX_NS}/robot/panda_link0",
         debug_vis=False,
         visualizer_cfg=frame_marker_cfg,
@@ -128,6 +134,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_hand",
                 name="end_effector",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=[0.0, 0.0, 0.0],
                 ),
             ),

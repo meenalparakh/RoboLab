@@ -9,6 +9,8 @@ from isaaclab.sensors import Camera
 from isaaclab.utils import configclass
 
 import robolab.constants
+from robolab.core.sensors.camera_utils import is_camera
+from robolab.core.utils.isaaclab_compat import as_torch, quat_wxyz_to_isaaclab
 
 
 ########################################################
@@ -70,7 +72,7 @@ def _get_all_camera_names(env: ManagerBasedEnv) -> set[str]:
     """Get all camera names in the scene."""
     camera_names = set()
     for name, sensor in env.scene.sensors.items():
-        if isinstance(sensor, Camera):
+        if is_camera(sensor):
             camera_names.add(name)
     return camera_names
 
@@ -100,15 +102,16 @@ def sample_camera_pose_uniform(
     Returns:
         Tuple of (positions, orientations) tensors.
             - positions: Shape (num_envs, 3)
-            - orientations: Shape (num_envs, 4) in quaternion format (w, x, y, z)
+            - orientations: Shape (num_envs, 4) in the installed Isaac Lab's
+              internal convention; this value is passed directly to the camera setter.
     """
     num_envs = len(env_ids)
     device = camera.device
 
     # Get current camera poses as the base
     # Camera data provides pos_w and quat_w_ros (or quat_w depending on convention)
-    current_positions = camera.data.pos_w[env_ids].clone()
-    current_orientations = camera.data.quat_w_ros[env_ids].clone()
+    current_positions = as_torch(camera.data.pos_w)[env_ids].clone()
+    current_orientations = as_torch(camera.data.quat_w_ros)[env_ids].clone()
 
     # Create pose ranges tensor
     range_list = [pose_range.get(key, (0.0, 0.0)) for key in ["x", "y", "z", "roll", "pitch", "yaw"]]
@@ -166,7 +169,7 @@ def reset_camera_pose_uniform(
             continue
 
         camera = env.scene.sensors[camera_name]
-        if not isinstance(camera, Camera):
+        if not is_camera(camera):
             if robolab.constants.VERBOSE:
                 print(f"Warning: Sensor '{camera_name}' is not a Camera. Skipping.")
             continue
@@ -210,7 +213,7 @@ def reset_camera_pose_to_default(
             continue
 
         camera = env.scene.sensors[camera_name]
-        if not isinstance(camera, Camera):
+        if not is_camera(camera):
             if robolab.constants.VERBOSE:
                 print(f"Warning: Sensor '{camera_name}' is not a Camera. Skipping.")
             continue
@@ -241,6 +244,11 @@ def reset_camera_pose_absolute(
         orientation: The target orientation as quaternion (w, x, y, z). If None, orientation is unchanged.
     """
     names = _parse_camera_names(camera_names)
+    # Public input is WXYZ. Convert once so every camera gets the same runtime
+    # orientation; converting inside the loop would permute it again on Lab 3.
+    runtime_orientation = (
+        quat_wxyz_to_isaaclab(orientation) if orientation is not None else None
+    )
 
     for camera_name in names:
         if camera_name not in env.scene.sensors:
@@ -249,7 +257,7 @@ def reset_camera_pose_absolute(
             continue
 
         camera = env.scene.sensors[camera_name]
-        if not isinstance(camera, Camera):
+        if not is_camera(camera):
             if robolab.constants.VERBOSE:
                 print(f"Warning: Sensor '{camera_name}' is not a Camera. Skipping.")
             continue
@@ -258,8 +266,8 @@ def reset_camera_pose_absolute(
         device = camera.device
 
         # Get current poses
-        current_positions = camera.data.pos_w[env_ids].clone()
-        current_orientations = camera.data.quat_w_ros[env_ids].clone()
+        current_positions = as_torch(camera.data.pos_w)[env_ids].clone()
+        current_orientations = as_torch(camera.data.quat_w_ros)[env_ids].clone()
 
         # Override with specified values
         if position is not None:
@@ -267,8 +275,8 @@ def reset_camera_pose_absolute(
         else:
             positions = current_positions
 
-        if orientation is not None:
-            orientations = torch.tensor([orientation], device=device).expand(num_envs, -1)
+        if runtime_orientation is not None:
+            orientations = torch.tensor([runtime_orientation], device=device).expand(num_envs, -1)
         else:
             orientations = current_orientations
 

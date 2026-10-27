@@ -16,6 +16,7 @@ from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
 from isaaclab.utils.math import subtract_frame_transforms
 
 from robolab.core.environments.scene_fixture import FRANKA_TABLE_FIXTURE
+from robolab.core.utils.isaaclab_compat import as_torch, quat_isaaclab_to_wxyz
 from robolab.robots.franka_definitions import *  # noqa
 
 # Create a copy of the default frame marker config
@@ -41,7 +42,10 @@ class FrankaCfg:
             ),
             # collision_props=sim_utils.CollisionPropertiesCfg(contact_offset=0.005, rest_offset=0.0),
         ),
+    # Author the root in WXYZ; inheriting Lab 3's default would rotate the robot
+    # when prepare_env_cfg() converts it. See docs/frames.md.
     init_state=ArticulationCfg.InitialStateCfg(
+        rot=(1.0, 0.0, 0.0, 0.0),
         joint_pos={
             "panda_joint1": 0.0,
             "panda_joint2": -0.569,
@@ -82,6 +86,7 @@ class FrankaCfg:
     )
 
     frames = FrameTransformerCfg(
+        source_frame_offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
         prim_path="{ENV_REGEX_NS}/robot/panda_link0",
         debug_vis=False,
         visualizer_cfg=frame_marker_cfg,
@@ -90,11 +95,13 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_hand",
                 name="end_effector",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos = [0.0, 0.0, 0.0],
                     # pos=[0.0, 0.0, 0.1034],
                 ),
             ),
             FrameTransformerCfg.FrameCfg(
+                offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
                 prim_path="{ENV_REGEX_NS}/robot/panda_hand",
                 name="curobo_control_frame",
             ),
@@ -118,6 +125,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_rightfinger",
                 name="rightfinger",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=(0.0, 0.0, 0.046),
                 ),
             ),
@@ -125,6 +133,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_leftfinger",
                 name="leftfinger",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=(0.0, 0.0, 0.046),
                 ),
             ),
@@ -132,6 +141,7 @@ class FrankaCfg:
     )
 
     ee_frame = FrameTransformerCfg(
+        source_frame_offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
         prim_path="{ENV_REGEX_NS}/robot/panda_link0",
         debug_vis=False,
         visualizer_cfg=frame_marker_cfg,
@@ -140,6 +150,7 @@ class FrankaCfg:
                 prim_path="{ENV_REGEX_NS}/robot/panda_hand",
                 name="end_effector",
                 offset=OffsetCfg(
+                    rot=(1.0, 0.0, 0.0, 0.0),
                     pos=[0.0, 0.0, 0.1034],
                 ),
             ),
@@ -164,7 +175,9 @@ def ee_frame_pos(env: ManagerBasedRLEnv, frames_cfg: SceneEntityCfg = SceneEntit
     frames: FrameTransformer = env.scene[frames_cfg.name]
     robot: Articulation = env.scene["robot"]
     ee_frame_pos, _ = subtract_frame_transforms(
-        robot.data.root_pos_w, robot.data.root_quat_w, frames.data.target_pos_w[:, 0, :]
+        as_torch(robot.data.root_pos_w),
+        as_torch(robot.data.root_quat_w),
+        as_torch(frames.data.target_pos_w)[:, 0, :],
     )
     return ee_frame_pos
 
@@ -174,14 +187,17 @@ def ee_frame_quat(env: ManagerBasedRLEnv, frames_cfg: SceneEntityCfg = SceneEnti
     frames: FrameTransformer = env.scene[frames_cfg.name]
     robot: Articulation = env.scene["robot"]
     _, ee_frame_quat = subtract_frame_transforms(
-        robot.data.root_pos_w, robot.data.root_quat_w, q02=frames.data.target_quat_w[:, 0, :]
+        as_torch(robot.data.root_pos_w),
+        as_torch(robot.data.root_quat_w),
+        q02=as_torch(frames.data.target_quat_w)[:, 0, :],
     )
-    return ee_frame_quat
+    return quat_isaaclab_to_wxyz(ee_frame_quat)
 
 
 def gripper_pos(env: ManagerBasedRLEnv, robot_cfg: SceneEntityCfg = SceneEntityCfg("robot")) -> torch.Tensor:
     robot: Articulation = env.scene[robot_cfg.name]
-    finger_joint_1 = robot.data.joint_pos[:, -1].clone().unsqueeze(1)
-    finger_joint_2 = -1 * robot.data.joint_pos[:, -2].clone().unsqueeze(1)
+    joint_pos = as_torch(robot.data.joint_pos)
+    finger_joint_1 = joint_pos[:, -1].clone().unsqueeze(1)
+    finger_joint_2 = -1 * joint_pos[:, -2].clone().unsqueeze(1)
 
     return torch.cat((finger_joint_1, finger_joint_2), dim=1)

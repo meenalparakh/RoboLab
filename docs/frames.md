@@ -12,9 +12,26 @@ frame. This document is the contract that removes that assumption.
 
 **Conventions:** translations in meters; quaternions `(w, x, y, z)`; env-local
 = world with `env_origins` subtracted from positions only (orientations are
-unaffected by the replication offset). One exception to the quaternion
-ordering: recorded camera extrinsics use IsaacLab's `quat_w_ros`, which is ROS
-order `(x, y, z, w)` — see the table below.
+unaffected by the replication offset). Camera extrinsics use ROS camera axes,
+but follow the same recorded `(w, x, y, z)` component ordering.
+
+Isaac Lab 3 uses `(x, y, z, w)` internally. RoboLab converts at simulator,
+math, action, and recording boundaries so this public contract and recordings
+remain unchanged across Isaac Sim 5 and 6.
+
+### Authoring config rotations
+
+Explicitly author every config rotation in WXYZ, including identity
+`rot=(1.0, 0.0, 0.0, 0.0)`. Do this for asset initial states, IK body offsets,
+and both source and target frame-sensor offsets. When omitting a nested
+config would inherit a rotation (for example `source_frame_offset` or
+`init_state`), supply that config explicitly as well.
+
+Isaac Lab 3 defaults are already XYZW. Passing those defaults through
+`prepare_env_cfg()` would convert them again. Do not infer the convention
+from the values: `(0, 0, 0, 1)` is a valid WXYZ half-turn as well as XYZW
+identity. `prepare_env_cfg()` converts the completed WXYZ config once;
+recording serialization converts it back to WXYZ.
 
 ## Robot placement
 
@@ -41,7 +58,7 @@ channels are **env-local**; the recorded root pose is the bridge between them.
 | `robot_root_pose/*` | HDF5 per step | env-local | world/env axes |
 | `states/**` (incl. `articulation/robot/root_pose`) | HDF5 per step | env-local | world/env axes |
 | `initial_state/**` | HDF5 per episode | env-local | world/env axes |
-| camera extrinsics | HDF5 per episode | env-local | world/env axes, **ROS order (x, y, z, w)** |
+| camera extrinsics | HDF5 per episode | env-local | world/env axes, ROS camera convention, **(w, x, y, z)** storage |
 | `WorldState` / object poses / predicates | runtime | env-local | world/env axes |
 
 ## Action frames

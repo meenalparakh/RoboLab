@@ -68,10 +68,15 @@ def find_background_files(folder_path: str = BACKGROUND_ASSET_DIR, filename: str
     return sorted(background_files)
 
 
+# Dome-light initial states use explicit WXYZ identity to preserve HDRI
+# orientation through prepare_env_cfg(); the generated configs below do too.
+# See docs/frames.md.
+
 # Some hardcoded examples
 @configclass
 class EmptyWarehouseBackgroundCfg:
     dome_light = AssetBaseCfg(
+    init_state=AssetBaseCfg.InitialStateCfg(rot=(1.0, 0.0, 0.0, 0.0)),
     prim_path="/World/background",
     spawn=sim_utils.DomeLightCfg(
         texture_file=find_background_files(BACKGROUND_ASSET_DIR, "empty_warehouse.hdr"),
@@ -84,6 +89,7 @@ class EmptyWarehouseBackgroundCfg:
 @configclass
 class BilliardHallBackgroundCfg:
     dome_light = AssetBaseCfg(
+    init_state=AssetBaseCfg.InitialStateCfg(rot=(1.0, 0.0, 0.0, 0.0)),
     prim_path="/World/background",
     spawn=sim_utils.DomeLightCfg(
         texture_file=find_background_files(BACKGROUND_ASSET_DIR, "billiard_hall.hdr"),
@@ -96,6 +102,7 @@ class BilliardHallBackgroundCfg:
 @configclass
 class BrownPhotoStudioBackgroundCfg:
     dome_light = AssetBaseCfg(
+    init_state=AssetBaseCfg.InitialStateCfg(rot=(1.0, 0.0, 0.0, 0.0)),
     prim_path="/World/background",
     spawn=sim_utils.DomeLightCfg(
         texture_file=find_background_files(BACKGROUND_ASSET_DIR, "brown_photostudio.hdr"),
@@ -108,6 +115,7 @@ class BrownPhotoStudioBackgroundCfg:
 @configclass
 class HomeOfficeBackgroundCfg:
     dome_light = AssetBaseCfg(
+    init_state=AssetBaseCfg.InitialStateCfg(rot=(1.0, 0.0, 0.0, 0.0)),
     prim_path="/World/background",
     spawn=sim_utils.DomeLightCfg(
         texture_file=find_background_files(BACKGROUND_ASSET_DIR, "home_office.exr"),
@@ -182,6 +190,7 @@ def generate_background_config(background_path: str, class_name: str = None, int
     @configclass
     class GeneratedBackgroundConfig:
         dome_light = AssetBaseCfg(
+            init_state=AssetBaseCfg.InitialStateCfg(rot=(1.0, 0.0, 0.0, 0.0)),
             prim_path="/World/background",
             spawn=sim_utils.DomeLightCfg(
                 texture_file=background_path,

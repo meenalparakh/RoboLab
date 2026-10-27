@@ -8,8 +8,6 @@ import os
 import isaaclab.envs.mdp as mdp
 import isaaclab.sim as sim_utils
 import numpy as np
-import torch
-import warp as wp
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets import ArticulationCfg
 from isaaclab.envs import ManagerBasedRLEnv
@@ -17,10 +15,11 @@ from isaaclab.managers import ObservationGroupCfg as ObsGroup
 from isaaclab.managers import ObservationTermCfg as ObsTerm
 from isaaclab.managers import SceneEntityCfg
 from isaaclab.sensors import TiledCameraCfg
-from isaaclab.sensors.frame_transformer.frame_transformer_cfg import FrameTransformerCfg
+from isaaclab.sensors.frame_transformer.frame_transformer_cfg import FrameTransformerCfg, OffsetCfg
 from isaaclab.utils import configclass
 
 from robolab.constants import ROBOTS_DIR
+from robolab.core.utils.isaaclab_compat import as_torch, quat_isaaclab_to_wxyz
 from robolab.robots.droid import BinaryJointPositionZeroToOneActionCfg
 
 ARM_JOINT_NAMES = [f"joint_{index}" for index in range(1, 8)]
@@ -125,10 +124,12 @@ class KinovaGen3Cfg:
     wrist_cam = _WRIST_CAM
 
     frames = FrameTransformerCfg(
+        source_frame_offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
         prim_path="{ENV_REGEX_NS}/robot/base_link",
         debug_vis=False,
         target_frames=[
             FrameTransformerCfg.FrameCfg(
+                offset=OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0)),
                 prim_path=f"{{ENV_REGEX_NS}}/robot/{END_EFFECTOR_LINK_NAME}",
                 name="eef_frame",
             )
@@ -136,18 +137,12 @@ class KinovaGen3Cfg:
     )
 
 
-def _to_torch(value):
-    if isinstance(value, torch.Tensor):
-        return value
-    return wp.to_torch(value)
-
-
 def arm_joint_pos(
     env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")
 ):
     robot = env.scene[asset_cfg.name]
     indices = [robot.data.joint_names.index(name) for name in ARM_JOINT_NAMES]
-    return _to_torch(robot.data.joint_pos)[:, indices]
+    return as_torch(robot.data.joint_pos)[:, indices]
 
 
 def gripper_pos(
@@ -155,7 +150,7 @@ def gripper_pos(
 ):
     robot = env.scene[asset_cfg.name]
     index = robot.data.joint_names.index(GRIPPER_JOINT_NAME)
-    return _to_torch(robot.data.joint_pos)[:, index : index + 1] / 0.8
+    return as_torch(robot.data.joint_pos)[:, index : index + 1] / 0.8
 
 
 def eef_pos(
@@ -164,7 +159,7 @@ def eef_pos(
     frames = env.scene[asset_cfg.name]
     index = frames.data.target_frame_names.index("eef_frame")
     return (
-        _to_torch(frames.data.target_pos_w)[:, index, :] - env.scene.env_origins[:, :3]
+        as_torch(frames.data.target_pos_w)[:, index, :] - env.scene.env_origins[:, :3]
     )
 
 
@@ -173,7 +168,7 @@ def eef_quat(
 ):
     frames = env.scene[asset_cfg.name]
     index = frames.data.target_frame_names.index("eef_frame")
-    return _to_torch(frames.data.target_quat_w)[:, index, :]
+    return quat_isaaclab_to_wxyz(as_torch(frames.data.target_quat_w)[:, index, :])
 
 
 @configclass

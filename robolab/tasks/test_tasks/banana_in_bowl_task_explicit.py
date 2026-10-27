@@ -18,6 +18,7 @@ class BananaBowlTableOakScene:
     """Scene configuration for banana task."""
 
     scene = AssetBaseCfg(
+        init_state=AssetBaseCfg.InitialStateCfg(rot=(1.0, 0.0, 0.0, 0.0)),
         prim_path="{ENV_REGEX_NS}/scene",
         spawn=sim_utils.UsdFileCfg(
             usd_path=os.path.join(SCENE_DIR, "banana_bowl.usda"),

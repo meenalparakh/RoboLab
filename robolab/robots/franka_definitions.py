@@ -7,7 +7,6 @@ from isaaclab.controllers.differential_ik_cfg import DifferentialIKControllerCfg
 from isaaclab.envs import ManagerBasedRLEnv
 from isaaclab.envs.mdp.actions.actions_cfg import (
     BinaryJointPositionActionCfg,
-    DifferentialInverseKinematicsActionCfg,
     JointPositionActionCfg,
 )
 from isaaclab.managers import SceneEntityCfg
@@ -15,9 +14,17 @@ from isaaclab.sensors.frame_transformer.frame_transformer import FrameTransforme
 from isaaclab.utils import configclass
 from isaaclab.utils.math import subtract_frame_transforms
 
+from robolab.core.actions.isaaclab_compat import (
+    RobolabDifferentialInverseKinematicsActionCfg as DifferentialInverseKinematicsActionCfg,
+)
+from robolab.core.utils.isaaclab_compat import as_torch, quat_isaaclab_to_wxyz
+
 ########################################################
 # Actions
 ########################################################
+
+# Both IK configs author body offsets in WXYZ. Keep identity explicit: Lab 3
+# defaults are XYZW, while prepare_env_cfg() expects WXYZ (docs/frames.md).
 
 @configclass
 class FrankaIKActionCfg:
@@ -36,7 +43,7 @@ class FrankaIKActionCfg:
         body_name="panda_hand",
         controller=DifferentialIKControllerCfg(command_type="pose", use_relative_mode=False, ik_method="dls"),
         scale=0.5,
-        body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(pos=[0.0, 0.0, 0.0]),
+        body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0), pos=[0.0, 0.0, 0.0]),
         # body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(pos=[0.0, 0.0, -0.107]),
     )
 
@@ -64,7 +71,7 @@ class FrankaRelIKActionCfg:
         body_name="panda_hand",
         controller=DifferentialIKControllerCfg(command_type="pose", use_relative_mode=True, ik_method="dls"),
         scale=0.5,
-        body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(pos=[0.0, 0.0, 0.0]),
+        body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(rot=(1.0, 0.0, 0.0, 0.0), pos=[0.0, 0.0, 0.0]),
         # body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(pos=[0.0, 0.0, -0.107]),
     )
 
@@ -108,7 +115,9 @@ def ee_frame_pos(env: ManagerBasedRLEnv, ee_frame_cfg: SceneEntityCfg = SceneEnt
     ee_frame: FrameTransformer = env.scene[ee_frame_cfg.name]
     robot: Articulation = env.scene["robot"]
     ee_frame_pos, _ = subtract_frame_transforms(
-        robot.data.root_pos_w, robot.data.root_quat_w, ee_frame.data.target_pos_w[:, 0, :]
+        as_torch(robot.data.root_pos_w),
+        as_torch(robot.data.root_quat_w),
+        as_torch(ee_frame.data.target_pos_w)[:, 0, :],
     )
     return ee_frame_pos
 
@@ -118,14 +127,17 @@ def ee_frame_quat(env: ManagerBasedRLEnv, ee_frame_cfg: SceneEntityCfg = SceneEn
     ee_frame: FrameTransformer = env.scene[ee_frame_cfg.name]
     robot: Articulation = env.scene["robot"]
     _, ee_frame_quat = subtract_frame_transforms(
-        robot.data.root_pos_w, robot.data.root_quat_w, q02=ee_frame.data.target_quat_w[:, 0, :]
+        as_torch(robot.data.root_pos_w),
+        as_torch(robot.data.root_quat_w),
+        q02=as_torch(ee_frame.data.target_quat_w)[:, 0, :],
     )
-    return ee_frame_quat
+    return quat_isaaclab_to_wxyz(ee_frame_quat)
 
 
 def gripper_pos(env: ManagerBasedRLEnv, robot_cfg: SceneEntityCfg = SceneEntityCfg("robot")) -> torch.Tensor:
     robot: Articulation = env.scene[robot_cfg.name]
-    finger_joint_1 = robot.data.joint_pos[:, -1].clone().unsqueeze(1)
-    finger_joint_2 = -1 * robot.data.joint_pos[:, -2].clone().unsqueeze(1)
+    joint_pos = as_torch(robot.data.joint_pos)
+    finger_joint_1 = joint_pos[:, -1].clone().unsqueeze(1)
+    finger_joint_2 = -1 * joint_pos[:, -2].clone().unsqueeze(1)
 
     return torch.cat((finger_joint_1, finger_joint_2), dim=1)
